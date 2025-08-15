@@ -1,6 +1,6 @@
-# Welpenschule Neusiedl am See - Projekt Dokumentation
+# Welpenschule Schwechat - Projekt Dokumentation
 
-Dieses Projekt ist eine Webseite für die "Welpenschule Neusiedl am See", erstellt mit Next.js und Tailwind CSS.
+Dieses Projekt ist eine Webseite für die "Welpenschule Schwechat", erstellt mit Next.js und Tailwind CSS.
 
 ## Inhaltsverzeichnis
 1. [Projektübersicht](#projektübersicht)
@@ -73,7 +73,7 @@ Um das Projekt lokal zu starten, führe folgende Befehle aus:
 
 ### 6. Git Repository
 Das Projekt wird auf GitHub verwaltet und kann unter folgender URL gefunden werden:
-- **Repository:** [https://github.com/paddy-droid/welpenschule-Neusiedl](https://github.com/paddy-droid/welpenschule-Neusiedl)
+- **Repository:** [https://github.com/paddy-droid/welpenschule-schwechat](https://github.com/paddy-droid/welpenschule-schwechat)
 - **Haupt-Branch:** `main`
 
 **Workflow:**

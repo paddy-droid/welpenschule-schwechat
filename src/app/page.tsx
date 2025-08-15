@@ -20,17 +20,17 @@ export default function Home() {
       <section className="relative h-[80vh] flex items-center justify-center text-white">
         <Image
           src="/Welpenschule Neusiedl.webp"
-          alt="Glücklicher Welpe auf einer Wiese in Neusiedl am See"
+          alt="Glücklicher Welpe auf einer Wiese in Schwechat"
           fill
           className="object-cover absolute z-0 brightness-75"
           priority
         />
         <div className="relative z-20 text-center p-4 max-w-4xl">
           <h1 className="text-4xl md:text-6xl font-extrabold drop-shadow-lg">
-            Welpenschule Neusiedl am See mit <span className="text-yellow-400">Willenskraft</span>
+            Deine Welpenschule in Schwechat mit <span className="text-yellow-400">Willenskraft</span>
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            Dein ganzheitlicher und gewaltfreier Weg zum Dream-Team. Für Welpen bis 5 Monate im Bezirk Bruck an der Leitha, Wien & Nordburgenland.
+            Professionelles Training und liebevolle Sozialisierung für einen glücklichen Start ins Hundeleben in Schwechat und Umgebung.
           </p>
           <Button asChild size="lg" className="mt-8 bg-yellow-500 hover:bg-yellow-600 text-black font-bold">
             <Link href="/kontakt">Melde dich und deinen Welpen an</Link>
@@ -43,7 +43,7 @@ export default function Home() {
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Ist gerade ein Welpe bei dir eingezogen?</h2>
           <p className="text-lg text-gray-700">
-            Du hast sicher viele Fragen zur Erziehung, Sozialisierung und Körpersprache. Du möchtest deinen Welpen optimal auf seinen zukünftigen Alltag vorbereiten und die richtigen Spielgefährten finden? Dann bist du in der Welpenschule mit Willenskraft genau richtig! Wir unterstützen dich dabei, eine harmonische Beziehung zu deinem neuen Familienmitglied aufzubauen.
+            Du möchtest nur das Beste für deinen neuen Weggefährten? In unserer Welpenschule in Schwechat findest du Antworten auf all deine Fragen. Wir helfen dir, deinen Welpen bestmöglich auf ein entspanntes Leben vorzubereiten und von Anfang an alles richtig zu machen. Gemeinsam bauen wir eine vertrauensvolle Bindung zwischen dir und deinem neuen Familienmitglied auf.
           </p>
         </div>
       </section>
@@ -250,7 +250,7 @@ export default function Home() {
             </div>
            <div className="w-full md:w-2/3 text-center md:text-left">
                 <h2 className="text-3xl font-bold mb-4">Bereit für den Start?</h2>
-                <p className="text-xl mb-6">Melde dich und deinen Welpen jetzt für ein erstes Kennenlernen in der <span className="font-bold">Welpenschule Neusiedl am See</span> an.</p>
+                <p className="text-xl mb-6">Melde dich und deinen Welpen jetzt für ein erstes Kennenlernen in der <span className="font-bold">Welpenschule Schwechat</span> an.</p>
                 <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold">
                     <Link href="/kontakt">Jetzt zur Welpenschule anmelden</Link>
                 </Button>
