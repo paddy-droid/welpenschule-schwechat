@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle2, Star, Users, Zap, Heart, GitCommit } from 'lucide-react';
+import { CheckCircle2, Star, Users, Zap, Heart } from 'lucide-react';
 import Reviews from '@/components/Reviews';
 
 const willenskraftPillars = [
@@ -140,67 +140,6 @@ export default function Home() {
       </section>
 
       {/* Rassen Section */}
-      &lt;section className="py-20"&gt;
-        &lt;div className="container mx-auto px-4"&gt;
-           &lt;div className="text-center max-w-3xl mx-auto mb-12"&gt;
-             &lt;h2 className="text-3xl font-bold mb-4"&gt;Jeder Welpe ist einzigartig&lt;/h2&gt;
-             &lt;p className="text-lg text-gray-700"&gt;Ob kleiner Terrier oder großer Schäferhund – unterschiedliche Rassen haben unterschiedliche Bedürfnisse und Veranlagungen. Wir gehen individuell auf deinen Welpen ein und passen das Training an seine spezifischen Eigenschaften an, um das Beste aus ihm herauszuholen.&lt;/p&gt;
-           &lt;/div&gt;
-          &lt;div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
-              &lt;Card className="hover:shadow-lg transition-shadow bg-white"&gt;
-                &lt;CardHeader&gt;&lt;CardTitle&gt;Familienhunde&lt;/CardTitle&gt;&lt;/CardHeader&gt;
-                &lt;CardContent&gt;&lt;p&gt;Wir fördern gezielt die Eigenschaften, die einen entspannten Alltagsbegleiter ausmachen, wie Gelassenheit, soziale Kompetenz und eine starke Bindung zur Familie.&lt;/p&gt;&lt;/CardContent&gt;
-              &lt;/Card&gt;
-              &lt;Card className="hover:shadow-lg transition-shadow bg-white"&gt;
-                &lt;CardHeader&gt;&lt;CardTitle&gt;Arbeits- &amp; Hütehunde&lt;/CardTitle&gt;&lt;/CardHeader&gt;
-                &lt;CardContent&gt;&lt;p&gt;Diese intelligenten Hunde brauchen eine Aufgabe. Wir zeigen dir, wie du ihren Arbeitswillen in die richtigen Bahnen lenkst und für eine artgerechte Auslastung sorgst.&lt;/p&gt;&lt;/CardContent&gt;
-              &lt;/Card&gt;
-              &lt;Card className="hover:shadow-lg transition-shadow bg-white"&gt;
-                &lt;CardHeader&gt;&lt;CardTitle&gt;Jagdhunde&lt;/CardTitle&gt;&lt;/CardHeader&gt;
-                &lt;CardContent&gt;&lt;p&gt;Der Jagdinstinkt ist tief verankert. Unser Training legt den Fokus auf Impulskontrolle und einen zuverlässigen Rückruf, damit Spaziergänge entspannt bleiben.&lt;/p&gt;&lt;/CardContent&gt;
-              &lt;/Card&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/section&gt;
-
-      {/* Medical Training Section */}
-      &lt;section className="bg-slate-50 py-20"&gt;
-        &lt;div className="container mx-auto px-4"&gt;
-             &lt;div className="text-center max-w-3xl mx-auto mb-12"&gt;
-               &lt;h2 className="text-3xl font-bold mb-4"&gt;Medical Training: Stressfreie Tierarztbesuche&lt;/h2&gt;
-                &lt;p className="text-lg text-gray-700"&gt;Vorbereitung ist alles. Mit gezieltem Medical Training lernt dein Welpe von Anfang an, dass Untersuchungen und Behandlungen nichts Schlimmes sind. Das reduziert Stress für alle Beteiligten.&lt;/p&gt;
-             &lt;/div&gt;
-             &lt;div className="overflow-x-auto"&gt;
-                &lt;table className="min-w-full bg-white rounded-lg shadow"&gt;
-                    &lt;thead className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"&gt;
-                        &lt;tr&gt;
-                            &lt;th className="py-3 px-6 text-left"&gt;Trainingsziel&lt;/th&gt;
-                            &lt;th className="py-3 px-6 text-left"&gt;Methode&lt;/th&gt;
-                            &lt;th className="py-3 px-6 text-center"&gt;Vorteil&lt;/th&gt;
-                        &lt;/tr&gt;
-                    &lt;/thead&gt;
-                    &lt;tbody className="text-gray-600 text-sm font-light"&gt;
-                        &lt;tr className="border-b border-gray-200 hover:bg-gray-100"&gt;
-                            &lt;td className="py-3 px-6 text-left whitespace-nowrap"&gt;Ohren &amp; Pfoten anfassen&lt;/td&gt;
-                            &lt;td className="py-3 px-6 text-left"&gt;Positive Verknüpfung durch Belohnung bei jeder Berührung.&lt;/td&gt;
-                            &lt;td className="py-3 px-6 text-center"&gt;Erleichtert Untersuchungen und die Krallenpflege.&lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr className="border-b border-gray-200 bg-gray-50 hover:bg-gray-100"&gt;
-                            &lt;td className="py-3 px-6 text-left"&gt;Zähne zeigen&lt;/td&gt;
-                            &lt;td className="py-3 px-6 text-left"&gt;Spielerisches Anheben der Lefzen mit anschließendem Lob.&lt;/td&gt;
-                            &lt;td className="py-3 px-6 text-center"&gt;Wichtig für die Zahnkontrolle durch den Tierarzt.&lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr className="border-b border-gray-200 hover:bg-gray-100"&gt;
-                            &lt;td className="py-3 px-6 text-left"&gt;Auf die Waage gehen&lt;/td&gt;
-                            &lt;td className="py-3 px-6 text-left"&gt;Freiwilliges Betreten der Waage wird mit einem Jackpot belohnt.&lt;/td&gt;
-                            &lt;td className="py-3 px-6 text-center"&gt;Stressfreies Wiegen und genaue Gewichtskontrolle.&lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/section&gt;
-      {/* Rassen Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
            <div className="text-center max-w-3xl mx-auto mb-12">
@@ -233,8 +172,8 @@ export default function Home() {
              </div>
              <div className="overflow-x-auto">
                 <table className="min-w-full bg-white rounded-lg shadow">
-                    <thead>
-                        <tr className="w-full bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <thead className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <tr>
                             <th className="py-3 px-6 text-left">Trainingsziel</th>
                             <th className="py-3 px-6 text-left">Methode</th>
                             <th className="py-3 px-6 text-center">Vorteil</th>
