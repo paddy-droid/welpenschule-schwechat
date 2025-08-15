@@ -18,19 +18,19 @@ export const metadata: Metadata = {
   title: 'Welpenschule Schwechat - Professionelles Hundetraining',
   description: 'Professionelle Welpenschule in Schwechat. Buchen Sie jetzt einen Kurs für die optimale Entwicklung und Sozialisierung Ihres Welpen.',
   verification: {
-    google: 'mTVtKjxMEuAx_IFqUIbR2NQSxQgdoYfdhcNjQ6pHX4U',
+    google: ['mTVtKjxMEuAx_IFqUIbR2NQSxQgdoYfdhcNjQ6pHX4U', 'aUUa12fG3OI-DF8To1t5h1wxcZgKyU16Z-IMxJu9kKg'],
   },
   openGraph: {
-    title: 'Welpenschule Neusiedl am See | Hundeschule Willenskraft',
-    description: 'Profi-Training für deinen Welpen in der Welpenschule Neusiedl am See. Ganzheitlich & gewaltfrei. Jetzt zur Anmeldung!',
-    url: 'https://www.welpenschule-neusiedl.at', // Ersetze dies mit deiner tatsächlichen Domain
-    siteName: 'Welpenschule Neusiedl am See',
+    title: 'Welpenschule Schwechat | Hundeschule Willenskraft',
+    description: 'Professionelles Training für deinen Welpen in der Welpenschule Schwechat. Ganzheitlich & gewaltfrei. Jetzt zur Anmeldung!',
+    url: 'https://www.welpenschule-schwechat.at',
+    siteName: 'Welpenschule Schwechat',
     images: [
       {
-        url: '/Welpenschule Neusiedl.webp', // Pfad zum Bild in deinem /public Ordner
+        url: '/Welpenschule-Schwechat, Welpenkurs Hero.webp',
         width: 1200,
         height: 630,
-        alt: 'Glücklicher Welpe auf einer Wiese in Neusiedl am See',
+        alt: 'Glücklicher Welpe auf einer Wiese in Schwechat',
       },
     ],
     locale: 'de_AT',
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Welpenschule Neusiedl am See | Hundeschule Willenskraft',
-    description: 'Profi-Training für deinen Welpen in der Welpenschule Neusiedl am See. Ganzheitlich & gewaltfrei. Jetzt zur Anmeldung!',
-    images: ['/Welpenschule Neusiedl.webp'], // Pfad zum Bild
+    title: 'Welpenschule Schwechat | Hundeschule Willenskraft',
+    description: 'Professionelles Training für deinen Welpen in der Welpenschule Schwechat. Ganzheitlich & gewaltfrei. Jetzt zur Anmeldung!',
+    images: ['/Welpenschule-Schwechat, Welpenkurs Hero.webp'],
   },
 };
 
