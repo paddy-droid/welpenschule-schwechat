@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Welpenschule Neusiedl am See - Projekt Dokumentation
 
-## Getting Started
+Dieses Projekt ist eine Webseite für die "Welpenschule Neusiedl am See", erstellt mit Next.js und Tailwind CSS.
 
-First, run the development server:
+## Inhaltsverzeichnis
+1. [Projektübersicht](#projektübersicht)
+2. [Technologie-Stack](#technologie-stack)
+3. [Projektstruktur](#projektstruktur)
+4. [Setup & Installation](#setup--installation)
+5. [API-Integrationen](#api-integrationen)
+    - [Google Reviews API](#google-reviews-api)
+6. [Git Repository](#git-repository)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. Projektübersicht
+Die Webseite dient als Online-Präsenz für die Hundeschule und informiert über das Kursangebot, die Philosophie und die Kontaktmöglichkeiten. Der Fokus liegt auf der Gewinnung neuer Kunden für den Welpenkurs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Technologie-Stack
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **UI-Komponenten:** [shadcn/ui](https://ui.shadcn.com/)
+- **Deployment:** Vercel (empfohlen)
+- **Version-Control:** Git
+- **Package Manager:** npm
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Projektstruktur
+Die wichtigsten Dateien und Ordner im `src` Verzeichnis:
+- **`/app`**: Enthält alle Routen der Anwendung.
+    - **`/page.tsx`**: Die Startseite.
+    - **`/kontakt/page.tsx`**: Die Kontaktseite.
+    - **`/impressum/page.tsx`**: Das Impressum.
+    - **`/datenschutz/page.tsx`**: Die Datenschutzerklärung.
+    - **`/layout.tsx`**: Das Hauptlayout, das alle Seiten umschließt.
+    - **`/globals.css`**: Globale CSS-Stile.
+    - **`/api/reviews/route.ts`**: API-Route zum Abrufen der Google Reviews.
+- **`/components`**: Enthält wiederverwendbare React-Komponenten.
+    - **`/layout`**: Komponenten für das grundlegende Seitenlayout (Header, Footer).
+    - **`/ui`**: UI-Komponenten von shadcn/ui (Button, Card etc.).
+    - **`Reviews.tsx`**: Komponente zur Anzeige der Kundenbewertungen.
+- **`/lib`**: Hilfsfunktionen und Utilities.
+    - **`utils.ts`**: Allgemeine Hilfsfunktionen (z.B. für `clsx` von shadcn).
+- **`/public`**: Enthält statische Dateien wie Bilder und Vektorgrafiken.
 
-## Learn More
+### 4. Setup & Installation
+Um das Projekt lokal zu starten, führe folgende Befehle aus:
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Abhängigkeiten installieren:**
+    ```bash
+    npm install
+    ```
+2.  **Entwicklungsserver starten:**
+    ```bash
+    npm run dev
+    ```
+    Die Seite ist dann unter `http://localhost:3000` erreichbar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 5. API-Integrationen
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Google Reviews API
+- **Zweck:** Zeigt aktuelle Kundenbewertungen von Google an.
+- **Implementierung:**
+    - Die API-Route befindet sich unter `src/app/api/reviews/route.ts`.
+    - Diese Route sendet eine Anfrage an die Google Places API.
+    - Ein **API-Schlüssel** von der Google Cloud Platform ist erforderlich.
+- **Einrichtung:**
+    1.  Erstelle eine `.env.local`-Datei im Hauptverzeichnis des Projekts.
+    2.  Füge deinen Google Places API Key in die Datei ein:
+        ```
+        GOOGLE_PLACES_API_KEY=DEIN_API_SCHLUESSEL_HIER
+        ```
+    3. Die `PLACE_ID` für das Unternehmen ist bereits in der `route.ts` hinterlegt, kann aber bei Bedarf geändert werden.
 
-## Deploy on Vercel
+### 6. Git Repository
+Das Projekt wird auf GitHub verwaltet und kann unter folgender URL gefunden werden:
+- **Repository:** [https://github.com/paddy-droid/welpenschule-Neusiedl](https://github.com/paddy-droid/welpenschule-Neusiedl)
+- **Haupt-Branch:** `main`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Workflow:**
+1.  Änderungen in einem neuen Branch entwickeln.
+2.  Pull Request erstellen, um Änderungen in den `main`-Branch zu mergen.
+3.  Vercel (oder ein anderer Hoster) deployt automatisch die Änderungen aus dem `main`-Branch.
