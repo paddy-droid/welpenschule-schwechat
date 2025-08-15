@@ -139,6 +139,129 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Rassen Section */}
+      &lt;section className="py-20"&gt;
+        &lt;div className="container mx-auto px-4"&gt;
+           &lt;div className="text-center max-w-3xl mx-auto mb-12"&gt;
+             &lt;h2 className="text-3xl font-bold mb-4"&gt;Jeder Welpe ist einzigartig&lt;/h2&gt;
+             &lt;p className="text-lg text-gray-700"&gt;Ob kleiner Terrier oder großer Schäferhund – unterschiedliche Rassen haben unterschiedliche Bedürfnisse und Veranlagungen. Wir gehen individuell auf deinen Welpen ein und passen das Training an seine spezifischen Eigenschaften an, um das Beste aus ihm herauszuholen.&lt;/p&gt;
+           &lt;/div&gt;
+          &lt;div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+              &lt;Card className="hover:shadow-lg transition-shadow bg-white"&gt;
+                &lt;CardHeader&gt;&lt;CardTitle&gt;Familienhunde&lt;/CardTitle&gt;&lt;/CardHeader&gt;
+                &lt;CardContent&gt;&lt;p&gt;Wir fördern gezielt die Eigenschaften, die einen entspannten Alltagsbegleiter ausmachen, wie Gelassenheit, soziale Kompetenz und eine starke Bindung zur Familie.&lt;/p&gt;&lt;/CardContent&gt;
+              &lt;/Card&gt;
+              &lt;Card className="hover:shadow-lg transition-shadow bg-white"&gt;
+                &lt;CardHeader&gt;&lt;CardTitle&gt;Arbeits- &amp; Hütehunde&lt;/CardTitle&gt;&lt;/CardHeader&gt;
+                &lt;CardContent&gt;&lt;p&gt;Diese intelligenten Hunde brauchen eine Aufgabe. Wir zeigen dir, wie du ihren Arbeitswillen in die richtigen Bahnen lenkst und für eine artgerechte Auslastung sorgst.&lt;/p&gt;&lt;/CardContent&gt;
+              &lt;/Card&gt;
+              &lt;Card className="hover:shadow-lg transition-shadow bg-white"&gt;
+                &lt;CardHeader&gt;&lt;CardTitle&gt;Jagdhunde&lt;/CardTitle&gt;&lt;/CardHeader&gt;
+                &lt;CardContent&gt;&lt;p&gt;Der Jagdinstinkt ist tief verankert. Unser Training legt den Fokus auf Impulskontrolle und einen zuverlässigen Rückruf, damit Spaziergänge entspannt bleiben.&lt;/p&gt;&lt;/CardContent&gt;
+              &lt;/Card&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      {/* Medical Training Section */}
+      &lt;section className="bg-slate-50 py-20"&gt;
+        &lt;div className="container mx-auto px-4"&gt;
+             &lt;div className="text-center max-w-3xl mx-auto mb-12"&gt;
+               &lt;h2 className="text-3xl font-bold mb-4"&gt;Medical Training: Stressfreie Tierarztbesuche&lt;/h2&gt;
+                &lt;p className="text-lg text-gray-700"&gt;Vorbereitung ist alles. Mit gezieltem Medical Training lernt dein Welpe von Anfang an, dass Untersuchungen und Behandlungen nichts Schlimmes sind. Das reduziert Stress für alle Beteiligten.&lt;/p&gt;
+             &lt;/div&gt;
+             &lt;div className="overflow-x-auto"&gt;
+                &lt;table className="min-w-full bg-white rounded-lg shadow"&gt;
+                    &lt;thead className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"&gt;
+                        &lt;tr&gt;
+                            &lt;th className="py-3 px-6 text-left"&gt;Trainingsziel&lt;/th&gt;
+                            &lt;th className="py-3 px-6 text-left"&gt;Methode&lt;/th&gt;
+                            &lt;th className="py-3 px-6 text-center"&gt;Vorteil&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody className="text-gray-600 text-sm font-light"&gt;
+                        &lt;tr className="border-b border-gray-200 hover:bg-gray-100"&gt;
+                            &lt;td className="py-3 px-6 text-left whitespace-nowrap"&gt;Ohren &amp; Pfoten anfassen&lt;/td&gt;
+                            &lt;td className="py-3 px-6 text-left"&gt;Positive Verknüpfung durch Belohnung bei jeder Berührung.&lt;/td&gt;
+                            &lt;td className="py-3 px-6 text-center"&gt;Erleichtert Untersuchungen und die Krallenpflege.&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="border-b border-gray-200 bg-gray-50 hover:bg-gray-100"&gt;
+                            &lt;td className="py-3 px-6 text-left"&gt;Zähne zeigen&lt;/td&gt;
+                            &lt;td className="py-3 px-6 text-left"&gt;Spielerisches Anheben der Lefzen mit anschließendem Lob.&lt;/td&gt;
+                            &lt;td className="py-3 px-6 text-center"&gt;Wichtig für die Zahnkontrolle durch den Tierarzt.&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="border-b border-gray-200 hover:bg-gray-100"&gt;
+                            &lt;td className="py-3 px-6 text-left"&gt;Auf die Waage gehen&lt;/td&gt;
+                            &lt;td className="py-3 px-6 text-left"&gt;Freiwilliges Betreten der Waage wird mit einem Jackpot belohnt.&lt;/td&gt;
+                            &lt;td className="py-3 px-6 text-center"&gt;Stressfreies Wiegen und genaue Gewichtskontrolle.&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+      {/* Rassen Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+           <div className="text-center max-w-3xl mx-auto mb-12">
+             <h2 className="text-3xl font-bold mb-4">Jeder Welpe ist einzigartig</h2>
+             <p className="text-lg text-gray-700">Ob kleiner Terrier oder großer Schäferhund – unterschiedliche Rassen haben unterschiedliche Bedürfnisse und Veranlagungen. Wir gehen individuell auf deinen Welpen ein und passen das Training an seine spezifischen Eigenschaften an, um das Beste aus ihm herauszuholen.</p>
+           </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Card className="hover:shadow-lg transition-shadow bg-white">
+                <CardHeader><CardTitle>Familienhunde</CardTitle></CardHeader>
+                <CardContent><p>Wir fördern gezielt die Eigenschaften, die einen entspannten Alltagsbegleiter ausmachen, wie Gelassenheit, soziale Kompetenz und eine starke Bindung zur Familie.</p></CardContent>
+              </Card>
+              <Card className="hover:shadow-lg transition-shadow bg-white">
+                <CardHeader><CardTitle>Arbeits- & Hütehunde</CardTitle></CardHeader>
+                <CardContent><p>Diese intelligenten Hunde brauchen eine Aufgabe. Wir zeigen dir, wie du ihren Arbeitswillen in die richtigen Bahnen lenkst und für eine artgerechte Auslastung sorgst.</p></CardContent>
+              </Card>
+              <Card className="hover:shadow-lg transition-shadow bg-white">
+                <CardHeader><CardTitle>Jagdhunde</CardTitle></CardHeader>
+                <CardContent><p>Der Jagdinstinkt ist tief verankert. Unser Training legt den Fokus auf Impulskontrolle und einen zuverlässigen Rückruf, damit Spaziergänge entspannt bleiben.</p></CardContent>
+              </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Medical Training Section */}
+      <section className="bg-slate-50 py-20">
+        <div className="container mx-auto px-4">
+             <div className="text-center max-w-3xl mx-auto mb-12">
+               <h2 className="text-3xl font-bold mb-4">Medical Training: Stressfreie Tierarztbesuche</h2>
+                <p className="text-lg text-gray-700">Vorbereitung ist alles. Mit gezieltem Medical Training lernt dein Welpe von Anfang an, dass Untersuchungen und Behandlungen nichts Schlimmes sind. Das reduziert Stress für alle Beteiligten.</p>
+             </div>
+             <div className="overflow-x-auto">
+                <table className="min-w-full bg-white rounded-lg shadow">
+                    <thead>
+                        <tr className="w-full bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                            <th className="py-3 px-6 text-left">Trainingsziel</th>
+                            <th className="py-3 px-6 text-left">Methode</th>
+                            <th className="py-3 px-6 text-center">Vorteil</th>
+                        </tr>
+                    </thead>
+                    <tbody className="text-gray-600 text-sm font-light">
+                        <tr className="border-b border-gray-200 hover:bg-gray-100">
+                            <td className="py-3 px-6 text-left whitespace-nowrap">Ohren & Pfoten anfassen</td>
+                            <td className="py-3 px-6 text-left">Positive Verknüpfung durch Belohnung bei jeder Berührung.</td>
+                            <td className="py-3 px-6 text-center">Erleichtert Untersuchungen und die Krallenpflege.</td>
+                        </tr>
+                        <tr className="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                            <td className="py-3 px-6 text-left">Zähne zeigen</td>
+                            <td className="py-3 px-6 text-left">Spielerisches Anheben der Lefzen mit anschließendem Lob.</td>
+                            <td className="py-3 px-6 text-center">Wichtig für die Zahnkontrolle durch den Tierarzt.</td>
+                        </tr>
+                        <tr className="border-b border-gray-200 hover:bg-gray-100">
+                            <td className="py-3 px-6 text-left">Auf die Waage gehen</td>
+                            <td className="py-3 px-6 text-left">Freiwilliges Betreten der Waage wird mit einem Jackpot belohnt.</td>
+                            <td className="py-3 px-6 text-center">Stressfreies Wiegen und genaue Gewichtskontrolle.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
