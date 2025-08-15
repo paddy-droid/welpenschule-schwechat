@@ -73,13 +73,19 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm">
+        <div
+          className={`md:hidden backdrop-blur-sm ${
+            isScrolled ? 'bg-white/95' : 'bg-black/20'
+          }`}
+        >
           <nav className="flex flex-col items-center space-y-4 py-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-800 hover:text-yellow-500 text-lg font-medium"
+                className={`${
+                  isScrolled ? 'text-gray-800' : 'text-white'
+                } hover:text-yellow-400 text-lg font-medium`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
