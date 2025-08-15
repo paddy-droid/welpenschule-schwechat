@@ -27,14 +27,14 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        isScrolled || isMenuOpen ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link
           href="/"
           className={`text-2xl font-bold transition-colors ${
-            isScrolled ? 'text-gray-800' : 'text-white'
+            isScrolled || isMenuOpen ? 'text-gray-800' : 'text-white'
           }`}
         >
           Welpenschule Neusiedl
@@ -64,7 +64,7 @@ export default function Header() {
         <div className="md:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`${isScrolled ? 'text-gray-800' : 'text-white'}`}
+            className={`${isScrolled || isMenuOpen ? 'text-gray-800' : 'text-white'}`}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -73,19 +73,13 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div
-          className={`md:hidden backdrop-blur-sm ${
-            isScrolled ? 'bg-white/95' : 'bg-black/20'
-          }`}
-        >
+        <div className="md:hidden">
           <nav className="flex flex-col items-center space-y-4 py-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`${
-                  isScrolled ? 'text-gray-800' : 'text-white'
-                } hover:text-yellow-400 text-lg font-medium`}
+                className="text-gray-800 hover:text-yellow-500 text-lg font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
