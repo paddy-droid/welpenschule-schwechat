@@ -20,6 +20,28 @@ export const metadata: Metadata = {
   verification: {
     google: 'mTVtKjxMEuAx_IFqUIbR2NQSxQgdoYfdhcNjQ6pHX4U',
   },
+  openGraph: {
+    title: 'Welpenschule Neusiedl am See | Hundeschule Willenskraft',
+    description: 'Profi-Training für deinen Welpen in der Welpenschule Neusiedl am See. Ganzheitlich & gewaltfrei. Jetzt zur Anmeldung!',
+    url: 'https://www.welpenschule-neusiedl.at', // Ersetze dies mit deiner tatsächlichen Domain
+    siteName: 'Welpenschule Neusiedl am See',
+    images: [
+      {
+        url: '/Welpenschule Neusiedl.webp', // Pfad zum Bild in deinem /public Ordner
+        width: 1200,
+        height: 630,
+        alt: 'Glücklicher Welpe auf einer Wiese in Neusiedl am See',
+      },
+    ],
+    locale: 'de_AT',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Welpenschule Neusiedl am See | Hundeschule Willenskraft',
+    description: 'Profi-Training für deinen Welpen in der Welpenschule Neusiedl am See. Ganzheitlich & gewaltfrei. Jetzt zur Anmeldung!',
+    images: ['/Welpenschule Neusiedl.webp'], // Pfad zum Bild
+  },
 };
 
 export default function RootLayout({
