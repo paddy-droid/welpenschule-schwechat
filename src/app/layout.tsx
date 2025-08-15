@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Welpenschule Neusiedl am See | Hundeschule Willenskraft',
-  description: 'Profi-Training für deinen Welpen in der Welpenschule Neusiedl am See. Ganzheitlich & gewaltfrei. Jetzt zur Anmeldung!',
+  title: 'Welpenschule Schwechat - Professionelles Hundetraining',
+  description: 'Professionelle Welpenschule in Schwechat. Buchen Sie jetzt einen Kurs für die optimale Entwicklung und Sozialisierung Ihres Welpen.',
   verification: {
     google: 'mTVtKjxMEuAx_IFqUIbR2NQSxQgdoYfdhcNjQ6pHX4U',
   },
