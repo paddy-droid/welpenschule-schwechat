@@ -139,6 +139,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Rassen Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+           <div className="text-center max-w-3xl mx-auto mb-12">
+             <h2 className="text-3xl font-bold mb-4">Jeder Welpe ist einzigartig</h2>
+             <p className="text-lg text-gray-700">Ob kleiner Terrier oder großer Schäferhund – unterschiedliche Rassen haben unterschiedliche Bedürfnisse und Veranlagungen. Wir gehen individuell auf deinen Welpen ein und passen das Training an seine spezifischen Eigenschaften an, um das Beste aus ihm herauszuholen.</p>
+           </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Card className="hover:shadow-lg transition-shadow bg-white">
+                <CardHeader><CardTitle>Familienhunde</CardTitle></CardHeader>
+                <CardContent><p>Wir fördern gezielt die Eigenschaften, die einen entspannten Alltagsbegleiter ausmachen, wie Gelassenheit, soziale Kompetenz und eine starke Bindung zur Familie.</p></CardContent>
+              </Card>
+              <Card className="hover:shadow-lg transition-shadow bg-white">
+                <CardHeader><CardTitle>Arbeits- & Hütehunde</CardTitle></CardHeader>
+                <CardContent><p>Diese intelligenten Hunde brauchen eine Aufgabe. Wir zeigen dir, wie du ihren Arbeitswillen in die richtigen Bahnen lenkst und für eine artgerechte Auslastung sorgst.</p></CardContent>
+              </Card>
+              <Card className="hover:shadow-lg transition-shadow bg-white">
+                <CardHeader><CardTitle>Jagdhunde</CardTitle></CardHeader>
+                <CardContent><p>Der Jagdinstinkt ist tief verankert. Unser Training legt den Fokus auf Impulskontrolle und einen zuverlässigen Rückruf, damit Spaziergänge entspannt bleiben.</p></CardContent>
+              </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Medical Training Section */}
+      <section className="bg-slate-50 py-20">
+        <div className="container mx-auto px-4">
+             <div className="text-center max-w-3xl mx-auto mb-12">
+               <h2 className="text-3xl font-bold mb-4">Medical Training: Stressfreie Tierarztbesuche</h2>
+                <p className="text-lg text-gray-700">Vorbereitung ist alles. Mit gezieltem Medical Training lernt dein Welpe von Anfang an, dass Untersuchungen und Behandlungen nichts Schlimmes sind. Das reduziert Stress für alle Beteiligten.</p>
+             </div>
+             <div className="grid lg:grid-cols-2 gap-12 items-center">
+                 <div>
+                    <Image
+                        src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Medical Training mit einem Welpen"
+                        width={600}
+                        height={600}
+                        className="rounded-lg shadow-xl object-cover aspect-square"
+                    />
+                </div>
+                <div className="space-y-6">
+                    <div>
+                        <h3 className="text-2xl font-bold">Kooperation statt Zwang</h3>
+                        <p className="text-lg mt-2">Wir üben auf spielerische Weise wichtige Handgriffe: das Anfassen der Ohren und Pfoten, das Zeigen der Zähne und das freiwillige Stehen auf der Waage. Dein Hund lernt, bei diesen Prozeduren aktiv mitzuarbeiten.</p>
+                    </div>
+                     <div>
+                        <h3 className="text-2xl font-bold">Eine Investition in die Zukunft</h3>
+                        <p className="text-lg mt-2">Ein gut vorbereiteter Hund ist beim Tierarzt entspannter, was Untersuchungen erleichtert und die Bindung zu dir stärkt. Du schaffst Vertrauen, das ein Leben lang hält.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
