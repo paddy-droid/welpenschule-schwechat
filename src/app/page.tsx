@@ -93,14 +93,14 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
-             <Card className="bg-yellow-400 md:col-span-2 lg:col-span-1 flex flex-col justify-center items-center text-center p-6">
+             <Card className="bg-yellow-400 md:col-span-2 lg:col-span-1 text-center p-6">
                 <CardHeader>
                   <CardTitle>Dein Sonderangebot</CardTitle>
                     <CardDescription className="text-black">Exklusiv für Welpeneltern</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex flex-col items-center justify-center">
                   <p className="font-bold text-lg">Eine Einzelstunde zum Sonderpreis</p>
-                  <p className="text-4xl font.extrabold my-2">nur 55€</p>
+                  <p className="text-4xl font-extrabold my-2">nur 55€</p>
                   <p>Perfekt, um spezifische Fragen zu klären und deinem Welpen den besten Start zu ermöglichen.</p>
                 </CardContent>
               </Card>
