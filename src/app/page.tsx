@@ -201,6 +201,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold mb-4">Häufig gestellte Fragen zur Welpenschule Schwechat</h2>
+            <p className="text-lg text-gray-700">Die wichtigsten Antworten für einen perfekten Start mit Ihrem neuen Familienmitglied.</p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" className="mb-6 border-b pb-6">
+              <h3 itemProp="name" className="text-xl font-semibold">Ab wann ist die Welpenschule in Schwechat sinnvoll?</h3>
+              <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer" className="mt-2 text-gray-700">
+                <p itemProp="text">Der ideale Zeitpunkt für den Start in unserer Welpenschule in Schwechat ist so früh wie möglich, typischerweise ab der 8. Lebenswoche, kurz nachdem der Welpe bei Ihnen eingezogen ist. Wichtig ist, dass der Welpe seine erste Grundimmunisierung erhalten hat, um ihn und die anderen Kursteilnehmer zu schützen. Die frühe Sozialisierungsphase bis zur 16. Woche ist entscheidend für die Entwicklung eines ausgeglichenen und sozial kompetenten Hundes. In dieser prägenden Zeit lernt Ihr Welpe den richtigen Umgang mit Artgenossen, Menschen und verschiedenen Umweltreizen in einem sicheren und kontrollierten Rahmen. Ein früher Beginn legt den Grundstein für ein entspanntes Zusammenleben und beugt späteren Verhaltensproblemen effektiv vor.</p>
+              </div>
+            </div>
+            <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" className="mb-6 border-b pb-6">
+              <h3 itemProp="name" className="text-xl font-semibold">Was kostet die Welpenschule?</h3>
+              <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer" className="mt-2 text-gray-700">
+                <p itemProp="text">Die Kosten für unsere Welpenschule sind transparent gestaltet. Unser umfassendes Kurspaket, das 6 Trainingseinheiten à 60 Minuten umfasst, kostet 195€. Diese Investition deckt nicht nur das professionell angeleitete Training in Kleingruppen ab, sondern bietet Ihnen auch die Sicherheit, dass Ihr Welpe unter optimalen Bedingungen lernt. Wir legen Wert auf individuelle Betreuung, weshalb unsere Gruppen bewusst klein gehalten werden. Zusätzlich bieten wir für spezifische Anliegen eine vergünstigte Einzelstunde für nur 55€ an, um gezielt auf Ihre Fragen einzugehen. Qualität und eine solide Ausbildung für einen gelungenen Start ins Hundeleben stehen bei uns an erster Stelle.</p>
+              </div>
+            </div>
+            <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" className="mb-6">
+              <h3 itemProp="name" className="text-xl font-semibold">Was lernt mein Welpe in der Hundeschule?</h3>
+              <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer" className="mt-2 text-gray-700">
+                <p itemProp="text">In unserer Welpenschule in Schwechat lernt Ihr Hund weit mehr als nur "Sitz" und "Platz". Unser 5-Säulen-Konzept ist ganzheitlich aufgebaut: Wir fördern die richtige Kommunikation zwischen Ihnen und Ihrem Welpen und legen den Grundstein für eine alltagstaugliche Sozialisierung. Ihr Welpe lernt, souverän auf andere Hunde und Menschen zu reagieren. Das Training basiert ausschließlich auf positiver Verstärkung, um eine starke, vertrauensvolle Bindung aufzubauen. Wichtige Inhalte sind der Signalaufbau (Rückruf, Leinenführigkeit), Medical Training zur Vorbereitung auf Tierarztbesuche und das Setzen von klaren Grenzen. Ziel ist es, Ihnen das Wissen zu vermitteln, das Sie für ein harmonisches und glückliches Zusammenleben mit Ihrem neuen Begleiter benötigen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">

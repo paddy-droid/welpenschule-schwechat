@@ -37,7 +37,7 @@ export default function Header() {
             isScrolled || isMenuOpen ? 'text-gray-800' : 'text-white'
           }`}
         >
-          Welpenschule Neusiedl
+          Welpenschule Schwechat
         </Link>
         
         {/* Desktop Navigation */}
