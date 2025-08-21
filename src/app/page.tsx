@@ -255,7 +255,7 @@ export default function Home() {
             </div>
             <div className="w-full max-w-4xl mx-auto">
                 <iframe 
-                    src="https://calendar.google.com/calendar/embed?src=ae98e030dbc6780ab9fc5e7b8a27a55122d8b594d1e42eba54d5a154aa9e7f5e%40group.calendar.google.com&ctz=Europe%2FVienna" 
+                    src="https://calendar.google.com/calendar/embed?src=3ead296f16c217a222ffaf95ecb469b3f7e1cf83308d7051aec6590fd327167d%40group.calendar.google.com&ctz=Europe%2FVienna" 
                     style={{border: 0, width: '100%', height: '600px'}} 
                     className="rounded-lg shadow-xl"
                     frameBorder="0" 
