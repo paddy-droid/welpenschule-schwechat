@@ -153,7 +153,7 @@ export default function Home() {
             <div className="order-1 lg:order-2 space-y-12">
               <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3"><CheckCircle className="text-green-500" /> Positive Verstärkung</h3>
-                <p className="text-gray-600 leading-relaxed font-medium">Wir konditionieren wichtige Signale wie „Sitz", „Platz" und „Bleib". Zudem sind der lockere Umgang mit der Leine und ein zuverlässiger Rückruf zentrale Bestandteile. Wir zeigen dir, wie dein Hund gerne zu dir kommt.</p>
+                <p className="text-gray-600 leading-relaxed font-medium">Wir konditionieren wichtige Signale wie &bdquo;Sitz&ldquo;, &bdquo;Platz&ldquo; und &bdquo;Bleib&ldquo;. Zudem sind der lockere Umgang mit der Leine und ein zuverlässiger Rückruf zentrale Bestandteile. Wir zeigen dir, wie dein Hund gerne zu dir kommt.</p>
               </div>
               <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3"><Users className="text-blue-500" /> Kleine Gruppen</h3>

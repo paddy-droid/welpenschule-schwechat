@@ -249,7 +249,7 @@ export default function MobileHundetrainingSchwadorfPage() {
       </section>
 
       {/* Willenskraft Section */}
-      <WillenskraftSection config={locationConfig} />
+      <WillenskraftSection content={locationConfig} />
 
       {/* YouTube Shorts Section */}
       <section className="py-20 bg-slate-50">
