@@ -26,7 +26,12 @@ export default async function Reviews() {
   const data = await getReviews();
 
   if (data.error) {
-    return <div className="text-red-500 text-center py-8">Bewertungen konnten nicht geladen werden.</div>;
+    return (
+      <div className="text-red-500 text-center py-8 text-sm">
+        <p className="font-bold">Fehler: {data.error}</p>
+        {data.debug && <pre className="mt-2 text-xs text-left bg-red-50 p-3 rounded overflow-auto max-h-40">{data.debug}</pre>}
+      </div>
+    );
   }
 
   if (!data.reviews || data.reviews.length === 0) {

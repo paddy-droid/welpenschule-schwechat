@@ -1,7 +1,5 @@
 'use server';
 
-import { unstable_noStore } from 'next/cache';
-
 const PLACE_NAME = "Hundeschule Willenskraft Bruck an der Leitha";
 
 interface Review {
@@ -18,10 +16,10 @@ interface ReviewsResult {
   rating?: number;
   name?: string;
   error?: string;
+  debug?: string;
 }
 
 export async function getReviews(): Promise<ReviewsResult> {
-  unstable_noStore();
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
 
   if (!apiKey) {
@@ -29,6 +27,7 @@ export async function getReviews(): Promise<ReviewsResult> {
   }
 
   try {
+    // Step 1: Search for the place
     const searchResponse = await fetch(
       'https://places.googleapis.com/v1/places:searchText',
       {
@@ -46,16 +45,25 @@ export async function getReviews(): Promise<ReviewsResult> {
       }
     );
 
+    if (!searchResponse.ok) {
+      const errBody = await searchResponse.text();
+      console.error('[getReviews] Search failed:', searchResponse.status, errBody);
+      return { error: `API Fehler (Search ${searchResponse.status})`, debug: errBody };
+    }
+
     const searchData = await searchResponse.json();
 
     if (!searchData.places || searchData.places.length === 0) {
+      console.error('[getReviews] No places found. Response:', JSON.stringify(searchData));
       return { error: 'Ort konnte nicht gefunden werden.' };
     }
 
     const placeId = searchData.places[0].id;
 
+    // Step 2: Get place details
+    // NOTE: fieldsMask must only go in the X-Goog-FieldMask header, NOT in the URL
     const detailsResponse = await fetch(
-      `https://places.googleapis.com/v1/places/${placeId}?languageCode=de&fieldsMask=name,rating,reviews,googleMapsUri`,
+      `https://places.googleapis.com/v1/places/${placeId}?languageCode=de`,
       {
         headers: {
           'X-Goog-Api-Key': apiKey,
@@ -65,13 +73,25 @@ export async function getReviews(): Promise<ReviewsResult> {
       }
     );
 
+    if (!detailsResponse.ok) {
+      const errBody = await detailsResponse.text();
+      console.error('[getReviews] Details failed:', detailsResponse.status, errBody);
+      return { error: `API Fehler (Details ${detailsResponse.status})`, debug: errBody };
+    }
+
     const detailsData = await detailsResponse.json();
 
-    if (!detailsData.reviews) {
+    if (!detailsData.reviews || detailsData.reviews.length === 0) {
+      console.error('[getReviews] No reviews in response:', JSON.stringify(detailsData));
       return { error: 'Keine Bewertungen vorhanden.' };
     }
 
-    const reviews: Review[] = detailsData.reviews.map((r: { authorAttribution?: { displayName?: string; photoUri?: string }; rating?: number; text?: { text?: string }; relativePublishTimeDescription?: string }) => ({
+    const reviews: Review[] = detailsData.reviews.map((r: {
+      authorAttribution?: { displayName?: string; photoUri?: string };
+      rating?: number;
+      text?: { text?: string };
+      relativePublishTimeDescription?: string;
+    }) => ({
       author_name: r.authorAttribution?.displayName || 'Anonym',
       rating: r.rating || 5,
       text: r.text?.text || '',
@@ -85,7 +105,8 @@ export async function getReviews(): Promise<ReviewsResult> {
       rating: detailsData.rating,
       name: detailsData.displayName?.text,
     };
-  } catch {
-    return { error: 'Interner Serverfehler.' };
+  } catch (err) {
+    console.error('[getReviews] Exception:', err);
+    return { error: `Interner Serverfehler: ${err instanceof Error ? err.message : String(err)}` };
   }
 }
