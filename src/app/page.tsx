@@ -1,10 +1,74 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Star, Users, Zap, Heart, Gift, ChevronDown, CheckCircle } from 'lucide-react';
+import { Star, Users, Zap, Heart, Gift, ChevronDown, CheckCircle, Award, Clock, ThumbsUp, ShieldCheck } from 'lucide-react';
 import Reviews from '@/components/Reviews';
 import WillenskraftSection from '@/components/WillenskraftSection';
 import * as Accordion from '@radix-ui/react-accordion';
+
+export const metadata: Metadata = {
+  title: 'Welpenschule Schwechat – Nr. 1 Welpenkurs | Hundeschule Willenskraft',
+  description: 'Welpenschule Schwechat ✓ Gewaltfrei & ganzheitlich ✓ Max. 4 Teams pro Gruppe ✓ 6 Einheiten ab 195€ ✓ Welpen bis 5 Monate ✓ Jetzt anmelden! Tel: +43 664 3903673',
+  alternates: {
+    canonical: 'https://www.welpenschule-schwechat.at',
+  },
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Ab wann ist die Welpenschule sinnvoll?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Der ideale Zeitpunkt ist so früh wie möglich, typischerweise ab der 8. Lebenswoche, kurz nachdem der Welpe eingezogen ist. Die sensible Phase der Sozialisierung endet etwa mit der 16. Woche. In dieser Zeit ist es entscheidend, positive Erfahrungen mit Artgenossen und Umweltreizen zu sammeln. Voraussetzung ist die erste Grundimmunisierung.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Was kostet die Welpenschule?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Unser Welpen-Gruppenkurs umfasst 6 Trainingseinheiten zu je einer Stunde und kostet 195€. Dieser Preis beinhaltet praktisches Training, theoretische Grundlagen und individuelle Betreuung in Kleingruppen. Wir bieten auch Einzelstunden für Welpeneltern zu einem Sonderpreis von 55€ an.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Wie lange dauert ein Welpenkurs?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ein Kurs erstreckt sich über 6 Wochen mit einer wöchentlichen Einheit von 60 Minuten. Das ist ideal, um Bindung und Grundsignale aufzubauen, ohne den Hund zu überfordern. Danach kannst du selbstbewusst weiter trainieren oder einen Junghundekurs besuchen.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Was lernt mein Welpe in der Hundeschule?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Dein Hund lernt weit mehr als Grundkommandos: Sozialisierung mit Artgenossen, Rückruf, Gehen an der lockeren Leine via positiver Verstärkung und Medical Training. Du als Halter lernst, die Körpersprache deines Welpen zu deuten und souverän aufzutreten.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Wie viele Hunde sind in einer Gruppe?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Wir trainieren in Kleingruppen von maximal 4 Mensch-Hund-Teams. So erhält jedes Team individuelle Aufmerksamkeit und die Welpen werden sorgfältig nach Größe und Temperament zusammengestellt.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Ist die Welpenschule auch für ängstliche Hunde geeignet?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ja, absolut. Unsere gewaltfreien Methoden basieren auf positiver Verstärkung, die besonders für sensible und ängstliche Welpen ideal ist. Wir gehen in kleinen Schritten vor und bauen das Vertrauen des Hundes schrittweise auf. Bei Bedarf empfehlen wir auch Einzelstunden für einen optimalen Start.',
+      },
+    },
+  ],
+};
 
 const willenskraftPillars = [
   { icon: <Heart className="text-yellow-500 w-8 h-8" />, title: "Grundbedürfnisse", description: "Futter, Schlaf & Sicherheit: Wir zeigen dir, wie du die Basis für Gesundheit und Wohlbefinden deines Welpen sicherstellst." },
@@ -17,6 +81,10 @@ const willenskraftPillars = [
 export default function Home() {
   return (
     <div className="bg-slate-50/50 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center pt-20 overflow-hidden">
         <Image
@@ -55,6 +123,29 @@ export default function Home() {
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
             Du hast sicher viele Fragen zur Erziehung, Sozialisierung und Körpersprache. Du möchtest deinen Welpen optimal auf seinen zukünftigen Alltag vorbereiten und die richtigen Spielgefährten finden? Dann bist du in unserer Welpenschue genau richtig! Gemeinsam bauen wir eine harmonische, stressfreie Beziehung auf.
           </p>
+        </div>
+      </section>
+
+      {/* Trust Stats Section */}
+      <section className="bg-white border-y border-slate-100 py-12 sm:py-16">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {[
+              { icon: <Award className="w-8 h-8 text-yellow-500" />, value: '10+', label: 'Jahre Erfahrung', sub: 'Hundeschule Willenskraft' },
+              { icon: <Users className="w-8 h-8 text-yellow-500" />, value: 'Max. 4', label: 'Teams pro Gruppe', sub: 'Individuelle Betreuung' },
+              { icon: <ThumbsUp className="w-8 h-8 text-yellow-500" />, value: '5★', label: 'Google Bewertung', sub: 'Verifizierte Reviews' },
+              { icon: <ShieldCheck className="w-8 h-8 text-yellow-500" />, value: '100%', label: 'Gewaltfrei', sub: 'Positive Verstärkung' },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center group">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-50 rounded-2xl mb-3 group-hover:bg-yellow-100 transition-colors">
+                  {stat.icon}
+                </div>
+                <div className="text-3xl font-black text-gray-900 mb-1">{stat.value}</div>
+                <div className="font-bold text-gray-800 text-sm">{stat.label}</div>
+                <div className="text-xs text-gray-400 mt-0.5">{stat.sub}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -294,6 +385,14 @@ export default function Home() {
               {
                 q: "Was lernt mein Welpe in der Hundeschule?",
                 a: "Dein Hund lernt weit mehr als Grundkommandos: Sozialisierung mit Artgenossen, Rückruf, Gehen an der lockeren Leine via positiver Verstärkung und Medical Training. Du als Halter lernst, die Körpersprache deines Welpen zu deuten und souverän aufzutreten."
+              },
+              {
+                q: "Wie viele Hunde sind in einer Gruppe?",
+                a: "Wir trainieren in Kleingruppen von maximal 4 Mensch-Hund-Teams. So erhält jedes Team individuelle Aufmerksamkeit und du kannst dich voll auf dich und deinen Welpen konzentrieren. Die Welpen werden dabei sorgfältig nach Größe und Temperament zusammengestellt – damit alle Beteiligten fair und sicher miteinander lernen können."
+              },
+              {
+                q: "Ist die Welpenschule auch für ängstliche oder sensible Hunde geeignet?",
+                a: "Ja, absolut. Unsere gewaltfreien Methoden basieren auf positiver Verstärkung – diese sind besonders für sensible und ängstliche Welpen ideal. Wir gehen in kleinen Schritten vor, ohne Druck oder Zwang, und bauen das Vertrauen des Hundes schrittweise auf. Bei Bedarf empfehlen wir auch eine private Einzelstunde für einen noch individuelleren Einstieg."
               }
             ].map((faq, idx) => (
               <Accordion.Item key={idx} value={`faq-${idx}`} className="bg-white border text-left border-slate-200 rounded-2xl overflow-hidden shadow-sm data-[state=open]:shadow-md transition-all">
