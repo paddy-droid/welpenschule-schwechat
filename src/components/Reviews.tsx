@@ -7,7 +7,7 @@ export default async function Reviews() {
   const data = await getReviews();
 
   if (data.error) {
-    return <div className="text-red-500 text-center py-8">Bewertungen konnten nicht geladen werden.</div>;
+    return <div className="text-red-500 text-center py-8">Debug: {data.error} | Key: {process.env.GOOGLE_PLACES_API_KEY ? 'SET' : 'MISSING'}</div>;
   }
 
   if (!data.reviews || data.reviews.length === 0) {
