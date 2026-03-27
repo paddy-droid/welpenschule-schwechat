@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-  title: 'Kontakt & Anmeldung - Welpenschule Neusiedl am See',
-  description: 'Kontaktieren Sie Jessica Pusch für Ihre Anmeldung zum Welpenkurs in Neusiedl am See. Alle Kontaktinformationen auf einen Blick.',
+  title: 'Kontakt & Anmeldung - Welpenschule Schwechat',
+  description: 'Kontaktieren Sie Jessica Pusch für Ihre Anmeldung zum Welpenkurs in Schwechat und Umgebung. Alle Kontaktinformationen auf einen Blick.',
 };
 
 
