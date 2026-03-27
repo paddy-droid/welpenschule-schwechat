@@ -1,12 +1,10 @@
-import { NextResponse } from 'next/server';
-
 const PLACE_NAME = "Hundeschule Willenskraft Bruck an der Leitha";
 
 export async function GET() {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
 
   if (!apiKey) {
-    return NextResponse.json({ error: 'Google API Key nicht konfiguriert.' }, { status: 500 });
+    return Response.json({ error: 'Google API Key nicht konfiguriert.' }, { status: 500 });
   }
 
   try {
@@ -15,7 +13,7 @@ export async function GET() {
     const searchData = await searchResponse.json();
 
     if (searchData.status !== 'OK' || !searchData.results || searchData.results.length === 0) {
-      return NextResponse.json({ error: 'Ort konnte nicht gefunden werden.', details: searchData.status }, { status: 404 });
+      return Response.json({ error: 'Ort konnte nicht gefunden werden.', details: searchData.status }, { status: 404 });
     }
 
     const placeId = searchData.results[0].place_id;
@@ -25,12 +23,12 @@ export async function GET() {
     const detailsData = await detailsResponse.json();
 
     if (detailsData.status !== 'OK') {
-      return NextResponse.json({ error: detailsData.error_message || 'Fehler beim Abrufen der Bewertungen.', details: detailsData.status }, { status: 500 });
+      return Response.json({ error: detailsData.error_message || 'Fehler beim Abrufen der Bewertungen.', details: detailsData.status }, { status: 500 });
     }
 
-    return NextResponse.json(detailsData.result);
+    return Response.json(detailsData.result);
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: 'Interner Serverfehler.' }, { status: 500 });
+    return Response.json({ error: 'Interner Serverfehler.' }, { status: 500 });
   }
 }
