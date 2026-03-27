@@ -1,5 +1,7 @@
 'use server';
 
+import { unstable_noStore } from 'next/cache';
+
 const PLACE_NAME = "Hundeschule Willenskraft Bruck an der Leitha";
 
 interface Review {
@@ -19,6 +21,7 @@ interface ReviewsResult {
 }
 
 export async function getReviews(): Promise<ReviewsResult> {
+  unstable_noStore();
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
 
   if (!apiKey) {
