@@ -19,6 +19,19 @@ export interface RegionNearby {
   slug: string;
 }
 
+export interface RegionHighlight {
+  title: string;
+  description: string;
+  icon: 'river' | 'forest' | 'field' | 'mountain' | 'city' | 'park' | 'historic';
+}
+
+export interface RegionTableRow {
+  trainingsort: string;
+  entfernung: string;
+  besonderheit: string;
+  trainingsart: string;
+}
+
 export interface RegionData {
   name: string;
   slug: string;
@@ -37,6 +50,11 @@ export interface RegionData {
   localFeatures: string[];
   contactTitle: string;
   contactText: string;
+  regionSectionTitle: string;
+  regionSectionIntro: string;
+  regionHighlights: RegionHighlight[];
+  regionTableRows: RegionTableRow[];
+  regionCtaText: string;
 }
 
 const commonProcessSteps: Omit<RegionProcessStep, 'description'>[] = [
@@ -104,6 +122,21 @@ export const regionData: Record<string, RegionData> = {
     ],
     contactTitle: 'Interesse am mobilen Training in Fischamend?',
     contactText: 'Kontaktiere mich für ein unverbindliches Gespräch und wir finden die beste Lösung für dich und deinen Hund in Fischamend.',
+    regionSectionTitle: 'Fischamend – Wo die Donau dein Trainingspartner wird',
+    regionSectionIntro: 'Stell dir vor: Du spazierst mit deinem Hund durch die malerischen Donau-Auen, das Wasser glitzert in der Sonne, und dein Hund läuft entspannt und gelassen an deiner Seite. Genau dieses Bild machen wir in Fischamend zur Realität. Die einzigartige Lage direkt an der Donau mit ihren weitläufigen Aulandschaften bietet ideale Trainingsbedingungen – von ruhigem Rückruftraining auf den Wiesen bis hin zu herausfordernden Stadttrainingssituationen rund um den historischen Marktplatz.',
+    regionHighlights: [
+      { title: 'Donau-Auen', description: 'Über 30 km naturbelassene Flusslandschaft direkt vor der Haustür – perfekt für Freilauf, Rückruf und Nasenarbeit', icon: 'river' },
+      { title: 'Historischer Ortskern', description: 'Enge Gassen und belebte Plätze für alltagsnahes Training: Begegnungsübungen, Leinenführigkeit und Impulskontrolle', icon: 'historic' },
+      { title: 'Donauradweg', description: 'Beliebte Route mit Fußgängern, Radfahrern und anderen Hunden – ideal für Training unter realen Ablenkungsbedingungen', icon: 'park' },
+    ],
+    regionTableRows: [
+      { trainingsort: 'Donau-Auen Fischamend', entfernung: '5 Min.', besonderheit: 'Naturbelassenes Auengebiet mit Freilaufmöglichkeit', trainingsart: 'Rückruf, Freilauf, Nasenarbeit' },
+      { trainingsort: 'Marktplatz & Ortszentrum', entfernung: '0 Min.', besonderheit: 'Historisches Umfeld mit Passanten und Geschäften', trainingsart: 'Leinenführigkeit, Alltagstraining' },
+      { trainingsort: 'Donauradweg', entfernung: '3 Min.', besonderheit: 'Starker Besucherverkehr, Radfahrer, Hundebegegnungen', trainingsart: 'Impulskontrolle, Begegnungstraining' },
+      { trainingsort: 'Wohngebiet Fischamend', entfernung: '0 Min.', besonderheit: 'Training direkt bei dir zuhause', trainingsart: 'Einzeltraining, Verhaltensberatung' },
+      { trainingsort: 'Schwechat Welpenschule', entfernung: '15 Min.', besonderheit: 'Überdachter Trainingsplatz, max. 4 Teams', trainingsart: 'Welpenkurs, Junghundekurs' },
+    ],
+    regionCtaText: 'Bereit, die Donau-Auen mit einem entspannten Hund zu genießen? In Fischamend starten wir genau da, wo dein Alltag stattfindet.',
   },
 
   schwadorf: {
@@ -146,6 +179,21 @@ export const regionData: Record<string, RegionData> = {
     ],
     contactTitle: 'Interesse am mobilen Training in Schwadorf?',
     contactText: 'Kontaktiere mich für ein unverbindliches Gespräch und wir finden die beste Lösung für dich und deinen Hund in Schwadorf.',
+    regionSectionTitle: 'Schwadorf – Ruhiges Training im Herzen des Schwechater Hinterlandes',
+    regionSectionIntro: 'Schwadorf ist ein kleines Juwel für Hundehalter: Umgeben von sanften Hügeln, weitläufigen Feldern und naturnahen Wegen bietet die Gemeinde die perfekte Kulisse für konzentriertes, störungsfreies Training. Kein städtischer Lärm, keine überfüllten Parks – hier kann dein Hund in Ruhe lernen, und du kannst dich voll auf das Training konzentrieren. Gleichzeitig bist du in nur 10 Minuten in Schwechat, falls du unseren Welpenkurs besuchen möchtest.',
+    regionHighlights: [
+      { title: 'Feldwege & Wiesen', description: 'Endlose, ruhige Wege ohne Ablenkung – der perfekte Ort für die ersten Trainingsschritte und den Aufbau sicherer Signale', icon: 'field' },
+      { title: 'Naturnahe Spazierwege', description: 'Abwechslungsreiche Routen durch die sanfte Hügellandschaft für Training in unterschiedlichen Geländesituationen', icon: 'forest' },
+      { title: 'Gute Verkehrsanbindung', description: 'Über A3 und B10 in 10 Min. in Schwechat – ideal für die Kombination aus mobilem Training und Welpenkurs', icon: 'city' },
+    ],
+    regionTableRows: [
+      { trainingsort: 'Feldwege Schwadorf', entfernung: '0 Min.', besonderheit: 'Ruhige, ablenkungsfreie Umgebung', trainingsart: 'Signalaufbau, Rückruftraining' },
+      { trainingsort: 'Spazierwege Umgebung', entfernung: '2 Min.', besonderheit: 'Naturnahe Routen mit Geländevielfalt', trainingsart: 'Leinenführigkeit, Geländetraining' },
+      { trainingsort: 'Wohngebiet Schwadorf', entfernung: '0 Min.', besonderheit: 'Training direkt bei dir zuhause', trainingsart: 'Einzeltraining, Verhaltensberatung' },
+      { trainingsort: 'Schwechat Welpenschule', entfernung: '10 Min.', besonderheit: 'Überdachter Trainingsplatz, max. 4 Teams', trainingsart: 'Welpenkurs, Junghundekurs' },
+      { trainingsort: 'Ebenfurth Steinfeld', entfernung: '10 Min.', besonderheit: 'Weite Freiflächen für Freilauftraining', trainingsart: 'Freilauf, Rückruf, Begegnungstraining' },
+    ],
+    regionCtaText: 'Entdecke, wie entspannt Hundetraining in der ruhigen Umgebung von Schwadorf sein kann – wir kommen direkt zu dir.',
   },
 
   ebenfurth: {
@@ -188,6 +236,21 @@ export const regionData: Record<string, RegionData> = {
     ],
     contactTitle: 'Interesse am mobilen Training in Ebenfurth?',
     contactText: 'Kontaktiere mich für ein unverbindliches Gespräch und wir finden die beste Lösung für dich und deinen Hund in Ebenfurth.',
+    regionSectionTitle: 'Ebenfurth – Wo das Steinfeld zur größten Trainingsfläche wird',
+    regionSectionIntro: 'Wenn es ein Paradies für Hundetraining gibt, dann liegt es am Rande von Ebenfurth. Das Steinfeld – eine der ausgedehntesten Freiflächen Niederösterreichs – beginnt quasi vor deiner Haustür. Weite, offene Landschaften ohne Leitungsverkehr, dafür mit endlosem Raum für Freilauf, Rückruftraining und das schrittweise Aufbauen von Sicherheit bei Hundebegegnungen. In Ebenfurth verbindet sich diese einzigartige Natur mit der Nähe zu Wiener Neustadt – du hast das Beste aus beiden Welten.',
+    regionHighlights: [
+      { title: 'Steinfeld', description: 'Eine der größten Freiflächen der Region – grenzenloses Training ohne Ablenkung durch Straßen oder Verkehr', icon: 'field' },
+      { title: 'Marktgemeinde-Flair', description: 'Gemütlicher Ortskern mit nachbarschaftlicher Atmosphäre für entspanntes Alltagstraining und Begegnungsübungen', icon: 'historic' },
+      { title: 'Nähe Wiener Neustadt', description: 'Städtische Trainingssituationen nur einen Steinwurf entfernt – für Hunde, die auch im Stadtverkehr souverän sein sollen', icon: 'city' },
+    ],
+    regionTableRows: [
+      { trainingsort: 'Steinfeld Ebenfurth', entfernung: '3 Min.', besonderheit: 'Riesige Freifläche ohne Verkehrsablenkung', trainingsart: 'Freilauf, Rückruf, Distanztraining' },
+      { trainingsort: 'Ortszentrum Ebenfurth', entfernung: '0 Min.', besonderheit: 'Ruhiger Marktplatz mit nachbarschaftlichem Charakter', trainingsart: 'Alltagstraining, Leinenführigkeit' },
+      { trainingsort: 'Wohngebiet Ebenfurth', entfernung: '0 Min.', besonderheit: 'Training direkt bei dir zuhause', trainingsart: 'Einzeltraining, Verhaltensberatung' },
+      { trainingsort: 'Schwechat Welpenschule', entfernung: '15 Min.', besonderheit: 'Überdachter Trainingsplatz, max. 4 Teams', trainingsart: 'Welpenkurs, Junghundekurs' },
+      { trainingsort: 'Wiener Neustadt Umgebung', entfernung: '15 Min.', besonderheit: 'Städtische Situationen für Fortgeschrittene', trainingsart: 'Stadttraining, Begegnungstraining' },
+    ],
+    regionCtaText: 'Das Steinfeld wartet auf dich und deinen Hund – lass uns gemeinsam die Weite für euer Training nutzen.',
   },
 
   gramatneusiedl: {
@@ -230,6 +293,21 @@ export const regionData: Record<string, RegionData> = {
     ],
     contactTitle: 'Interesse am mobilen Training in Gramatneusiedl?',
     contactText: 'Kontaktiere mich für ein unverbindliches Gespräch und wir finden die beste Lösung für dich und deinen Hund.',
+    regionSectionTitle: 'Gramatneusiedl – Weinberge, Felder und ein Hund, der auf dich hört',
+    regionSectionIntro: 'Gramatneusiedl liegt eingebettet in die sanfte Hügellandschaft des südlichen Marchfeldes, umgeben von Weinbergen, weiten Ackern und idyllischen Feldwegen. Diese friedliche Umgebung ist ein Geschenk für Hundehalter: Kaum Verkehr, kaum Ablenkung, dafür endlose Möglichkeiten für entspannte Spaziergänge und konzentriertes Training. Ob dein Welpe hier seine ersten Signale lernt oder dein erwachsener Hund an seinem Rückruf arbeitet – in Gramatneusiedl findet ihr die Ruhe, die ihr dafür braucht.',
+    regionHighlights: [
+      { title: 'Weinberge & Feldwege', description: 'Malerische Landschaft mit ruhigen Wegen – perfekt für ungestörtes Training und den Aufbau starker Signale', icon: 'field' },
+      { title: 'Marchfeld-Ebene', description: 'Weite, ebene Landschaft mit hervorragender Sichtweite – ideal für Rückruftraining auf Distanz', icon: 'field' },
+      { title: 'Ruhige Wohngebiete', description: 'Störungsfreie Nachbarschaft für Training zuhause und in der direkten Umgebung ohne Leistungsdruck', icon: 'park' },
+    ],
+    regionTableRows: [
+      { trainingsort: 'Feldwege Gramatneusiedl', entfernung: '0 Min.', besonderheit: 'Ungestörte, ruhige Trainingssituation', trainingsart: 'Signalaufbau, Rückruf, Leinenführigkeit' },
+      { trainingsort: 'Weinberg-Rundwege', entfernung: '3 Min.', besonderheit: 'Malerische Kulisse mit sanften Steigungen', trainingsart: 'Geländetraining, Auslastung' },
+      { trainingsort: 'Wohngebiet Gramatneusiedl', entfernung: '0 Min.', besonderheit: 'Training direkt bei dir zuhause', trainingsart: 'Einzeltraining, Welpentraining, Verhaltensberatung' },
+      { trainingsort: 'Schwechat Welpenschule', entfernung: '15 Min.', besonderheit: 'Überdachter Trainingsplatz, max. 4 Teams', trainingsart: 'Welpenkurs, Junghundekurs' },
+      { trainingsort: 'Ebenfurth Steinfeld', entfernung: '10 Min.', besonderheit: 'Großflächiger Freilauf möglich', trainingsart: 'Freilauf, Rückruf, Distanztraining' },
+    ],
+    regionCtaText: 'In Gramatneusiedl findet ihr die Ruhe für nachhaltiges Training – melde dich jetzt und lass uns starten.',
   },
 
   goetzendorf: {
@@ -272,6 +350,21 @@ export const regionData: Record<string, RegionData> = {
     ],
     contactTitle: 'Interesse am mobilen Training in Götzendorf?',
     contactText: 'Kontaktiere mich für ein unverbindliches Gespräch und wir finden die beste Lösung für dich und deinen Hund in Götzendorf.',
+    regionSectionTitle: 'Götzendorf – Wo die Leitha-Auen zum natürlichen Trainingsparadies werden',
+    regionSectionIntro: 'Götzendorf an der Leitha ist ein Geheimtipp für Hundehalter in der Region. Die einzigartige Lage direkt an der Leitha mit ihren malerischen Aulandschaften schafft Trainingsbedingungen, die sonst nur in viel weiter entfernten Naturschutzgebieten zu finden sind. Stell dir vor: Dein Hund läuft zuverlässig durch den Auwald zurück zu dir, während das Sonnenlicht durch die alten Bäume fällt. Mit unserem mobilen Training machen wir genau diesen Traum in Götzendorf wahr – Schritt für Schritt, geduldig und mit viel Freude.',
+    regionHighlights: [
+      { title: 'Leitha-Auen', description: 'Naturnahe Flusslandschaft mit alten Baumbeständen – ideal für Nasenarbeit, Freilauf und Vertrauensaufbau', icon: 'river' },
+      { title: 'Leitha-Uferwege', description: 'Vielfältige Spazierwege entlang des Flusses mit wechselnden Anforderungen für abwechslungsreiches Training', icon: 'forest' },
+      { title: 'Ländliche Ruhe', description: 'Kaum Verkehr, wenig Lärm – die besten Voraussetzungen für konzentriertes Training und den Aufbau neuer Signale', icon: 'field' },
+    ],
+    regionTableRows: [
+      { trainingsort: 'Leitha-Auen Götzendorf', entfernung: '5 Min.', besonderheit: 'Naturbelassene Aulandschaft mit altem Baumbestand', trainingsart: 'Freilauf, Nasenarbeit, Rückruf' },
+      { trainingsort: 'Leitha-Uferwege', entfernung: '3 Min.', besonderheit: 'Vielfältige Wege mit Geländewechseln', trainingsart: 'Leinenführigkeit, Geländetraining' },
+      { trainingsort: 'Wohngebiet Götzendorf', entfernung: '0 Min.', besonderheit: 'Training direkt bei dir zuhause', trainingsart: 'Einzeltraining, Verhaltensberatung' },
+      { trainingsort: 'Schwechat Welpenschule', entfernung: '15 Min.', besonderheit: 'Überdachter Trainingsplatz, max. 4 Teams', trainingsart: 'Welpenkurs, Junghundekurs' },
+      { trainingsort: 'Bruck/Leitha Umgebung', entfernung: '10 Min.', besonderheit: 'Städtische Situationen für Fortgeschrittene', trainingsart: 'Alltagstraining, Begegnungstraining' },
+    ],
+    regionCtaText: 'Die Leitha-Auen warten auf euch – lass uns gemeinsam deinen Traum vom entspannten Hundespaziergang verwirklichen.',
   },
 
   himberg: {
@@ -314,6 +407,21 @@ export const regionData: Record<string, RegionData> = {
     ],
     contactTitle: 'Interesse am mobilen Training in Himberg?',
     contactText: 'Kontaktiere mich für ein unverbindliches Gespräch und wir finden die beste Lösung für dich und deinen Hund in Himberg.',
+    regionSectionTitle: 'Himberg – Wo Stadt und Land sich für dein Hundetraining treffen',
+    regionSectionIntro: 'Himberg ist einzigartig in der Region: Direkt an der Wiener Stadtgrenze gelegen, verbindet die Gemeinde die Ruhe des niederösterreichischen Flachlandes mit der Dynamik der Großstadt. Für dein Hundetraining bedeutet das: Du kannst sowohl in ruhigen, ländlichen Umgebungen trainieren als auch urbanen Herausforderungen begegnen – alles direkt vor deiner Haustür. Mit rund 7.000 Einwohnern und einer wachsenden Infrastruktur ist Himberg der ideale Ort für Hunde, die in beiden Welten souverän sein möchten.',
+    regionHighlights: [
+      { title: 'Wiener Stadtgrenze', description: 'Einzigartige Lage: ländliche Ruhe trifft auf städtisches Leben – trainiere in beiden Welten ohne lange Anfahrtswege', icon: 'city' },
+      { title: 'Donau-Auen Nähe', description: 'Die berühmten Donau-Auen sind nur wenige Minuten entfernt – ein Naturparadies für Freilauf und Abenteuer', icon: 'river' },
+      { title: 'Felder & Wiesen', description: 'Weitläufige Grünflächen rund um Himberg für konzentriertes Training in naturnaher Umgebung', icon: 'field' },
+    ],
+    regionTableRows: [
+      { trainingsort: 'Felder & Wiesen Himberg', entfernung: '0 Min.', besonderheit: 'Ruhige, weite Grünflächen am Ortsrand', trainingsart: 'Signalaufbau, Rückruf, Leinenführigkeit' },
+      { trainingsort: 'Ortszentrum Himberg', entfernung: '0 Min.', besonderheit: 'Wachsende Infrastruktur mit Passantenverkehr', trainingsart: 'Alltagstraining, Begegnungstraining' },
+      { trainingsort: 'Wohngebiet Himberg', entfernung: '0 Min.', besonderheit: 'Training direkt bei dir zuhause', trainingsart: 'Einzeltraining, Welpentraining, Verhaltensberatung' },
+      { trainingsort: 'Schwechat Welpenschule', entfernung: '20 Min.', besonderheit: 'Überdachter Trainingsplatz, max. 4 Teams', trainingsart: 'Welpenkurs, Junghundekurs' },
+      { trainingsort: 'Wien Grenzgebiet', entfernung: '5 Min.', besonderheit: 'Städtische Situationen: Straßenbahn, Verkehr, Menschenmengen', trainingsart: 'Stadttraining, Impulskontrolle' },
+    ],
+    regionCtaText: 'Himberg bietet das Beste aus beiden Welten – lass uns deinen Hund für Stadt und Land gleichermaßen fit machen.',
   },
 
   'bruck-an-der-leitha': {
@@ -356,6 +464,21 @@ export const regionData: Record<string, RegionData> = {
     ],
     contactTitle: 'Interesse am mobilen Training in Bruck an der Leitha?',
     contactText: 'Kontaktiere mich für ein unverbindliches Gespräch und wir finden die beste Lösung für dich und deinen Hund in Bruck an der Leitha.',
+    regionSectionTitle: 'Bruck an der Leitha – Bezirkshauptstadt mit dem besten Hundetraining der Region',
+    regionSectionIntro: 'Als Bezirkshauptstadt ist Bruck an der Leitha das pulsierende Herz der Region – und genau diese Vielfalt macht die Stadt zum perfekten Trainingsgelände für deinen Hund. Von der historischen Altstadt mit ihren engen Gassen und belebten Plätzen über die gepflegten Stadtparks bis hin zu den wildromantischen Leitha-Auen: In Bruck trainieren wir in exactly den Situationen, die dein Hund im Alltag meistern muss. Und das Beste: Die Leitha-Auen bieten einen Naturraum, der sonst nur in weit entfernten Nationalparks zu finden ist.',
+    regionHighlights: [
+      { title: 'Leitha-Auen', description: 'Der Fluss-Leitha-Auen-Komplex bietet eine der schönsten Flusslandschaften Österreichs – perfekt für naturbelassenes Training', icon: 'river' },
+      { title: 'Historische Altstadt', description: 'Belebte Fußgängerzonen, enge Gassen und Plätze – das ideale Training für Hunde, die im Alltag souverän bleiben sollen', icon: 'historic' },
+      { title: 'Stadtparks & Grünanlagen', description: 'Gepflegte Parks mit anderen Hundehaltern für kontrollierte Begegnungssituationen und soziales Lernen', icon: 'park' },
+    ],
+    regionTableRows: [
+      { trainingsort: 'Leitha-Auen Bruck', entfernung: '5 Min.', besonderheit: 'Naturnahe Flussauen mit altem Baumbestand und Freilauf', trainingsart: 'Freilauf, Rückruf, Nasenarbeit' },
+      { trainingsort: 'Altstadt & Hauptplatz', entfernung: '0 Min.', besonderheit: 'Belebtes Stadtzentrum mit Geschäften und Cafés', trainingsart: 'Alltagstraining, Leinenführigkeit' },
+      { trainingsort: 'Stadtparks', entfernung: '2 Min.', besonderheit: 'Gepflegte Grünanlagen mit anderen Hundehaltern', trainingsart: 'Begegnungstraining, Sozialisierung' },
+      { trainingsort: 'Wohngebiet Bruck', entfernung: '0 Min.', besonderheit: 'Training direkt bei dir zuhause', trainingsart: 'Einzeltraining, Verhaltensberatung' },
+      { trainingsort: 'Schwechat Welpenschule', entfernung: '20 Min.', besonderheit: 'Überdachter Trainingsplatz, max. 4 Teams', trainingsart: 'Welpenkurs, Junghundekurs' },
+    ],
+    regionCtaText: 'Bruck an der Leitha bietet alles, was dein Hund fürs Leben braucht – lass uns gemeinsam an euren Zielen arbeiten.',
   },
 };
 

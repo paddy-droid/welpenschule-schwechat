@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle2, Star, Users, Zap, Heart, ArrowLeft, Award, ThumbsUp, ShieldCheck, Phone, MapPin, Clock, Gift, ChevronDown } from 'lucide-react';
+import { CheckCircle2, Star, Users, Zap, Heart, ArrowLeft, Award, ThumbsUp, ShieldCheck, Phone, MapPin, Clock, Gift, ChevronDown, TreePine, Waves, Building2, Mountain, Landmark, Trees } from 'lucide-react';
 import Reviews from '@/components/Reviews';
 import WillenskraftSection from '@/components/WillenskraftSection';
 import { getLocationConfig } from '@/components/WillenskraftSection/config/locations';
@@ -415,65 +415,136 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
         </div>
       </section>
 
-      {/* Enhanced SEO Region Section */}
-      <section className="py-24 bg-white border-t border-gray-100">
-        <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
+      {/* Individual Region Section */}
+      <section className="py-24 bg-white border-t border-gray-100 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-yellow-100/30 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-50/40 rounded-full blur-3xl translate-y-1/2 pointer-events-none" />
+
+        <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight mb-6">
-              Mobiles Hundetraining in <span className="text-yellow-500">{data.name}</span> – Dein regionaler Experte
+            <div className="inline-flex items-center gap-2 p-2 px-5 rounded-full bg-yellow-100 text-yellow-800 font-bold text-sm uppercase tracking-widest mb-6">
+              <MapPin className="w-4 h-4" />
+              Deine Region
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-8 leading-tight">
+              {data.regionSectionTitle}
             </h2>
-            <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              {data.localDescription}
+            <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+              {data.regionSectionIntro}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                <MapPin className="text-yellow-500" /> {data.name} als Trainingsstandort
-              </h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Die Region rund um {data.name} bietet ideale Voraussetzungen für erfolgreiches Hundetraining. Von ruhigen Wohngebieten bis hin zu naturnahen Spazierwegen – wir nutzen die Vielfalt der Umgebung, um deinen Hund optimal auf alle Alltagssituationen vorzubereiten.
-              </p>
-              <ul className="space-y-3">
-                {data.localFeatures.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-yellow-500 w-5 h-5 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {data.regionHighlights.map((highlight) => {
+              const iconMap: Record<string, React.ReactNode> = {
+                river: <Waves className="w-7 h-7 text-blue-500" />,
+                forest: <TreePine className="w-7 h-7 text-green-600" />,
+                field: <Trees className="w-7 h-7 text-emerald-500" />,
+                mountain: <Mountain className="w-7 h-7 text-slate-600" />,
+                city: <Building2 className="w-7 h-7 text-indigo-500" />,
+                park: <TreePine className="w-7 h-7 text-green-500" />,
+                historic: <Landmark className="w-7 h-7 text-amber-600" />,
+              };
+              const bgMap: Record<string, string> = {
+                river: 'bg-blue-50 group-hover:bg-blue-100',
+                forest: 'bg-green-50 group-hover:bg-green-100',
+                field: 'bg-emerald-50 group-hover:bg-emerald-100',
+                mountain: 'bg-slate-50 group-hover:bg-slate-100',
+                city: 'bg-indigo-50 group-hover:bg-indigo-100',
+                park: 'bg-green-50 group-hover:bg-green-100',
+                historic: 'bg-amber-50 group-hover:bg-amber-100',
+              };
+              return (
+                <div key={highlight.title} className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_16px_40px_rgb(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1">
+                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-5 transition-colors ${bgMap[highlight.icon] || 'bg-slate-50'}`}>
+                    {iconMap[highlight.icon] || <MapPin className="w-7 h-7 text-yellow-500" />}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{highlight.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{highlight.description}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mb-16">
+            <div className="text-center mb-10">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">Trainingsorte in und um {data.name}</h3>
+              <p className="text-gray-600 text-lg">Alle Trainingsmöglichkeiten auf einen Blick – mit Entfernung und passendem Training.</p>
             </div>
 
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Warum sich professionelles Training in {data.name} lohnt</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Viele Verhaltensweisen wie Leinenaggression, Trennungsangst oder ständiges Bellen treten spezifisch in der gewohnten Umgebung auf. Durch unser Konzept des mobilen Trainings direkt in {data.name} können wir die Ursachen analysieren und genau dort ansetzen, wo die Herausforderungen im Alltag entstehen.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  `Stressfreie Begegnungen mit anderen Hunden in ${data.name}`,
-                  'Ein entspannter Alltag zuhause ohne ständiges Kontrollverhalten',
-                  'Zuverlässiger Rückruf auch bei starker Ablenkung',
-                  'Methoden auf Basis positiver Verstärkung ohne Druck',
-                  'Individuelle Anpassung des Trainingsplans an deine Bedürfnisse',
-                  'Umfassende Beratung zu artgerechter Auslastung',
-                ].map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <div className="bg-yellow-100 rounded-full p-1 mt-1 flex-shrink-0">
-                      <CheckCircle2 className="text-yellow-600 w-4 h-4" />
+            <div className="hidden lg:block bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 overflow-hidden">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gradient-to-r from-slate-900 to-slate-800">
+                    <th className="px-8 py-5 text-left text-sm font-bold text-yellow-400 uppercase tracking-wider">Trainingsort</th>
+                    <th className="px-8 py-5 text-left text-sm font-bold text-yellow-400 uppercase tracking-wider">Entfernung</th>
+                    <th className="px-8 py-5 text-left text-sm font-bold text-yellow-400 uppercase tracking-wider">Besonderheit</th>
+                    <th className="px-8 py-5 text-left text-sm font-bold text-yellow-400 uppercase tracking-wider">Trainingsart</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.regionTableRows.map((row, idx) => (
+                    <tr key={idx} className={`border-b border-slate-100 hover:bg-yellow-50/40 transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}`}>
+                      <td className="px-8 py-5">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <MapPin className="w-4 h-4 text-yellow-600" />
+                          </div>
+                          <span className="font-bold text-gray-900">{row.trainingsort}</span>
+                        </div>
+                      </td>
+                      <td className="px-8 py-5">
+                        <span className="inline-flex items-center gap-1.5 bg-green-100 text-green-800 font-bold px-3 py-1 rounded-full text-sm">
+                          <Clock className="w-3.5 h-3.5" />
+                          {row.entfernung}
+                        </span>
+                      </td>
+                      <td className="px-8 py-5 text-gray-700 font-medium">{row.besonderheit}</td>
+                      <td className="px-8 py-5">
+                        <span className="text-gray-700">{row.trainingsart}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="lg:hidden space-y-4">
+              {data.regionTableRows.map((row, idx) => (
+                <div key={idx} className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-slate-100">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-5 h-5 text-yellow-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 text-lg">{row.trainingsort}</h4>
+                        <span className="inline-flex items-center gap-1 bg-green-100 text-green-800 font-bold px-2.5 py-0.5 rounded-full text-xs mt-1">
+                          <Clock className="w-3 h-3" />
+                          {row.entfernung}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-gray-700 text-lg leading-relaxed font-medium">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                  <div className="space-y-2.5 ml-13">
+                    <div>
+                      <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Besonderheit</span>
+                      <p className="text-gray-700 font-medium">{row.besonderheit}</p>
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Trainingsart</span>
+                      <p className="text-gray-700">{row.trainingsart}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
           <div className="bg-gray-900 rounded-3xl p-10 lg:p-14 text-center text-white shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-yellow-500 rounded-full blur-3xl opacity-20" />
             <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-yellow-300 rounded-full blur-3xl opacity-20" />
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4 relative z-10">Mache den ersten Schritt zu einem harmonischen Alltag in {data.name}</h3>
+            <h3 className="text-2xl lg:text-3xl font-bold mb-4 relative z-10">{data.regionCtaText}</h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto relative z-10 text-lg">
               Ganz gleich, ob du einen Welpen hast oder einen erwachsenen Hund mit kleinen Baustellen – unser Hundetraining in {data.name} passt sich euch an.
             </p>
