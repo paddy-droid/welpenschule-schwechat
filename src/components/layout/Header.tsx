@@ -20,6 +20,8 @@ const mobileTrainingLocations = [
   { href: '/mobiles-hundetraining/goetzendorf', label: 'Götzendorf a. d. Leitha' },
   { href: '/mobiles-hundetraining/himberg', label: 'Himberg' },
   { href: '/mobiles-hundetraining/bruck-an-der-leitha', label: 'Bruck an der Leitha' },
+  { href: '/mobiles-hundetraining/wien-simmering', label: 'Wien-Simmering' },
+  { href: '/mobiles-hundetraining/parndorf', label: 'Parndorf' },
 ];
 
 const legalItems = [

@@ -23,6 +23,8 @@ export default function Footer() {
                     <Link href="/mobiles-hundetraining/goetzendorf"><p className="hover:text-yellow-500">Götzendorf</p></Link>
                     <Link href="/mobiles-hundetraining/himberg"><p className="hover:text-yellow-500">Himberg</p></Link>
                     <Link href="/mobiles-hundetraining/bruck-an-der-leitha"><p className="hover:text-yellow-500">Bruck/Leitha</p></Link>
+                    <Link href="/mobiles-hundetraining/wien-simmering"><p className="hover:text-yellow-500">Wien-Simmering</p></Link>
+                    <Link href="/mobiles-hundetraining/parndorf"><p className="hover:text-yellow-500">Parndorf</p></Link>
                 </div>
             </div>
             <div>
