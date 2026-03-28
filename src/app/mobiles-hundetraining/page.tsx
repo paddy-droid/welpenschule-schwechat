@@ -77,6 +77,8 @@ const locations = [
   { name: 'Götzendorf', slug: 'goetzendorf' },
   { name: 'Himberg', slug: 'himberg' },
   { name: 'Bruck/Leitha', slug: 'bruck-an-der-leitha' },
+  { name: 'Wien-Simmering', slug: 'wien-simmering' },
+  { name: 'Parndorf', slug: 'parndorf' },
 ];
 
 export default function MobileHundetrainingPage() {
@@ -340,7 +342,7 @@ export default function MobileHundetrainingPage() {
               },
               {
                 q: 'In welchen Orten bietet ihr mobiles Hundetraining an?',
-                a: 'Wir bieten mobiles Hundetraining in Schwechat und der gesamten Umgebung an: Fischamend, Schwadorf, Ebenfurth, Gramatneusiedl, Götzendorf, Himberg, Bruck an der Leitha und vielen weiteren Orten in der Region.'
+                a: 'Wir bieten mobiles Hundetraining in Schwechat und der gesamten Umgebung an: Fischamend, Schwadorf, Ebenfurth, Gramatneusiedl, Götzendorf, Himberg, Bruck an der Leitha, Wien-Simmering, Parndorf und vielen weiteren Orten in der Region.'
               },
               {
                 q: 'Für welche Hunde ist das mobile Training geeignet?',

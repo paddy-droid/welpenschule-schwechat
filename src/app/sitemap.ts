@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'goetzendorf',
     'himberg',
     'bruck-an-der-leitha',
+    'wien-simmering',
+    'parndorf',
   ];
 
   return [
