@@ -57,7 +57,7 @@ function buildLocalBusinessJsonLd(data: RegionData) {
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'PetTrainer'],
-    name: `Mobiles Hundetraining ${data.name} – Hundeschule Willenskraft`,
+    name: `Hundeschule ${data.name} – Willenskraft`,
     description: `Ganzheitliches und gewaltfreies mobiles Hundetraining in ${data.name} und Umgebung. Einzeltraining, Welpentraining und Verhaltensberatung direkt bei dir zuhause.`,
     url: `https://www.welpenschule-schwechat.at/mobiles-hundetraining/${data.slug}`,
     telephone: '+436643903673',
@@ -163,7 +163,7 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
               <MapPin className="w-3 h-3" /> Mobiles Hundetraining
             </span>
             <h1 className="wk-display text-[clamp(2.5rem,7vw,5.5rem)] text-cream">
-              Hundetraining in
+              Hundeschule
               <br />
               <span className="wk-text-gradient">{data.name}</span>
               <span className="text-brand-400">.</span>

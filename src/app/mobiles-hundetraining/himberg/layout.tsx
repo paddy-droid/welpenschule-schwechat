@@ -1,24 +1,21 @@
 import type { Metadata } from 'next';
 
+const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/himberg';
+
 export const metadata: Metadata = {
-  title: 'Mobiles Hundetraining Himberg | Hundeschule Willenskraft',
-  description: 'Mobiles Hundetraining in Himberg ✓ Hundetrainerin kommt zu dir nach Hause ✓ Gewaltfrei & individuell ✓ Alle Hunderassen & Altersstufen ✓ Jetzt anfragen: +43 664 3903673',
-  keywords: ['Mobiles Hundetraining Himberg', 'Hundetrainer Himberg', 'Hundeschule Himberg', 'Hundeerziehung Himberg Niederösterreich', 'Willenskraft Himberg'],
-  alternates: {
-    canonical: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/himberg',
-  },
+  title: 'Hundeschule Himberg | Mobiles 1:1-Training',
+  description:
+    'Hundeschule Himberg ✓ Stadtgrenze Wien & Donau-Auen ✓ mobiles, gewaltfreies Hundetraining ✓ Willenskraft. Erstberatung 95€.',
+  keywords: ['Hundeschule Himberg', 'Hundetrainer Himberg', 'Mobiles Hundetraining Himberg', 'Welpenkurs Himberg'],
+  alternates: { canonical: url },
   openGraph: {
-    title: 'Mobiles Hundetraining Himberg | Hundeschule Willenskraft',
-    description: 'Individuelles Hundetraining in Himberg. Wir kommen zu dir! Gewaltfrei, flexibel, effektiv. Jetzt anfragen.',
-    url: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/himberg',
+    title: 'Hundeschule Himberg | Mobiles 1:1-Training',
+    description: 'Hundeschule Himberg ✓ Wien-Grenze & Donau-Auen ✓ mobil & gewaltfrei ✓ Willenskraft. 95€.',
+    url,
     type: 'website',
   },
 };
 
-export default function HimbergLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function HimbergLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

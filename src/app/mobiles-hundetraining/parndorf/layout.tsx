@@ -1,24 +1,21 @@
 import type { Metadata } from 'next';
 
+const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/parndorf';
+
 export const metadata: Metadata = {
-  title: 'Mobiles Hundetraining Parndorf | Hundeschule Willenskraft',
-  description: 'Mobiles Hundetraining in Parndorf ✓ Hundetrainerin kommt zu dir nach Hause ✓ Gewaltfrei & individuell ✓ Alle Hunderassen & Altersstufen ✓ Jetzt anfragen: +43 664 3903673',
-  keywords: ['Mobiles Hundetraining Parndorf', 'Hundetrainer Parndorf', 'Hundeschule Parndorf', 'Hundeerziehung Parndorf', 'Welpenschule Parndorf', 'Willenskraft Parndorf'],
-  alternates: {
-    canonical: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/parndorf',
-  },
+  title: 'Hundeschule Parndorf | Mobil & gewaltfrei',
+  description:
+    'Hundeschule Parndorf ✓ pannonische Weite & Outlet-Begegnungen ✓ mobiles 1:1-Hundetraining ✓ Willenskraft. Erstberatung 95€.',
+  keywords: ['Hundeschule Parndorf', 'Hundetrainer Parndorf', 'Mobiles Hundetraining Parndorf', 'Welpenkurs Parndorf Burgenland'],
+  alternates: { canonical: url },
   openGraph: {
-    title: 'Mobiles Hundetraining Parndorf | Hundeschule Willenskraft',
-    description: 'Individuelles Hundetraining in Parndorf. Wir kommen zu dir! Gewaltfrei, flexibel, effektiv. Jetzt anfragen.',
-    url: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/parndorf',
+    title: 'Hundeschule Parndorf | Mobil & gewaltfrei',
+    description: 'Hundeschule Parndorf ✓ pannonische Weite ✓ mobil & gewaltfrei ✓ Willenskraft. Erstberatung 95€.',
+    url,
     type: 'website',
   },
 };
 
-export default function ParndorfLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ParndorfLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

@@ -1,24 +1,21 @@
 import type { Metadata } from 'next';
 
+const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/fischamend';
+
 export const metadata: Metadata = {
-  title: 'Mobiles Hundetraining Fischamend | Hundeschule Willenskraft',
-  description: 'Mobiles Hundetraining in Fischamend ✓ Hundetrainerin kommt zu dir nach Hause ✓ Gewaltfrei & individuell ✓ Alle Hunderassen & Altersstufen ✓ Jetzt anfragen: +43 664 3903673',
-  keywords: ['Mobiles Hundetraining Fischamend', 'Hundetrainer Fischamend', 'Hundeschule Fischamend', 'Hundeerziehung Fischamend', 'Willenskraft Fischamend'],
-  alternates: {
-    canonical: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/fischamend',
-  },
+  title: 'Hundeschule Fischamend | Mobiles 1:1-Training',
+  description:
+    'Hundeschule Fischamend ✓ Donau-Auen Trainingsgebiet ✓ mobiles, gewaltfreies Hundetraining ✓ Willenskraft. Erstberatung 95€.',
+  keywords: ['Hundeschule Fischamend', 'Hundetrainer Fischamend', 'Mobiles Hundetraining Fischamend', 'Welpenkurs Fischamend'],
+  alternates: { canonical: url },
   openGraph: {
-    title: 'Mobiles Hundetraining Fischamend | Hundeschule Willenskraft',
-    description: 'Individuelles Hundetraining in Fischamend. Wir kommen zu dir! Gewaltfrei, flexibel, effektiv. Jetzt anfragen.',
-    url: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/fischamend',
+    title: 'Hundeschule Fischamend | Mobiles 1:1-Training',
+    description: 'Hundeschule Fischamend ✓ Donau-Auen ✓ mobil & gewaltfrei ✓ Willenskraft. Erstberatung 95€.',
+    url,
     type: 'website',
   },
 };
 
-export default function FischamendLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function FischamendLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

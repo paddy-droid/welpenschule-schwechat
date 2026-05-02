@@ -1,24 +1,29 @@
 import type { Metadata } from 'next';
 
+const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining';
+
 export const metadata: Metadata = {
-  title: 'Mobiles Hundetraining Schwechat & Umgebung | Hundeschule Willenskraft',
-  description: 'Mobiles Hundetraining in Schwechat ✓ Wir kommen zu dir ✓ Gewaltfrei & individuell ✓ Erstberatung 90 Min. ab 95€ ✓ Alle Hunderassen & Altersstufen ✓ Jetzt anfragen!',
-  keywords: ['Mobiles Hundetraining Schwechat', 'Hundetrainer kommt nach Hause', 'Einzeltraining Hund Schwechat', 'Hundeerziehung vor Ort Niederösterreich'],
-  alternates: {
-    canonical: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining',
-  },
+  title: 'Hundeschule Schwechat | Mobiles Training & Welpenkurs',
+  description:
+    'Hundeschule Schwechat ✓ gewaltfreies, mobiles 1:1-Hundetraining + Welpenkurs ✓ Willenskraft. Erstberatung 95€. ☎ +43 664 3903673',
+  keywords: [
+    'Hundeschule Schwechat',
+    'Mobiles Hundetraining Schwechat',
+    'Hundetrainer Schwechat',
+    'Welpenkurs Schwechat',
+    'Hundeerziehung Schwechat',
+    'Willenskraft Schwechat',
+  ],
+  alternates: { canonical: url },
   openGraph: {
-    title: 'Mobiles Hundetraining Schwechat | Hundeschule Willenskraft',
-    description: 'Individuelles Hundetraining bei dir zuhause in Schwechat und Umgebung. Gewaltfrei, flexibel und effektiv. Jetzt anfragen!',
-    url: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining',
+    title: 'Hundeschule Schwechat | Mobiles Training & Welpenkurs',
+    description:
+      'Hundeschule Schwechat ✓ gewaltfrei ✓ mobiles 1:1-Training + Welpenkurs ✓ Willenskraft. Erstberatung 95€.',
+    url,
     type: 'website',
   },
 };
 
-export default function MobileTrainingLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MobileTrainingLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

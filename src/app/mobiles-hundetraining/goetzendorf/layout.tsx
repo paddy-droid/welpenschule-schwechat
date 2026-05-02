@@ -1,24 +1,21 @@
 import type { Metadata } from 'next';
 
+const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/goetzendorf';
+
 export const metadata: Metadata = {
-  title: 'Mobiles Hundetraining Götzendorf an der Leitha | Hundeschule Willenskraft',
-  description: 'Mobiles Hundetraining in Götzendorf an der Leitha ✓ Hundetrainerin kommt zu dir nach Hause ✓ Gewaltfrei & individuell ✓ Alle Hunderassen & Altersstufen ✓ Jetzt anfragen!',
-  keywords: ['Mobiles Hundetraining Götzendorf', 'Hundetrainer Götzendorf an der Leitha', 'Hundeschule Götzendorf', 'Hundeerziehung Götzendorf Leitha'],
-  alternates: {
-    canonical: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/goetzendorf',
-  },
+  title: 'Hundeschule Götzendorf | Mobil & gewaltfrei',
+  description:
+    'Hundeschule Götzendorf an der Leitha ✓ Leitha-Auen Training ✓ mobiles 1:1-Hundetraining ✓ Willenskraft. Erstberatung 95€.',
+  keywords: ['Hundeschule Götzendorf', 'Hundetrainer Götzendorf', 'Mobiles Hundetraining Götzendorf an der Leitha', 'Welpenkurs Götzendorf'],
+  alternates: { canonical: url },
   openGraph: {
-    title: 'Mobiles Hundetraining Götzendorf an der Leitha | Hundeschule Willenskraft',
-    description: 'Individuelles Hundetraining in Götzendorf. Wir kommen zu dir! Gewaltfrei, flexibel, effektiv. Jetzt anfragen.',
-    url: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/goetzendorf',
+    title: 'Hundeschule Götzendorf | Mobil & gewaltfrei',
+    description: 'Hundeschule Götzendorf ✓ Leitha-Auen ✓ mobil & gewaltfrei ✓ Willenskraft. Erstberatung 95€.',
+    url,
     type: 'website',
   },
 };
 
-export default function GoetzendorfLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function GoetzendorfLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
