@@ -834,13 +834,14 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
             <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-brand-500 blur-[120px] opacity-25" />
             <div className="absolute inset-0 wk-grain opacity-25" />
             <div className="relative grid md:grid-cols-12 gap-10 items-center">
-              <div className="md:col-span-4">
+              <div className="md:col-span-4 relative">
+                <div className="absolute inset-0 bg-brand-500 rounded-full blur-3xl opacity-30 -translate-y-2" />
                 <Image
                   src={profileImage}
                   alt={`Jessica Pusch — Hundeschule Willenskraft ${data.name}`}
                   width={400}
                   height={400}
-                  className="rounded-full mx-auto object-cover aspect-square border-4 border-ink-800 shadow-2xl"
+                  className="rounded-full mx-auto object-cover aspect-square relative z-10 border-4 border-ink-800 shadow-2xl"
                 />
               </div>
               <div className="md:col-span-8 text-center md:text-left">
