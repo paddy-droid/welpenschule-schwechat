@@ -1,8 +1,35 @@
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle2, Star, Users, Zap, Heart, ArrowLeft, Award, ThumbsUp, ShieldCheck, Phone, MapPin, Clock, Gift, ChevronDown, TreePine, Waves, Building2, Mountain, Landmark, Trees } from 'lucide-react';
+import {
+  CheckCircle2,
+  Star,
+  Users,
+  Zap,
+  Heart,
+  ArrowLeft,
+  ArrowRight,
+  Award,
+  ThumbsUp,
+  ShieldCheck,
+  Phone,
+  MapPin,
+  Clock,
+  Gift,
+  ChevronDown,
+  TreePine,
+  Waves,
+  Building2,
+  Mountain,
+  Landmark,
+  Trees,
+  Compass,
+  BookOpen,
+  Calendar,
+  Activity,
+  Sun,
+  Snowflake,
+  Sparkles,
+} from 'lucide-react';
 import Reviews from '@/components/Reviews';
 import WillenskraftSection from '@/components/WillenskraftSection';
 import { getLocationConfig } from '@/components/WillenskraftSection/config/locations';
@@ -18,13 +45,10 @@ function buildFaqJsonLd(data: RegionData) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: data.faqs.map(faq => ({
+    mainEntity: data.faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
     })),
   };
 }
@@ -32,8 +56,8 @@ function buildFaqJsonLd(data: RegionData) {
 function buildLocalBusinessJsonLd(data: RegionData) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: `Mobiles Hundetraining ${data.name} - Hundeschule Willenskraft`,
+    '@type': ['LocalBusiness', 'PetTrainer'],
+    name: `Mobiles Hundetraining ${data.name} – Hundeschule Willenskraft`,
     description: `Ganzheitliches und gewaltfreies mobiles Hundetraining in ${data.name} und Umgebung. Einzeltraining, Welpentraining und Verhaltensberatung direkt bei dir zuhause.`,
     url: `https://www.welpenschule-schwechat.at/mobiles-hundetraining/${data.slug}`,
     telephone: '+436643903673',
@@ -43,18 +67,45 @@ function buildLocalBusinessJsonLd(data: RegionData) {
       addressRegion: 'Niederösterreich',
       addressCountry: 'AT',
     },
-    areaServed: {
-      '@type': 'City',
-      name: data.name,
-    },
+    areaServed: { '@type': 'City', name: data.name },
     priceRange: '€€',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '50',
-    },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '5', reviewCount: '50' },
   };
 }
+
+// Universal training knowledge base — designed to be AI-scrapeable per region
+const trainingKnowledgeBase = (regionName: string) => [
+  {
+    question: 'Wie oft pro Woche sollte ich mit meinem Hund trainieren?',
+    answer: `Optimal sind 3–5 kurze Einheiten pro Woche à 5–10 Minuten plus Alltagsübungen. Mehr ist nicht besser – Hunde lernen in kurzen, fokussierten Sessions deutlich nachhaltiger als in langen Trainings­blöcken. Im mobilen Training in ${regionName} bauen wir gemeinsam einen realistischen Trainingsplan, der zu deinem Alltag passt.`,
+    icon: Clock,
+  },
+  {
+    question: 'Wie lange dauert es, bis ein neues Signal sitzt?',
+    answer: 'Ein einzelnes Signal kann nach 50–100 sauberen Wiederholungen unter ablenkungsarmen Bedingungen abgerufen werden. Für Generalisierung (Signal funktioniert überall) braucht es deutlich mehr Wiederholungen unter wechselnden Bedingungen — typischerweise 4–8 Wochen.',
+    icon: Activity,
+  },
+  {
+    question: 'Welche Belohnung wirkt am besten?',
+    answer: 'Hochwertige Futter­belohnungen (z.B. Käse, Fleisch, Leberwurst) wirken bei den meisten Hunden am stärksten — vor allem in der Lernphase. Spielzeug, Sozialkontakt oder Umweltbelohnungen werden zusätzlich genutzt. Wichtig: Die Belohnung muss schnell (innerhalb 1 Sekunde) auf das gewünschte Verhalten folgen.',
+    icon: Heart,
+  },
+  {
+    question: 'Welche Trainingstemperaturen sind optimal?',
+    answer: `In ${regionName} trainieren wir ganzjährig. Bei Hitze über 25 °C verlegen wir Einheiten in den Morgen oder Abend. Bei Kälte unter -5 °C verkürzen wir Drauß­ensessions und arbeiten mehr im Haus. Asphalt im Sommer und Streusalz im Winter sind die häufigsten Problemquellen für Welpenpfoten.`,
+    icon: Sun,
+  },
+  {
+    question: 'Ab welchem Alter darf mein Welpe Treppen steigen?',
+    answer: 'Bis zur 16. Lebenswoche sollten Welpen Treppen nicht regelmäßig selbstständig steigen, um Wachstumsfugen und Gelenke zu schonen. Tragen oder Tragehilfen sind ideal. Ab 5–6 Monaten gewöhnen wir den Welpen schrittweise und kontrolliert an Treppen — niedrige Treppen zuerst.',
+    icon: BookOpen,
+  },
+  {
+    question: 'Wie viel Schlaf braucht ein Welpe?',
+    answer: 'Welpen brauchen 18–22 Stunden Schlaf täglich. Schlafmangel ist eine häufige Ursache für Beiß­hemmungsprobleme, Übermüdung und scheinbar „aggressives" Verhalten. Ein eigener, ruhiger Rückzugsort ist Pflicht.',
+    icon: Snowflake,
+  },
+];
 
 export default function RegionPageTemplate({ regionKey }: { regionKey: string }) {
   const data = getRegionData(regionKey);
@@ -62,273 +113,331 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
 
   const willenskraftConfig = getLocationConfig(regionKey);
 
-  return (
-    <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(data)) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildLocalBusinessJsonLd(data)) }}
-      />
+  // HowTo schema for region — improves AI/LLM extraction
+  const howToJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `Mobiles Hundetraining in ${data.name} buchen — in 3 Schritten`,
+    description: `Schritt-für-Schritt-Anleitung, wie du ein mobiles Hundetraining in ${data.name} bei der Hundeschule Willenskraft buchst.`,
+    totalTime: 'PT2D',
+    step: data.processSteps.map((s) => ({
+      '@type': 'HowToStep',
+      position: s.step,
+      name: s.title,
+      text: s.description,
+    })),
+  };
 
-      {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center text-white">
+  // BreadcrumbList for SEO
+  const breadcrumbsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://www.welpenschule-schwechat.at' },
+      { '@type': 'ListItem', position: 2, name: 'Mobiles Hundetraining', item: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining' },
+      { '@type': 'ListItem', position: 3, name: data.name, item: `https://www.welpenschule-schwechat.at/mobiles-hundetraining/${data.slug}` },
+    ],
+  };
+
+  return (
+    <div className="bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(data)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildLocalBusinessJsonLd(data)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }} />
+
+      {/* ============== HERO ============== */}
+      <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
         <Image
           src={heroImage}
           alt={`Mobiles Hundetraining in ${data.name}`}
           fill
-          className="object-cover absolute z-0 brightness-75"
+          className="object-cover absolute inset-0 z-0 brightness-[0.55]"
           priority
         />
-        <div className="relative z-20 text-center p-6 md:p-8 bg-black/20 rounded-lg shadow-lg max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-extrabold drop-shadow-lg">
-            Mobiles Hundetraining in <span className="text-yellow-400">{data.name}</span>
-          </h1>
-          <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            {data.heroSubtitle}
-          </p>
-          <Button asChild size="lg" className="mt-8 bg-yellow-500 hover:bg-yellow-600 text-black font-bold">
-            <Link href={`/kontakt?service=mobiles-training-${data.slug}`}>Jetzt mobiles Training anfragen</Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Trust Stats Bar */}
-      <section className="bg-white border-y border-slate-100 py-12 sm:py-16">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {[
-              { icon: <Award className="w-8 h-8 text-yellow-500" />, value: '10+', label: 'Jahre Erfahrung', sub: 'Hundeschule Willenskraft' },
-              { icon: <Users className="w-8 h-8 text-yellow-500" />, value: '1:1', label: 'Einzeltraining', sub: '100% Fokus auf euch' },
-              { icon: <ThumbsUp className="w-8 h-8 text-yellow-500" />, value: '5\u2605', label: 'Google Bewertung', sub: 'Verifizierte Reviews' },
-              { icon: <ShieldCheck className="w-8 h-8 text-yellow-500" />, value: '100%', label: 'Gewaltfrei', sub: 'Positive Verstärkung' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center group">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-50 rounded-2xl mb-3 group-hover:bg-yellow-100 transition-colors">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl font-black text-gray-900 mb-1">{stat.value}</div>
-                <div className="font-bold text-gray-800 text-sm">{stat.label}</div>
-                <div className="text-xs text-gray-400 mt-0.5">{stat.sub}</div>
-              </div>
-            ))}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/30 via-ink-950/40 to-background z-0" />
+        <div className="absolute inset-0 wk-grain opacity-50 z-0" />
+        <div className="relative z-10 container mx-auto px-6 py-32">
+          <div className="max-w-4xl">
+            <span className="wk-eyebrow !bg-cream/15 !border-cream/25 !text-cream backdrop-blur mb-7">
+              <MapPin className="w-3 h-3" /> Mobiles Hundetraining
+            </span>
+            <h1 className="wk-display text-[clamp(2.5rem,7vw,5.5rem)] text-cream">
+              Hundetraining in
+              <br />
+              <span className="wk-text-gradient">{data.name}</span>
+              <span className="text-brand-400">.</span>
+            </h1>
+            <p className="mt-7 text-lg md:text-xl text-cream/85 max-w-2xl leading-relaxed">
+              {data.heroSubtitle}
+            </p>
+            <div className="mt-9 flex flex-col sm:flex-row gap-3">
+              <Link
+                href={`/kontakt?service=mobiles-training-${data.slug}`}
+                className="wk-btn-primary inline-flex items-center justify-center gap-2 px-7 h-13 rounded-full font-semibold"
+              >
+                Jetzt mobiles Training anfragen
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="tel:+436643903673"
+                className="inline-flex items-center justify-center gap-2 px-6 h-13 rounded-full bg-cream/10 backdrop-blur border border-cream/30 text-cream hover:bg-cream/20 transition-all font-semibold"
+              >
+                <Phone className="w-4 h-4" /> +43 664 3903673
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">{data.introTitle}</h2>
-          <p className="text-lg text-gray-700">{data.introText}</p>
+      {/* ============== TRUST STATS ============== */}
+      <section className="relative -mt-12 z-20">
+        <div className="container mx-auto px-6">
+          <div className="wk-glass rounded-3xl px-8 py-8 md:px-12 md:py-10 max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { icon: Award, value: '10+', label: 'Jahre Erfahrung' },
+                { icon: Users, value: '1:1', label: 'Einzeltraining' },
+                { icon: ThumbsUp, value: '5,0', label: 'Google Bewertung' },
+                { icon: ShieldCheck, value: '100 %', label: 'Gewaltfrei' },
+              ].map((s) => (
+                <div key={s.label} className="text-center md:text-left flex md:items-center gap-3 md:gap-4 flex-col md:flex-row">
+                  <div className="self-center md:self-auto inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-brand-100 text-brand-700">
+                    <s.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-2xl md:text-3xl font-bold text-ink-950 tracking-tight">{s.value}</div>
+                    <div className="text-xs text-ink-500 mt-0.5">{s.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Details Section */}
-      <section className="bg-slate-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-2xl font-bold">{data.detailsTitle}</h3>
-                <p className="text-lg mt-2">{data.detailsText}</p>
+      {/* ============== INTRO ============== */}
+      <section className="wk-section">
+        <div className="container mx-auto px-6 max-w-4xl text-center">
+          <h2 className="wk-display text-3xl md:text-5xl text-ink-950 leading-[1.05]">{data.introTitle}</h2>
+          <p className="mt-7 text-lg text-ink-600 leading-relaxed">{data.introText}</p>
+        </div>
+      </section>
+
+      {/* ============== DETAILS ============== */}
+      <section className="bg-card wk-section">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+            <div className="lg:col-span-7 space-y-10">
+              <div className="space-y-4">
+                <span className="wk-eyebrow">Vorteil</span>
+                <h3 className="wk-display text-3xl md:text-5xl text-ink-950">{data.detailsTitle}</h3>
+                <p className="text-lg text-ink-600 leading-relaxed">{data.detailsText}</p>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold">{data.targetTitle}</h3>
-                <p className="text-lg mt-2">{data.targetText}</p>
+              <div className="wk-rule" />
+              <div className="space-y-4">
+                <span className="wk-eyebrow">Zielgruppe</span>
+                <h3 className="wk-display text-3xl md:text-5xl text-ink-950">{data.targetTitle}</h3>
+                <p className="text-lg text-ink-600 leading-relaxed">{data.targetText}</p>
               </div>
             </div>
-            <div>
+            <div className="lg:col-span-5 relative">
+              <div className="absolute -inset-5 bg-brand-100 rounded-[2.5rem] rotate-3 opacity-50 blur-2xl" />
               <Image
                 src={heroImage}
                 alt={`Hund und Besitzerin trainieren zuhause in ${data.name}`}
-                width={600}
-                height={600}
-                className="rounded-lg shadow-xl object-cover aspect-square"
+                width={700}
+                height={700}
+                className="relative rounded-[2rem] shadow-[0_40px_80px_-32px_rgba(0,0,0,0.25)] object-cover aspect-square"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Process Steps Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-5xl">
+      {/* ============== PROCESS STEPS ============== */}
+      <section className="wk-section">
+        <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block p-2 px-4 rounded-full bg-blue-100 text-blue-800 font-bold text-sm uppercase tracking-widest mb-4">Ablauf</div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">So funktioniert dein mobiles Training in {data.name}</h2>
-            <p className="text-lg text-gray-600">In drei einfachen Schritten zu einem entspannten Alltag mit deinem Hund.</p>
+            <span className="wk-eyebrow mb-5">Ablauf</span>
+            <h2 className="wk-display text-4xl md:text-5xl text-ink-950">
+              So startet dein mobiles Training in {data.name}.
+            </h2>
+            <p className="mt-6 text-lg text-ink-600">In drei einfachen Schritten zu einem entspannten Alltag mit deinem Hund.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+
+          <ol className="grid md:grid-cols-3 gap-5 relative">
             {data.processSteps.map((step) => (
-              <div key={step.step} className="relative text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-yellow-400 rounded-full mb-6 shadow-lg">
-                  <span className="text-3xl font-black text-gray-900">{step.step}</span>
+              <li key={step.step} className="wk-card p-8">
+                <div className="flex items-baseline justify-between mb-5">
+                  <span className="wk-display text-6xl text-brand-600 leading-none">0{step.step}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-ink-300">
+                    Schritt {step.step}
+                  </span>
                 </div>
-                {step.step < 3 && (
-                  <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-yellow-200" />
-                )}
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
-              </div>
+                <h3 className="text-xl font-semibold text-ink-950 mb-3 tracking-tight">{step.title}</h3>
+                <p className="text-ink-600 leading-relaxed">{step.description}</p>
+              </li>
             ))}
-          </div>
+          </ol>
+
           <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold">
-              <Link href={`/kontakt?service=mobiles-training-${data.slug}`}>Jetzt Erstberatung vereinbaren</Link>
-            </Button>
+            <Link
+              href={`/kontakt?service=mobiles-training-${data.slug}`}
+              className="wk-btn-primary inline-flex items-center gap-2 px-7 h-12 rounded-full font-semibold"
+            >
+              Jetzt Erstberatung vereinbaren
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Pillars Section */}
-      <section className="py-20 bg-slate-50/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">Die 5 Vorteile des mobilen Hundetrainings in {data.name}</h2>
-            <p className="text-lg text-gray-700">Flexibel, individuell und effektiv – entdecke, warum sich das Training bei dir zuhause in {data.name} lohnt!</p>
+      {/* ============== PILLARS ============== */}
+      <section className="wk-section bg-card">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="wk-eyebrow mb-5">Vorteile</span>
+            <h2 className="wk-display text-4xl md:text-5xl text-ink-950">
+              5 Gründe für mobiles Training
+              <br />
+              <span className="wk-text-gradient">in {data.name}.</span>
+            </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {data.pillars.map((pillar, idx) => {
               const IconComp = pillarIcons[idx];
               return (
-                <Card key={pillar.title} className="hover:shadow-lg transition-shadow bg-white">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3">
-                      {IconComp && <IconComp className="text-yellow-500" />}
-                      {pillar.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>{pillar.description}</p>
-                  </CardContent>
-                </Card>
+                <div key={pillar.title} className="wk-card p-7 group">
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-cream transition-colors">
+                      {IconComp && <IconComp className="w-5 h-5" />}
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-ink-300">0{idx + 1}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-ink-950 mb-3 tracking-tight">{pillar.title}</h3>
+                  <p className="text-ink-600 leading-relaxed text-sm">{pillar.description}</p>
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-3xl p-8 sm:p-12 text-center shadow-xl relative overflow-hidden">
-            <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/20 rounded-full blur-2xl" />
-            <Gift className="w-16 h-16 text-white mx-auto mb-4 drop-shadow-sm" />
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Mobile Erstberatung in {data.name}</h3>
-            <p className="text-yellow-900 font-bold uppercase tracking-wider text-sm mb-6">90 Minuten intensiv & individuell</p>
-            <p className="text-6xl font-black text-white mb-4 drop-shadow-md">95€</p>
-            <p className="text-gray-900 font-medium mb-8 max-w-xl mx-auto">Wir analysieren die Situation bei dir zuhause in {data.name}, besprechen deine Ziele und erstellen einen individuellen Trainingsplan für dich und deinen Hund.</p>
-            <Button asChild size="lg" className="bg-gray-900 hover:bg-gray-800 text-yellow-400 font-bold shadow-xl rounded-full px-8 py-6 text-lg">
-              <Link href={`/kontakt?service=erstberatung-mobil-${data.slug}`}>Jetzt Erstberatung buchen</Link>
-            </Button>
+      {/* ============== PRICING ============== */}
+      <section className="wk-section">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="relative overflow-hidden rounded-[2.5rem] p-10 md:p-14 text-center bg-gradient-to-br from-brand-400 via-brand-500 to-brand-700 text-ink-950 shadow-[0_40px_80px_-30px_rgba(186,135,30,0.6)]">
+            <div className="absolute -top-12 -right-12 w-56 h-56 rounded-full bg-cream/30 blur-3xl" />
+            <div className="absolute inset-0 wk-grain opacity-25" />
+            <div className="relative z-10">
+              <Gift className="w-10 h-10 text-cream mx-auto mb-4" />
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink-950/80 mb-3">Erstberatung</p>
+              <h3 className="wk-display text-3xl md:text-4xl mb-3">Mobile Erstberatung in {data.name}</h3>
+              <p className="text-ink-950/80 mb-7">90 Minuten · individuell · bei dir zuhause</p>
+              <p className="wk-display text-7xl md:text-8xl text-cream mb-6 tracking-tighter">95 €</p>
+              <p className="text-ink-950/85 mb-8 max-w-xl mx-auto leading-relaxed">
+                Wir analysieren die Situation bei dir zuhause in {data.name}, besprechen deine Ziele und erstellen
+                einen individuellen Trainingsplan für dich und deinen Hund.
+              </p>
+              <Link
+                href={`/kontakt?service=erstberatung-mobil-${data.slug}`}
+                className="inline-flex items-center justify-center gap-2 bg-ink-950 text-cream rounded-full px-8 h-13 font-semibold hover:bg-ink-900 transition-colors"
+              >
+                Erstberatung buchen
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Training Methods Section */}
-      <section className="py-20 bg-slate-50 border-t border-slate-100">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Training mit Freude & Verstand in {data.name}</h2>
-            <p className="text-lg text-gray-600">Wir setzen auf moderne, wissenschaftlich fundierte Methoden. Positive Verstärkung statt Druck und Zwang.</p>
+      {/* ============== TRAINING METHODS ============== */}
+      <section className="wk-section bg-card">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="wk-eyebrow mb-5">Methode</span>
+            <h2 className="wk-display text-4xl md:text-5xl text-ink-950">
+              Training mit Freude &amp; Verstand in {data.name}.
+            </h2>
+            <p className="mt-6 text-lg text-ink-600">
+              Moderne, wissenschaftlich fundierte Methoden — positive Verstärkung statt Druck und Zwang.
+            </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-blue-50 rounded-3xl transform -rotate-2 scale-105 opacity-50 blur-xl" />
+          <div className="grid lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+            <div className="lg:col-span-5 relative">
+              <div className="absolute -inset-4 bg-brand-100 rounded-[2.5rem] -rotate-2 opacity-50 blur-xl" />
               <Image
                 src="https://www.willenskraft.co.at/wp-content/uploads/2024/05/Hundeschule-Bad-Deutsch-Altenburg-Welpentraining-845x684.webp"
                 alt={`Training mit positiver Verstärkung in ${data.name}`}
                 width={700}
                 height={700}
-                className="relative rounded-3xl shadow-2xl object-cover aspect-square object-center"
+                className="relative rounded-[2rem] shadow-2xl object-cover aspect-square"
               />
             </div>
-            <div className="space-y-8">
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                  <CheckCircle2 className="text-green-500" /> Positive Verstärkung
-                </h3>
-                <p className="text-gray-600 leading-relaxed font-medium">Wir belohnen gewünschtes Verhalten statt Fehler zu bestrafen. Dadurch lernt dein Hund gerne und nachhaltig – mit Freude statt mit Angst. Diese Methode ist wissenschaftlich belegt und tierschutzkonform.</p>
-              </div>
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                  <Users className="text-blue-500" /> Individuelle Betreuung
-                </h3>
-                <p className="text-gray-600 leading-relaxed font-medium">Im mobilen 1:1-Training in {data.name} geht es nur um dich und deinen Hund. Wir passen Tempo, Methoden und Übungen genau auf eure Situation an – ohne Gruppenzwang.</p>
-              </div>
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                  <ShieldCheck className="text-yellow-500" /> Tierschutzkonform
-                </h3>
-                <p className="text-gray-600 leading-relaxed font-medium">Alle unsere Methoden entsprechen dem aktuellen Stand der Verhaltensforschung und den Tierschutzrichtlinien. Kein Zwang, keine Dominanztheorie, kein Stachelhals – nur faire und respektvolle Kommunikation.</p>
-              </div>
+            <div className="lg:col-span-7 space-y-4">
+              {[
+                { icon: CheckCircle2, title: 'Positive Verstärkung', text: 'Wir belohnen gewünschtes Verhalten statt Fehler zu bestrafen. Dadurch lernt dein Hund gerne und nachhaltig — mit Freude statt mit Angst. Wissenschaftlich belegt und tierschutzkonform.' },
+                { icon: Users, title: 'Individuelle Betreuung', text: `Im mobilen 1:1-Training in ${data.name} geht es nur um dich und deinen Hund. Wir passen Tempo, Methoden und Übungen genau auf eure Situation an — ohne Gruppenzwang.` },
+                { icon: ShieldCheck, title: 'Tierschutzkonform', text: 'Methoden entsprechen dem aktuellen Stand der Verhaltensforschung und den Tierschutzrichtlinien. Kein Zwang, keine Dominanztheorie, kein Stachelhals.' },
+              ].map((m) => (
+                <div key={m.title} className="rounded-3xl p-7 bg-cream-soft border border-ink-200/60">
+                  <h3 className="flex items-center gap-3 text-xl font-semibold text-ink-950 mb-3 tracking-tight">
+                    <m.icon className="w-5 h-5 text-brand-600" /> {m.title}
+                  </h3>
+                  <p className="text-ink-600 leading-relaxed">{m.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Herausforderungen und Lösungen Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-gray-800">Dein Weg zum perfekten Mensch-Hund-Team in {data.name}</h2>
-            <p className="text-xl text-gray-600">Willenskraft Hundetraining – Wir begleiten dich und deinen Vierbeiner in {data.name}</p>
+      {/* ============== CHALLENGES & SOLUTIONS ============== */}
+      <section className="wk-section">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="wk-eyebrow mb-5">Herausforderungen → Lösungen</span>
+            <h2 className="wk-display text-4xl md:text-5xl text-ink-950">
+              Dein Weg zum perfekten Mensch-Hund-Team in {data.name}.
+            </h2>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-red-500">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-800">Herausforderungen</h3>
-              </div>
-              <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            <div className="wk-card p-8 border-l-[3px] !border-l-rose-400">
+              <h3 className="text-2xl font-semibold text-ink-950 mb-6">Herausforderungen</h3>
+              <div className="space-y-5">
                 {[
-                  { title: 'Welpentraining', text: 'Junge Hunde benötigen klare Grenzen und Konsequenz. Die Sozialisationsphase ist entscheidend für ein ausgeglichenes Sozialverhalten.' },
-                  { title: 'Tierschutzhunde', text: 'Hunde mit schwieriger Vergangenheit brauchen geduldigen Aufbau von Vertrauen und Sicherheit in ihrer neuen Umgebung.' },
-                  { title: 'Leinenführigkeit', text: 'Ziehen an der Leine macht Spaziergänge zum Stress. Entspanntes Gehen nebeneinander erfordert Konsequenz und die richtigen Techniken.' },
-                  { title: 'Rückruf', text: 'Ein zuverlässiger Rückruf ist lebenswichtig. Viele Hunde lassen sich durch Reize ablenken und kommen nicht auf Kommando.' },
-                  { title: 'Alltagstauglichkeit', text: 'Hunde sollen sich in verschiedenen Situationen sicher und ruhig verhalten – vom Tierarztbesuch bis zur Begegnung mit Artgenossen.' },
+                  { title: 'Welpentraining', text: 'Junge Hunde brauchen klare Struktur. Die Sozialisationsphase ist entscheidend.' },
+                  { title: 'Tierschutzhunde', text: 'Hunde mit schwieriger Vergangenheit brauchen geduldigen Vertrauensaufbau.' },
+                  { title: 'Leinenführigkeit', text: 'Ziehen an der Leine macht Spaziergänge zum Stress.' },
+                  { title: 'Rückruf', text: 'Ein zuverlässiger Rückruf ist lebenswichtig — viele Hunde versagen unter Reizen.' },
+                  { title: 'Alltagstauglichkeit', text: 'Souveränes Verhalten von der Tierarztpraxis bis zum Café.' },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
-                    <div className="w-3 h-3 bg-red-500 rounded-full mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 mt-2 rounded-full bg-rose-400 shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-lg text-gray-800 mb-1">{item.title}</h4>
-                      <p className="text-gray-600">{item.text}</p>
+                      <h4 className="font-semibold text-ink-950 mb-1">{item.title}</h4>
+                      <p className="text-ink-600 text-sm leading-relaxed">{item.text}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-green-500">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-800">Lösungen</h3>
-              </div>
-              <div className="space-y-6">
+            <div className="wk-card p-8 border-l-[3px] !border-l-emerald-500">
+              <h3 className="text-2xl font-semibold text-ink-950 mb-6">Unsere Lösungen</h3>
+              <div className="space-y-5">
                 {[
-                  { title: 'Welpenschule', text: 'Spielerisches Lernen in kleinen Gruppen. Wir vermitteln Grundkommandos und fördern die richtige Sozialisierung für einen souveränen Hund.' },
-                  { title: 'Einzeltraining', text: 'Individuelle Betreuung für spezifische Probleme. Wir entwickeln maßgeschneiderte Lösungsstrategien für deine besondere Situation.' },
-                  { title: 'Leinenführigkeitstraining', text: 'Positive Verstärkungstechniken für lockeres Gehen. Dein Hund lernt, auf dich zu achten und freiwillig bei dir zu bleiben.' },
-                  { title: 'Rückruftraining', text: 'Schrittweiser Aufbau zuverlässiger Kommandos. Wir trainieren mit unterschiedlichen Ablenkungen für einen sicheren Rückruf in jeder Situation.' },
-                  { title: 'Alltagstraining', text: 'Praktische Übungen für reale Lebenssituationen. Wir bereiten dich und deinen Hund auf alltägliche Herausforderungen vor.' },
+                  { title: 'Welpenschule', text: 'Spielerisches Lernen in Kleingruppen mit max. 4 Teams.' },
+                  { title: 'Einzeltraining', text: 'Individuell zugeschnittene Sessions für deine Situation.' },
+                  { title: 'Leinenführigkeitstraining', text: 'Positive Verstärkung statt Korrektur — entspannte Spaziergänge.' },
+                  { title: 'Rückruftraining', text: 'Schrittweiser Aufbau mit steigender Ablenkung.' },
+                  { title: 'Alltagstraining', text: 'Praxisübungen in realen Lebenssituationen.' },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 mt-0.5 text-emerald-500 shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-lg text-gray-800 mb-1">{item.title}</h4>
-                      <p className="text-gray-600">{item.text}</p>
+                      <h4 className="font-semibold text-ink-950 mb-1">{item.title}</h4>
+                      <p className="text-ink-600 text-sm leading-relaxed">{item.text}</p>
                     </div>
                   </div>
                 ))}
@@ -336,36 +445,85 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <div className="bg-yellow-400 rounded-2xl p-8 max-w-2xl mx-auto shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Bereit für die Veränderung in {data.name}?</h3>
-              <p className="text-gray-700 mb-6">Gemeinsam finden wir den richtigen Weg für dich und deinen Hund in {data.name}</p>
-              <Button asChild size="lg" className="bg-gray-800 hover:bg-gray-900 text-white font-bold shadow-lg">
-                <Link href={`/kontakt?service=mobiles-training-${data.slug}`}>Jetzt Training in {data.name} anfragen</Link>
-              </Button>
+          <div className="mt-10 text-center">
+            <div className="inline-block wk-card px-8 py-7 max-w-xl">
+              <h3 className="text-xl font-semibold text-ink-950 mb-3">Bereit für die Veränderung in {data.name}?</h3>
+              <Link
+                href={`/kontakt?service=mobiles-training-${data.slug}`}
+                className="wk-btn-primary inline-flex items-center gap-2 px-6 h-12 rounded-full font-semibold mt-2"
+              >
+                Jetzt Training anfragen
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
-            <div className="inline-block p-2 px-4 rounded-full bg-green-100 text-green-800 font-bold text-sm uppercase tracking-widest mb-4">FAQ</div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Häufig gestellte Fragen zum Hundetraining in {data.name}</h2>
-            <p className="text-lg text-gray-600">Die wichtigsten Antworten rund um unser mobiles Training in {data.name} und Umgebung.</p>
+      {/* ============== NEW SECTION 1: TRAINING KNOWLEDGE BASE (GEO/AI optimized) ============== */}
+      <section className="wk-section bg-ink-950 text-cream relative overflow-hidden">
+        <div className="absolute inset-0 wk-mesh-dark" />
+        <div className="absolute inset-0 wk-grain opacity-30" />
+        <div className="relative container mx-auto px-6 max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-12 mb-14">
+            <div className="lg:col-span-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-300 text-[10px] font-bold uppercase tracking-[0.18em]">
+                <BookOpen className="w-3 h-3" /> Trainings-Wissen für {data.name}
+              </div>
+              <h2 className="wk-display text-4xl md:text-5xl mt-6 text-cream">
+                Hundetraining-Fakten,
+                <br />
+                <span className="wk-text-gradient">die jeder Hundehalter kennen sollte.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-6 lg:pl-8 lg:border-l border-ink-800">
+              <p className="text-lg text-ink-300 leading-relaxed">
+                Diese Wissens­basis enthält die wichtigsten verhaltens­biologischen Fakten, die wir im
+                mobilen Training in {data.name} immer wieder erklären. Faktenbasiert, wissenschaftlich
+                fundiert und sofort anwendbar.
+              </p>
+            </div>
           </div>
-          <Accordion.Root type="single" collapsible className="space-y-4">
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {trainingKnowledgeBase(data.name).map((item) => (
+              <article
+                key={item.question}
+                className="group rounded-3xl p-7 bg-ink-900/80 border border-ink-800 hover:border-brand-500/40 transition-colors backdrop-blur"
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-500/15 text-brand-400 flex items-center justify-center shrink-0">
+                    <item.icon className="w-4 h-4" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-cream leading-tight">{item.question}</h3>
+                </div>
+                <p className="text-ink-300 leading-relaxed text-sm">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============== FAQ ============== */}
+      <section className="wk-section">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="text-center mb-14">
+            <span className="wk-eyebrow mb-5">FAQ {data.name}</span>
+            <h2 className="wk-display text-4xl md:text-5xl text-ink-950">
+              Häufige Fragen aus {data.name}.
+            </h2>
+            <p className="mt-6 text-lg text-ink-600">Die wichtigsten Antworten zum mobilen Training in {data.name} und Umgebung.</p>
+          </div>
+          <Accordion.Root type="single" collapsible className="space-y-3">
             {data.faqs.map((faq, idx) => (
-              <Accordion.Item key={idx} value={`faq-${idx}`} className="bg-white border text-left border-slate-200 rounded-2xl overflow-hidden shadow-sm data-[state=open]:shadow-md transition-all">
-                <Accordion.Trigger className="flex w-full items-center justify-between p-6 sm:p-8 font-bold text-lg sm:text-xl text-gray-900 hover:text-yellow-600 transition-colors group">
-                  {faq.question}
-                  <div className="bg-slate-50 rounded-full p-2 group-hover:bg-yellow-50 transition-colors shrink-0 ml-4">
-                    <ChevronDown className="h-6 w-6 text-gray-400 group-hover:text-yellow-600 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+              <Accordion.Item key={idx} value={`faq-${idx}`} className="wk-card !p-0 overflow-hidden">
+                <Accordion.Trigger className="flex w-full items-center justify-between p-6 sm:p-7 font-semibold text-base sm:text-lg text-ink-950 hover:text-brand-700 transition-colors group text-left">
+                  <span className="pr-4">{faq.question}</span>
+                  <div className="bg-cream-soft rounded-full p-2 group-hover:bg-brand-100 transition-colors shrink-0">
+                    <ChevronDown className="h-5 w-5 text-ink-400 group-hover:text-brand-700 transition-transform duration-300 group-data-[state=open]:rotate-180" />
                   </div>
                 </Accordion.Trigger>
-                <Accordion.Content className="px-6 sm:px-8 pb-8 text-gray-600 text-lg leading-relaxed pt-2">
+                <Accordion.Content className="px-6 sm:px-7 pb-7 text-ink-600 leading-relaxed text-base data-[state=open]:animate-in data-[state=open]:fade-in">
                   {faq.answer}
                 </Accordion.Content>
               </Accordion.Item>
@@ -374,135 +532,111 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
         </div>
       </section>
 
-      {/* Willenskraft Section */}
+      {/* ============== WILLENSKRAFT BRAND ============== */}
       <WillenskraftSection content={willenskraftConfig} />
 
-      {/* YouTube Shorts Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">Kurze Einblicke in unser Training</h2>
-            <p className="text-lg text-gray-700">Entdecke in diesen Shorts, wie viel Freude und Lernfortschritt unsere Welpen im Training erleben.</p>
+      {/* ============== YouTube Shorts ============== */}
+      <section className="wk-section bg-card">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="wk-eyebrow mb-5">Trainings-Shorts</span>
+            <h2 className="wk-display text-4xl md:text-5xl text-ink-950">Echte Momente aus dem Training.</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="flex justify-center">
-              <iframe
-                width="315"
-                height="560"
-                src="https://www.youtube.com/embed/e-V0mN-gP-I?si=vfI702gsB-6WWNRV"
-                title="YouTube short video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="rounded-lg shadow-xl"
-              />
-            </div>
-            <div className="flex justify-center">
-              <iframe
-                width="315"
-                height="560"
-                src="https://www.youtube.com/embed/-ORnMT0oMHk?si=xfppXZQC6Dr-ukZ7"
-                title="YouTube short video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="rounded-lg shadow-xl"
-              />
-            </div>
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-10 justify-center max-w-3xl mx-auto">
+            {['e-V0mN-gP-I', '-ORnMT0oMHk'].map((id) => (
+              <div key={id} className="flex justify-center">
+                <iframe
+                  width="100%"
+                  className="max-w-[320px] h-[560px] rounded-[2rem] shadow-xl border border-ink-200"
+                  src={`https://www.youtube.com/embed/${id}`}
+                  title="YouTube short"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Individual Region Section */}
-      <section className="py-24 bg-white border-t border-gray-100 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-yellow-100/30 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-50/40 rounded-full blur-3xl translate-y-1/2 pointer-events-none" />
+      {/* ============== REGION DEEP DIVE ============== */}
+      <section className="wk-section relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-100/40 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
 
-        <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
-          <div className="mb-16 text-center">
-            <div className="inline-flex items-center gap-2 p-2 px-5 rounded-full bg-yellow-100 text-yellow-800 font-bold text-sm uppercase tracking-widest mb-6">
-              <MapPin className="w-4 h-4" />
-              Deine Region
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-8 leading-tight">
+        <div className="container mx-auto px-6 max-w-6xl relative">
+          <div className="text-center mb-16 max-w-4xl mx-auto">
+            <span className="wk-eyebrow mb-5">
+              <MapPin className="w-3 h-3" /> Deine Region
+            </span>
+            <h2 className="wk-display text-4xl md:text-5xl lg:text-6xl text-ink-950 leading-[1.05]">
               {data.regionSectionTitle}
             </h2>
-            <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+            <p className="mt-7 text-lg text-ink-600 leading-relaxed max-w-3xl mx-auto">
               {data.regionSectionIntro}
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             {data.regionHighlights.map((highlight) => {
               const iconMap: Record<string, React.ReactNode> = {
-                river: <Waves className="w-7 h-7 text-blue-500" />,
-                forest: <TreePine className="w-7 h-7 text-green-600" />,
-                field: <Trees className="w-7 h-7 text-emerald-500" />,
-                mountain: <Mountain className="w-7 h-7 text-slate-600" />,
-                city: <Building2 className="w-7 h-7 text-indigo-500" />,
-                park: <TreePine className="w-7 h-7 text-green-500" />,
-                historic: <Landmark className="w-7 h-7 text-amber-600" />,
-              };
-              const bgMap: Record<string, string> = {
-                river: 'bg-blue-50 group-hover:bg-blue-100',
-                forest: 'bg-green-50 group-hover:bg-green-100',
-                field: 'bg-emerald-50 group-hover:bg-emerald-100',
-                mountain: 'bg-slate-50 group-hover:bg-slate-100',
-                city: 'bg-indigo-50 group-hover:bg-indigo-100',
-                park: 'bg-green-50 group-hover:bg-green-100',
-                historic: 'bg-amber-50 group-hover:bg-amber-100',
+                river:    <Waves className="w-5 h-5" />,
+                forest:   <TreePine className="w-5 h-5" />,
+                field:    <Trees className="w-5 h-5" />,
+                mountain: <Mountain className="w-5 h-5" />,
+                city:     <Building2 className="w-5 h-5" />,
+                park:     <TreePine className="w-5 h-5" />,
+                historic: <Landmark className="w-5 h-5" />,
               };
               return (
-                <div key={highlight.title} className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_16px_40px_rgb(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-5 transition-colors ${bgMap[highlight.icon] || 'bg-slate-50'}`}>
-                    {iconMap[highlight.icon] || <MapPin className="w-7 h-7 text-yellow-500" />}
+                <div key={highlight.title} className="wk-card p-7 group">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5 group-hover:bg-brand-500 group-hover:text-cream transition-colors">
+                    {iconMap[highlight.icon] || <MapPin className="w-5 h-5" />}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{highlight.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{highlight.description}</p>
+                  <h3 className="text-lg font-semibold text-ink-950 mb-3 tracking-tight">{highlight.title}</h3>
+                  <p className="text-ink-600 leading-relaxed text-sm">{highlight.description}</p>
                 </div>
               );
             })}
           </div>
 
-          <div className="mb-16">
+          {/* Trainingsorte-Tabelle */}
+          <div className="mb-12">
             <div className="text-center mb-10">
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">Trainingsorte in und um {data.name}</h3>
-              <p className="text-gray-600 text-lg">Alle Trainingsmöglichkeiten auf einen Blick – mit Entfernung und passendem Training.</p>
+              <h3 className="wk-display text-3xl md:text-4xl text-ink-950 mb-3">Trainingsorte in und um {data.name}</h3>
+              <p className="text-ink-600">Alle Trainings­möglichkeiten auf einen Blick — mit Entfernung und passendem Training.</p>
             </div>
 
-            <div className="hidden lg:block bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 overflow-hidden">
+            <div className="hidden lg:block wk-card !p-0 overflow-hidden">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-gradient-to-r from-slate-900 to-slate-800">
-                    <th className="px-8 py-5 text-left text-sm font-bold text-yellow-400 uppercase tracking-wider">Trainingsort</th>
-                    <th className="px-8 py-5 text-left text-sm font-bold text-yellow-400 uppercase tracking-wider">Entfernung</th>
-                    <th className="px-8 py-5 text-left text-sm font-bold text-yellow-400 uppercase tracking-wider">Besonderheit</th>
-                    <th className="px-8 py-5 text-left text-sm font-bold text-yellow-400 uppercase tracking-wider">Trainingsart</th>
+                  <tr className="bg-ink-950 text-brand-300">
+                    <th className="px-7 py-5 text-left text-[10px] font-bold uppercase tracking-[0.18em]">Trainingsort</th>
+                    <th className="px-7 py-5 text-left text-[10px] font-bold uppercase tracking-[0.18em]">Entfernung</th>
+                    <th className="px-7 py-5 text-left text-[10px] font-bold uppercase tracking-[0.18em]">Besonderheit</th>
+                    <th className="px-7 py-5 text-left text-[10px] font-bold uppercase tracking-[0.18em]">Trainingsart</th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.regionTableRows.map((row, idx) => (
-                    <tr key={idx} className={`border-b border-slate-100 hover:bg-yellow-50/40 transition-colors ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}`}>
-                      <td className="px-8 py-5">
+                    <tr
+                      key={idx}
+                      className={`border-b border-ink-200 hover:bg-brand-50/40 transition-colors ${idx % 2 === 0 ? 'bg-card' : 'bg-cream-soft/60'}`}
+                    >
+                      <td className="px-7 py-5">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <MapPin className="w-4 h-4 text-yellow-600" />
+                          <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center shrink-0">
+                            <MapPin className="w-4 h-4 text-brand-700" />
                           </div>
-                          <span className="font-bold text-gray-900">{row.trainingsort}</span>
+                          <span className="font-semibold text-ink-950">{row.trainingsort}</span>
                         </div>
                       </td>
-                      <td className="px-8 py-5">
-                        <span className="inline-flex items-center gap-1.5 bg-green-100 text-green-800 font-bold px-3 py-1 rounded-full text-sm">
-                          <Clock className="w-3.5 h-3.5" />
-                          {row.entfernung}
+                      <td className="px-7 py-5">
+                        <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs">
+                          <Clock className="w-3 h-3" /> {row.entfernung}
                         </span>
                       </td>
-                      <td className="px-8 py-5 text-gray-700 font-medium">{row.besonderheit}</td>
-                      <td className="px-8 py-5">
-                        <span className="text-gray-700">{row.trainingsart}</span>
-                      </td>
+                      <td className="px-7 py-5 text-ink-700 text-sm">{row.besonderheit}</td>
+                      <td className="px-7 py-5 text-ink-600 text-sm">{row.trainingsart}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -511,29 +645,27 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
 
             <div className="lg:hidden space-y-4">
               {data.regionTableRows.map((row, idx) => (
-                <div key={idx} className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-slate-100">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-5 h-5 text-yellow-600" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-900 text-lg">{row.trainingsort}</h4>
-                        <span className="inline-flex items-center gap-1 bg-green-100 text-green-800 font-bold px-2.5 py-0.5 rounded-full text-xs mt-1">
-                          <Clock className="w-3 h-3" />
-                          {row.entfernung}
-                        </span>
-                      </div>
+                <div key={idx} className="wk-card p-6">
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center shrink-0">
+                      <MapPin className="w-5 h-5 text-brand-700" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-ink-950 text-base">{row.trainingsort}</h4>
+                      <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full text-xs mt-1">
+                        <Clock className="w-3 h-3" />
+                        {row.entfernung}
+                      </span>
                     </div>
                   </div>
-                  <div className="space-y-2.5 ml-13">
+                  <div className="space-y-2">
                     <div>
-                      <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Besonderheit</span>
-                      <p className="text-gray-700 font-medium">{row.besonderheit}</p>
+                      <span className="text-[10px] font-bold text-ink-400 uppercase tracking-wider">Besonderheit</span>
+                      <p className="text-ink-700 text-sm">{row.besonderheit}</p>
                     </div>
                     <div>
-                      <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Trainingsart</span>
-                      <p className="text-gray-700">{row.trainingsart}</p>
+                      <span className="text-[10px] font-bold text-ink-400 uppercase tracking-wider">Trainingsart</span>
+                      <p className="text-ink-600 text-sm">{row.trainingsart}</p>
                     </div>
                   </div>
                 </div>
@@ -541,93 +673,222 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
             </div>
           </div>
 
-          <div className="bg-gray-900 rounded-3xl p-10 lg:p-14 text-center text-white shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-yellow-500 rounded-full blur-3xl opacity-20" />
-            <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-yellow-300 rounded-full blur-3xl opacity-20" />
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4 relative z-10">{data.regionCtaText}</h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto relative z-10 text-lg">
-              Ganz gleich, ob du einen Welpen hast oder einen erwachsenen Hund mit kleinen Baustellen – unser Hundetraining in {data.name} passt sich euch an.
+          {/* CTA Card */}
+          <div className="relative overflow-hidden rounded-[2.5rem] p-10 lg:p-14 text-center bg-gradient-to-br from-ink-950 to-ink-800 text-cream shadow-2xl">
+            <div className="absolute -top-12 -right-12 w-56 h-56 rounded-full bg-brand-500 blur-[100px] opacity-30" />
+            <div className="absolute inset-0 wk-grain opacity-25" />
+            <h3 className="relative wk-display text-2xl lg:text-4xl mb-4">{data.regionCtaText}</h3>
+            <p className="relative text-ink-300 mb-8 max-w-2xl mx-auto">
+              Ganz gleich ob Welpe oder erwachsener Hund — unser Training in {data.name} passt sich euch an.
             </p>
-            <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-full px-8 relative z-10">
-              <Link href={`/kontakt?service=mobiles-training-${data.slug}`}>Jetzt Termin in {data.name} vereinbaren</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Nearby Locations Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">Auch in deiner Nähe: Mobiles Hundetraining</h2>
-            <p className="text-lg text-gray-700">Wir bieten mobiles Hundetraining nicht nur in {data.name}, sondern in der gesamten Region an. Finde den nächsten Standort:</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {data.nearbyLocations.map((loc) => (
-              <Link key={loc.slug} href={`/mobiles-hundetraining/${loc.slug}`} className="block">
-                <div className="bg-white p-4 rounded-lg shadow-md hover:bg-yellow-100 transition-colors flex items-center justify-center gap-2">
-                  <MapPin className="w-5 h-5 text-yellow-500" />
-                  <span className="font-semibold">{loc.name}</span>
-                </div>
-              </Link>
-            ))}
-            <Link href="/mobiles-hundetraining" className="block">
-              <div className="bg-white p-4 rounded-lg shadow-md hover:bg-yellow-100 transition-colors flex items-center justify-center gap-2 font-semibold">
-                <MapPin className="w-5 h-5 text-yellow-500" />
-                Schwechat
-              </div>
+            <Link
+              href={`/kontakt?service=mobiles-training-${data.slug}`}
+              className="relative wk-btn-primary inline-flex items-center gap-2 px-7 h-13 rounded-full font-semibold"
+            >
+              Jetzt Termin in {data.name} vereinbaren
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="bg-white p-8 rounded-lg shadow-2xl flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
-          <div className="w-full md:w-1/3">
-            <Image
-              src={profileImage}
-              alt={`Jessica Pusch - Hundeschule Willenskraft ${data.name}`}
-              width={300}
-              height={300}
-              className="rounded-full mx-auto object-cover aspect-square"
-            />
+      {/* ============== NEW SECTION 2: GEO LOCAL FACTS / CHEAT-SHEET ============== */}
+      <section className="wk-section bg-card relative overflow-hidden">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <span className="wk-eyebrow mb-5">
+              <Compass className="w-3 h-3" /> Region-Steckbrief {data.name}
+            </span>
+            <h2 className="wk-display text-4xl md:text-5xl text-ink-950">
+              {data.name} auf einen Blick.
+            </h2>
+            <p className="mt-6 text-lg text-ink-600 leading-relaxed">
+              Geo­daten, Einwohnerinformationen und Trainings­fakten — kompakt und für Suchmaschinen,
+              KI-Crawler und Hundehalter optimiert.
+            </p>
           </div>
-          <div className="w-full md:w-2/3 text-center md:text-left">
-            <h2 className="text-3xl font-bold mb-4">{data.contactTitle}</h2>
-            <p className="text-xl mb-6">{data.contactText}</p>
-            <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold">
-              <Link href={`/kontakt?service=mobiles-training-${data.slug}`}>Jetzt anfragen</Link>
-            </Button>
-            <div className="mt-6">
-              <p className="font-semibold">Oder kontaktiere mich direkt:</p>
-              <p className="text-lg text-gray-700 mt-2">
-                Jessica Pusch: <a href="tel:+436643903673" className="hover:text-yellow-500">+43 664 3903673</a>
+
+          <div className="grid md:grid-cols-12 gap-6">
+            {/* Linke Spalte: Lokale Beschreibung */}
+            <div className="md:col-span-7 wk-card p-8 lg:p-10">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-700 mb-4">Über {data.name}</p>
+              <p className="text-ink-700 leading-relaxed text-base mb-7">
+                {data.localDescription}
               </p>
+              <h4 className="text-sm font-bold text-ink-950 uppercase tracking-wider mb-4">
+                Was {data.name} für Hundehalter besonders macht
+              </h4>
+              <ul className="grid sm:grid-cols-2 gap-3">
+                {data.localFeatures.map((f) => (
+                  <li key={f} className="flex items-start gap-2.5 text-sm text-ink-700">
+                    <CheckCircle2 className="w-4 h-4 mt-0.5 text-brand-600 shrink-0" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Rechte Spalte: Datentafel — bewusst flach für AI Scraper */}
+            <div className="md:col-span-5 space-y-4">
+              <div className="wk-card p-6">
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-700 mb-4">Quick Facts</p>
+                <dl className="space-y-3 text-sm">
+                  <div className="flex items-baseline justify-between gap-3 pb-3 border-b border-ink-200/70">
+                    <dt className="text-ink-500">Region</dt>
+                    <dd className="font-semibold text-ink-950 text-right">{data.name}</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3 pb-3 border-b border-ink-200/70">
+                    <dt className="text-ink-500">Anfahrt ab Schwechat</dt>
+                    <dd className="font-semibold text-ink-950 text-right">
+                      {data.regionTableRows.find((r) => r.trainingsort.toLowerCase().includes('schwechat'))?.entfernung || '15–20 Min.'}
+                    </dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3 pb-3 border-b border-ink-200/70">
+                    <dt className="text-ink-500">Trainingsangebot</dt>
+                    <dd className="font-semibold text-ink-950 text-right">Mobil &amp; 1:1</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3 pb-3 border-b border-ink-200/70">
+                    <dt className="text-ink-500">Erstberatung</dt>
+                    <dd className="font-semibold text-ink-950 text-right">95 € · 90 Min.</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3 pb-3 border-b border-ink-200/70">
+                    <dt className="text-ink-500">Anfahrt-Kosten</dt>
+                    <dd className="font-semibold text-emerald-700 text-right">Kostenlos</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3 pb-3 border-b border-ink-200/70">
+                    <dt className="text-ink-500">Trainerin</dt>
+                    <dd className="font-semibold text-ink-950 text-right">Jessica Pusch</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <dt className="text-ink-500">Methode</dt>
+                    <dd className="font-semibold text-ink-950 text-right">Positive Verstärkung</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div className="wk-card p-6">
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-700 mb-4">Saisonale Trainingstipps</p>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex items-start gap-2.5">
+                    <Sun className="w-4 h-4 mt-0.5 text-brand-600 shrink-0" />
+                    <span className="text-ink-700">
+                      <strong className="text-ink-950">Sommer in {data.name}:</strong> Training früh morgens oder abends, Asphalt­temperatur prüfen (Handrücken-Test).
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Snowflake className="w-4 h-4 mt-0.5 text-brand-600 shrink-0" />
+                    <span className="text-ink-700">
+                      <strong className="text-ink-950">Winter:</strong> Pfoten nach Spaziergängen kontrollieren, Streusalz abwaschen, Indoor-Tricktraining nutzen.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Sparkles className="w-4 h-4 mt-0.5 text-brand-600 shrink-0" />
+                    <span className="text-ink-700">
+                      <strong className="text-ink-950">Frühling:</strong> Sozialisierungs­fenster nutzen, neue Reize dosiert einführen.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Calendar className="w-4 h-4 mt-0.5 text-brand-600 shrink-0" />
+                    <span className="text-ink-700">
+                      <strong className="text-ink-950">Herbst:</strong> Ideale Trainingszeit – kühle Temperaturen, weniger Insekten, optimaler Fokus.
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
+      {/* ============== NEARBY LOCATIONS ============== */}
+      <section className="wk-section">
+        <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">Was unsere Kunden sagen</h2>
-            <p className="text-lg text-gray-700">Echte Erfahrungen von glücklichen Mensch-Hund-Teams.</p>
+            <span className="wk-eyebrow mb-5">In deiner Nähe</span>
+            <h2 className="wk-display text-3xl md:text-4xl text-ink-950">Auch in der Region: Mobiles Hundetraining.</h2>
+            <p className="mt-5 text-lg text-ink-600">Wir bieten mobiles Hundetraining in der gesamten Region an. Finde den nächsten Standort.</p>
           </div>
-          <Reviews />
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-5xl mx-auto">
+            <Link href="/mobiles-hundetraining" className="block">
+              <div className="wk-card p-4 flex items-center justify-center gap-2 group">
+                <MapPin className="w-4 h-4 text-brand-600" />
+                <span className="font-semibold text-ink-900 text-sm">Schwechat</span>
+              </div>
+            </Link>
+            {data.nearbyLocations.map((loc) => (
+              <Link key={loc.slug} href={`/mobiles-hundetraining/${loc.slug}`} className="block">
+                <div className="wk-card p-4 flex items-center justify-center gap-2 group">
+                  <MapPin className="w-4 h-4 text-ink-400 group-hover:text-brand-600 transition-colors" />
+                  <span className="font-semibold text-ink-900 text-sm">{loc.name}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Back to Overview */}
-      <section className="container mx-auto px-4 pb-12">
-        <Button asChild variant="outline" size="lg" className="border-yellow-500 text-yellow-600 hover:bg-yellow-50">
-          <Link href="/mobiles-hundetraining">
-            <ArrowLeft className="mr-2 h-5 w-5" />
-            Zurück zur Übersicht Mobiles Hundetraining
-          </Link>
-        </Button>
+      {/* ============== CONTACT ============== */}
+      <section className="wk-section bg-card">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="relative overflow-hidden rounded-[2.5rem] p-8 sm:p-14 bg-gradient-to-br from-ink-950 to-ink-800 text-cream shadow-2xl">
+            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-brand-500 blur-[120px] opacity-25" />
+            <div className="absolute inset-0 wk-grain opacity-25" />
+            <div className="relative grid md:grid-cols-12 gap-10 items-center">
+              <div className="md:col-span-4">
+                <Image
+                  src={profileImage}
+                  alt={`Jessica Pusch — Hundeschule Willenskraft ${data.name}`}
+                  width={400}
+                  height={400}
+                  className="rounded-full mx-auto object-cover aspect-square border-4 border-ink-800 shadow-2xl"
+                />
+              </div>
+              <div className="md:col-span-8 text-center md:text-left">
+                <h2 className="wk-display text-3xl sm:text-5xl text-cream mb-4">{data.contactTitle}</h2>
+                <p className="text-lg text-ink-300 mb-7 leading-relaxed">{data.contactText}</p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                  <Link
+                    href={`/kontakt?service=mobiles-training-${data.slug}`}
+                    className="wk-btn-primary inline-flex items-center justify-center gap-2 px-7 h-13 rounded-full font-semibold"
+                  >
+                    Jetzt anfragen
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <a
+                    href="tel:+436643903673"
+                    className="inline-flex items-center justify-center gap-2 px-6 h-13 rounded-full bg-ink-900/60 border border-ink-700 hover:border-brand-500 hover:bg-brand-500/10 hover:text-brand-300 text-cream font-semibold transition-all"
+                  >
+                    <Phone className="w-4 h-4" /> +43 664 3903673
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============== TESTIMONIALS ============== */}
+      <section className="wk-section">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="wk-eyebrow mb-5">Stimmen</span>
+            <h2 className="wk-display text-3xl md:text-5xl text-ink-950">Was unsere Kund:innen sagen.</h2>
+          </div>
+          <div className="wk-card p-6 sm:p-10">
+            <Reviews />
+          </div>
+        </div>
+      </section>
+
+      {/* ============== BACK ============== */}
+      <section className="container mx-auto px-6 pb-20">
+        <Link
+          href="/mobiles-hundetraining"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-ink-700 hover:text-brand-700 transition-colors group"
+        >
+          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+          Zurück zur Übersicht Mobiles Hundetraining
+        </Link>
       </section>
     </div>
   );
