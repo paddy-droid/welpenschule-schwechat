@@ -173,12 +173,12 @@ export default function Home() {
 
         <div className="relative z-10 container mx-auto px-6 py-32 lg:py-40">
           <div className="max-w-5xl">
-            <span className="wk-eyebrow mb-8">Welpenschule · Schwechat · Wien</span>
+            <span className="wk-eyebrow mb-8">Schwechat · Wien · Niederösterreich</span>
 
-            <h1 className="wk-display text-[clamp(2.75rem,7.5vw,6.5rem)] text-ink-950">
-              Dein Welpe lernt
+            <h1 className="wk-display text-[clamp(2.25rem,6vw,5.25rem)] text-ink-950">
+              Welpenschule Schwechat —
               <br />
-              <span className="wk-text-gradient">die Sprache der Welt</span>
+              <span className="wk-text-gradient">Dein Welpe lernt die Sprache der Welt</span>
               <span className="text-brand-600">.</span>
             </h1>
 
