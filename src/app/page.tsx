@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description:
     'Welpenschule Schwechat ✓ Gewaltfrei & ganzheitlich ✓ Max. 4 Teams pro Gruppe ✓ 6 Einheiten ab 195€ ✓ Welpen bis 5 Monate ✓ Jetzt anmelden! Tel: +43 664 3903673',
   alternates: {
-    canonical: 'https://www.welpenschule-schwechat.at',
+    canonical: 'https://welpenschule-schwechat.at',
   },
 };
 

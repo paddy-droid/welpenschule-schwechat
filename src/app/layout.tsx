@@ -53,16 +53,16 @@ export const metadata: Metadata = {
     google: ['mTVtKjxMEuAx_IFqUIbR2NQSxQgdoYfdhcNjQ6pHX4U', 'aUUa12fG3OI-DF8To1t5h1wxcZgKyU16Z-IMxJu9kKg'],
   },
   alternates: {
-    canonical: 'https://www.welpenschule-schwechat.at',
+    
     languages: {
-      'de-AT': 'https://www.welpenschule-schwechat.at',
+      'de-AT': 'https://welpenschule-schwechat.at',
     },
   },
   openGraph: {
     title: 'Welpenschule Schwechat | Hundeschule Willenskraft – Gewaltfrei & Ganzheitlich',
     description:
       'Professionelles Welpentraining in Schwechat. 6 Einheiten, max. 4 Teams, positive Verstärkung. Jetzt Platz sichern! ☎ +43 664 3903673',
-    url: 'https://www.welpenschule-schwechat.at',
+    url: 'https://welpenschule-schwechat.at',
     siteName: 'Welpenschule Schwechat',
     images: [
       {
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     description: 'Gewaltfreies Welpentraining in Schwechat & Umgebung. 6 Einheiten ab 195€. Jetzt anmelden!',
     images: ['/Welpenschule-Schwechat, Welpenkurs Hero.webp'],
   },
-  metadataBase: new URL('https://www.welpenschule-schwechat.at'),
+  metadataBase: new URL('https://welpenschule-schwechat.at'),
   robots: {
     index: true,
     follow: true,
@@ -106,13 +106,13 @@ const jsonLd = {
   '@graph': [
     {
       '@type': ['LocalBusiness', 'PetTrainer'],
-      '@id': 'https://www.welpenschule-schwechat.at/#business',
+      '@id': 'https://welpenschule-schwechat.at/#business',
       name: 'Welpenschule Schwechat – Hundeschule Willenskraft',
       alternateName: ['Hundeschule Willenskraft Schwechat', 'Welpentraining Schwechat'],
-      url: 'https://www.welpenschule-schwechat.at',
+      url: 'https://welpenschule-schwechat.at',
       telephone: '+43-664-3903673',
       email: 'bruck_leitha@willenskraft.co.at',
-      image: 'https://www.welpenschule-schwechat.at/Welpenschule-Schwechat, Welpenkurs Hero.webp',
+      image: 'https://welpenschule-schwechat.at/Welpenschule-Schwechat, Welpenkurs Hero.webp',
       logo: 'https://www.willenskraft.co.at/wp-content/uploads/2018/06/Final.-Logo-Hundeschule-Willenskraft.-Gute-Hundeschule-Graz-Gleisdorf.png',
       description:
         'Professionelle Welpenschule in Schwechat. Gewaltfreies & ganzheitliches Hundetraining mit positiver Verstärkung. Kleingruppen mit max. 4 Teams. Welpen bis 5 Monate.',
@@ -174,7 +174,7 @@ const jsonLd = {
             price: '195',
             priceCurrency: 'EUR',
             availability: 'https://schema.org/InStock',
-            url: 'https://www.welpenschule-schwechat.at/#kurse',
+            url: 'https://welpenschule-schwechat.at/#kurse',
           },
           {
             '@type': 'Offer',
@@ -183,7 +183,7 @@ const jsonLd = {
             price: '55',
             priceCurrency: 'EUR',
             availability: 'https://schema.org/InStock',
-            url: 'https://www.welpenschule-schwechat.at/kontakt?angebot=einzelstunde',
+            url: 'https://welpenschule-schwechat.at/kontakt?angebot=einzelstunde',
           },
           {
             '@type': 'Offer',
@@ -192,7 +192,7 @@ const jsonLd = {
             price: '95',
             priceCurrency: 'EUR',
             availability: 'https://schema.org/InStock',
-            url: 'https://www.welpenschule-schwechat.at/kontakt?service=erstberatung-mobil',
+            url: 'https://welpenschule-schwechat.at/kontakt?service=erstberatung-mobil',
           },
         ],
       },
@@ -220,10 +220,10 @@ const jsonLd = {
     },
     {
       '@type': 'Person',
-      '@id': 'https://www.welpenschule-schwechat.at/#trainer',
+      '@id': 'https://welpenschule-schwechat.at/#trainer',
       name: 'Jessica Pusch',
       jobTitle: 'Hundetrainerin',
-      worksFor: { '@id': 'https://www.welpenschule-schwechat.at/#business' },
+      worksFor: { '@id': 'https://welpenschule-schwechat.at/#business' },
       telephone: '+43-664-3903673',
       email: 'bruck_leitha@willenskraft.co.at',
       image: 'https://www.willenskraft.co.at/wp-content/uploads/2020/02/Hundeschule-Willenskraft-ButtonFINAL.png',
@@ -231,17 +231,17 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://www.welpenschule-schwechat.at/#website',
-      url: 'https://www.welpenschule-schwechat.at',
+      '@id': 'https://welpenschule-schwechat.at/#website',
+      url: 'https://welpenschule-schwechat.at',
       name: 'Welpenschule Schwechat',
       description: 'Gewaltfreies Welpentraining in Schwechat und Umgebung',
-      publisher: { '@id': 'https://www.welpenschule-schwechat.at/#business' },
+      publisher: { '@id': 'https://welpenschule-schwechat.at/#business' },
       inLanguage: 'de-AT',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://www.welpenschule-schwechat.at/?s={search_term_string}',
+          urlTemplate: 'https://welpenschule-schwechat.at/?s={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },

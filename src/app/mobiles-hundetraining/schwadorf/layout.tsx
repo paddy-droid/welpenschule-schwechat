@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/schwadorf';
+const url = 'https://welpenschule-schwechat.at/mobiles-hundetraining/schwadorf';
 
 export const metadata: Metadata = {
   title: 'Hundeschule Schwadorf | Mobiles Hundetraining',

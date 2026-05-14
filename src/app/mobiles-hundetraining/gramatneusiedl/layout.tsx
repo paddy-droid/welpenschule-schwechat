@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/gramatneusiedl';
+const url = 'https://welpenschule-schwechat.at/mobiles-hundetraining/gramatneusiedl';
 
 export const metadata: Metadata = {
   title: 'Hundeschule Gramatneusiedl | Mobil & gewaltfrei',

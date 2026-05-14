@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/himberg';
+const url = 'https://welpenschule-schwechat.at/mobiles-hundetraining/himberg';
 
 export const metadata: Metadata = {
   title: 'Hundeschule Himberg | Mobiles 1:1-Training',

@@ -1,3 +1,7 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = { title: 'Impressum – Welpenschule Schwechat', alternates: { canonical: 'https://welpenschule-schwechat.at/impressum' } };
+
 export default function Impressum() {
   return (
     <div className="bg-background">

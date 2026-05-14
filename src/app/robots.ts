@@ -20,7 +20,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Bytespider', allow: '/' },
       { userAgent: 'Amazonbot', allow: '/' },
     ],
-    sitemap: 'https://www.welpenschule-schwechat.at/sitemap.xml',
-    host: 'https://www.welpenschule-schwechat.at',
+    sitemap: 'https://welpenschule-schwechat.at/sitemap.xml',
+    host: 'https://welpenschule-schwechat.at',
   };
 }

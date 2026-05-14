@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/wien-simmering';
+const url = 'https://welpenschule-schwechat.at/mobiles-hundetraining/wien-simmering';
 
 export const metadata: Metadata = {
   title: 'Hundeschule Wien-Simmering | Mobil & gewaltfrei',

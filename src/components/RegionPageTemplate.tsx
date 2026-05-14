@@ -59,7 +59,7 @@ function buildLocalBusinessJsonLd(data: RegionData) {
     '@type': ['LocalBusiness', 'PetTrainer'],
     name: `Hundeschule ${data.name} – Willenskraft`,
     description: `Ganzheitliches und gewaltfreies mobiles Hundetraining in ${data.name} und Umgebung. Einzeltraining, Welpentraining und Verhaltensberatung direkt bei dir zuhause.`,
-    url: `https://www.welpenschule-schwechat.at/mobiles-hundetraining/${data.slug}`,
+    url: `https://welpenschule-schwechat.at/mobiles-hundetraining/${data.slug}`,
     telephone: '+436643903673',
     address: {
       '@type': 'PostalAddress',
@@ -133,9 +133,9 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://www.welpenschule-schwechat.at' },
-      { '@type': 'ListItem', position: 2, name: 'Mobiles Hundetraining', item: 'https://www.welpenschule-schwechat.at/mobiles-hundetraining' },
-      { '@type': 'ListItem', position: 3, name: data.name, item: `https://www.welpenschule-schwechat.at/mobiles-hundetraining/${data.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://welpenschule-schwechat.at' },
+      { '@type': 'ListItem', position: 2, name: 'Mobiles Hundetraining', item: 'https://welpenschule-schwechat.at/mobiles-hundetraining' },
+      { '@type': 'ListItem', position: 3, name: data.name, item: `https://welpenschule-schwechat.at/mobiles-hundetraining/${data.slug}` },
     ],
   };
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/ebenfurth';
+const url = 'https://welpenschule-schwechat.at/mobiles-hundetraining/ebenfurth';
 
 export const metadata: Metadata = {
   title: 'Hundeschule Ebenfurth | Training am Steinfeld',

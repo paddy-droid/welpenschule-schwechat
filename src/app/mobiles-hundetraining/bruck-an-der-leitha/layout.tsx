@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const url = 'https://www.welpenschule-schwechat.at/mobiles-hundetraining/bruck-an-der-leitha';
+const url = 'https://welpenschule-schwechat.at/mobiles-hundetraining/bruck-an-der-leitha';
 
 export const metadata: Metadata = {
   title: 'Hundeschule Bruck/Leitha | Mobil & gewaltfrei',

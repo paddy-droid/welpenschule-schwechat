@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Phone, Mail, Instagram, Facebook, MapPin, ArrowRight, Clock, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://welpenschule-schwechat.at/kontakt' },
   title: 'Kontakt & Anmeldung – Welpenschule Schwechat',
   description:
     'Kontaktiere Jessica Pusch für deine Anmeldung zum Welpenkurs in Schwechat. ☎ +43 664 3903673 · bruck_leitha@willenskraft.co.at',

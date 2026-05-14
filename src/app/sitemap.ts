@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.welpenschule-schwechat.at';
+  const baseUrl = 'https://welpenschule-schwechat.at';
   const now = new Date();
 
   const regions = [
