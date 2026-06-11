@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Fraunces } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -44,6 +45,12 @@ export const metadata: Metadata = {
     'positive Verstärkung Hund',
     'mobiles Hundetraining',
     'Wien-Simmering Hundeschule',
+    'Hundeschule Mödling',
+    'Hundetrainer Bezirk Mödling',
+    'Mobiles Hundetraining Mödling',
+    'Hundeschule Perchtoldsdorf',
+    'Hundeschule Brunn am Gebirge',
+    'Welpenkurs Mödling',
   ],
   authors: [{ name: 'Hundeschule Willenskraft', url: 'https://www.willenskraft.co.at' }],
   creator: 'Hundeschule Willenskraft',
@@ -144,6 +151,26 @@ const jsonLd = {
         { '@type': 'City', name: 'Bruck an der Leitha' },
         { '@type': 'City', name: 'Wien-Simmering' },
         { '@type': 'City', name: 'Parndorf' },
+        { '@type': 'City', name: 'Mödling' },
+        { '@type': 'City', name: 'Brunn am Gebirge' },
+        { '@type': 'City', name: 'Perchtoldsdorf' },
+        { '@type': 'City', name: 'Maria Enzersdorf' },
+        { '@type': 'City', name: 'Wiener Neudorf' },
+        { '@type': 'City', name: 'Vösendorf' },
+        { '@type': 'City', name: 'Guntramsdorf' },
+        { '@type': 'City', name: 'Gumpoldskirchen' },
+        { '@type': 'City', name: 'Laxenburg' },
+        { '@type': 'City', name: 'Biedermannsdorf' },
+        { '@type': 'City', name: 'Hinterbrühl' },
+        { '@type': 'City', name: 'Gießhübl' },
+        { '@type': 'City', name: 'Gaaden' },
+        { '@type': 'City', name: 'Kaltenleutgeben' },
+        { '@type': 'City', name: 'Breitenfurt bei Wien' },
+        { '@type': 'City', name: 'Laab im Walde' },
+        { '@type': 'City', name: 'Wienerwald' },
+        { '@type': 'City', name: 'Achau' },
+        { '@type': 'City', name: 'Münchendorf' },
+        { '@type': 'City', name: 'Hennersdorf' },
       ],
       hasMap: 'https://www.google.com/maps/search/Hundeschule+Willenskraft+Bruck+an+der+Leitha',
       sameAs: [
@@ -193,6 +220,42 @@ const jsonLd = {
             priceCurrency: 'EUR',
             availability: 'https://schema.org/InStock',
             url: 'https://welpenschule-schwechat.at/kontakt?service=erstberatung-mobil',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Junghundekurs',
+            description: '6 Einheiten à 60 Minuten in Kleingruppen: Signale festigen, Rückruf sichern, Pubertät meistern.',
+            price: '195',
+            priceCurrency: 'EUR',
+            availability: 'https://schema.org/InStock',
+            url: 'https://welpenschule-schwechat.at/kurse/junghundekurs',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Begegnungstraining',
+            description: '8 Einheiten à 60 Minuten, max. 4 Teams: entspannte Hundebegegnungen statt Leinenfrust.',
+            price: '260',
+            priceCurrency: 'EUR',
+            availability: 'https://schema.org/InStock',
+            url: 'https://welpenschule-schwechat.at/kurse/begegnungstraining',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Dummytraining',
+            description: '8 wöchentliche Einheiten: Apport, Nasenarbeit und Impulskontrolle für Hunde ab ca. 10 Monaten.',
+            price: '220',
+            priceCurrency: 'EUR',
+            availability: 'https://schema.org/InStock',
+            url: 'https://welpenschule-schwechat.at/kurse/dummytraining',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Medical Training',
+            description: 'Basis & Fortgeschritten, je 8 Einheiten: stressfrei zu Tierarzt & Pflege durch kooperatives Training.',
+            price: '220',
+            priceCurrency: 'EUR',
+            availability: 'https://schema.org/InStock',
+            url: 'https://welpenschule-schwechat.at/kurse/medical-training',
           },
         ],
       },
@@ -280,6 +343,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppFloat />
       </body>
     </html>
   );

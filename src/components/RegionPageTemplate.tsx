@@ -29,11 +29,20 @@ import {
   Sun,
   Snowflake,
   Sparkles,
+  Home as HomeIcon,
+  Car,
+  Microscope,
+  ArrowUpRight,
 } from 'lucide-react';
 import Reviews from '@/components/Reviews';
 import WillenskraftSection from '@/components/WillenskraftSection';
+import GoogleBadge from '@/components/GoogleBadge';
+import JessySection from '@/components/JessySection';
+import CtaBanner from '@/components/CtaBanner';
+import { WhatsAppIcon, waHref } from '@/components/WhatsAppFloat';
 import { getLocationConfig } from '@/components/WillenskraftSection/config/locations';
 import { getRegionData, type RegionData } from '@/lib/regionData';
+import { getFachwissen, studies } from '@/lib/studies';
 import * as Accordion from '@radix-ui/react-accordion';
 
 const heroImage = 'https://www.willenskraft.co.at/wp-content/uploads/2020/06/DSC09452-845x684.jpg';
@@ -64,11 +73,21 @@ function buildLocalBusinessJsonLd(data: RegionData) {
     address: {
       '@type': 'PostalAddress',
       addressLocality: data.name,
-      addressRegion: 'Niederösterreich',
+      addressRegion: data.slug === 'wien-simmering' ? 'Wien' : data.slug === 'parndorf' ? 'Burgenland' : 'Niederösterreich',
       addressCountry: 'AT',
+      ...(data.postalCode ? { postalCode: data.postalCode } : {}),
     },
+    ...(data.lat && data.lng
+      ? { geo: { '@type': 'GeoCoordinates', latitude: data.lat, longitude: data.lng } }
+      : {}),
     areaServed: { '@type': 'City', name: data.name },
     priceRange: '€€',
+    employee: {
+      '@type': 'Person',
+      name: 'Jessica Pusch',
+      alternateName: 'Jessy',
+      jobTitle: 'Mobile Hundetrainerin',
+    },
     aggregateRating: { '@type': 'AggregateRating', ratingValue: '5', reviewCount: '50' },
   };
 }
@@ -112,6 +131,33 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
   if (!data) return null;
 
   const willenskraftConfig = getLocationConfig(regionKey);
+  const fachwissen = getFachwissen(regionKey);
+  const pageUrl = `https://welpenschule-schwechat.at/mobiles-hundetraining/${data.slug}`;
+
+  // AEO: WebPage mit Speakable-Direktantwort + zitierten Studien (maschinenlesbar für KI-Crawler)
+  const webPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: `Hundeschule ${data.name} — mobile Hundeschule Willenskraft`,
+    inLanguage: 'de-AT',
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#direktantwort'],
+    },
+    citation: (fachwissen?.items ?? [])
+      .map((item) => studies[item.studyId])
+      .filter(Boolean)
+      .map((study) => ({
+        '@type': 'ScholarlyArticle',
+        headline: study.title,
+        author: study.short,
+        datePublished: String(study.year),
+        isPartOf: { '@type': 'Periodical', name: study.journal },
+        sameAs: study.url,
+      })),
+  };
 
   // HowTo schema for region — improves AI/LLM extraction
   const howToJsonLd = {
@@ -145,6 +191,7 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildLocalBusinessJsonLd(data)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
 
       {/* ============== HERO ============== */}
       <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
@@ -186,6 +233,15 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
                 <Phone className="w-4 h-4" /> +43 664 3903673
               </a>
             </div>
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <GoogleBadge variant="dark" />
+              <span className="inline-flex items-center gap-2 text-xs text-cream/80">
+                <HomeIcon className="w-4 h-4 text-brand-300" /> Training bei dir zuhause in {data.name}
+              </span>
+              <span className="inline-flex items-center gap-2 text-xs text-cream/80">
+                <Car className="w-4 h-4 text-brand-300" /> Kostenlose Anfahrt
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -216,6 +272,64 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
         </div>
       </section>
 
+      {/* ============== AEO-DIREKTANTWORT (Speakable, Featured-Snippet-optimiert) ============== */}
+      <section className="container mx-auto px-6 pt-16">
+        <div
+          id="direktantwort"
+          className="wk-card max-w-4xl mx-auto p-8 md:p-10 border-l-[5px] !border-l-brand-500 scroll-mt-24"
+        >
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-700 mb-4">
+            Auf einen Blick — Hundeschule {data.name}
+          </p>
+          <p className="text-ink-800 text-base md:text-lg leading-relaxed">
+            Die <strong>Hundeschule {data.name}</strong> der Hundeschule Willenskraft ist eine{' '}
+            <strong>mobile Hundeschule</strong>: Hundetrainerin Jessica Pusch („Jessy") kommt zum Training
+            direkt zu dir nach Hause nach {data.name} — die Anfahrt ist kostenlos. Mobile Erstberatung
+            (90 Minuten): 95 €, Einzelstunde: 55 €, Welpen-Gruppenkurs (6 Einheiten, max. 4 Teams): 195 €
+            am überdachten Trainingsplatz in Schwechat. Trainiert wird zu 100 % gewaltfrei mit positiver
+            Verstärkung — für Hunde jeden Alters, vom Welpen bis zum Senior. Kontakt:{' '}
+            <a href="tel:+436643903673" className="wk-link font-semibold">+43 664 3903673</a>.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-ink-500">
+            <span className="inline-flex items-center gap-1.5">
+              <HomeIcon className="w-3.5 h-3.5 text-brand-600" /> Training bei dir zuhause
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Car className="w-3.5 h-3.5 text-brand-600" /> Kostenlose Anfahrt
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-brand-600" /> 100 % gewaltfrei
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <ThumbsUp className="w-3.5 h-3.5 text-brand-600" /> 5,0 ★ auf Google
+            </span>
+          </div>
+          <div className="mt-6 flex flex-col sm:flex-row gap-2.5">
+            <Link
+              href={`/kontakt?service=mobiles-training-${data.slug}`}
+              className="wk-btn-primary inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full font-semibold text-sm"
+            >
+              Jetzt Termin in {data.name} anfragen
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full bg-[#25D366] text-white font-semibold text-sm hover:brightness-105 transition-all"
+            >
+              <WhatsAppIcon className="w-4 h-4" /> WhatsApp
+            </a>
+            <a
+              href="tel:+436643903673"
+              className="wk-btn-ghost inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full font-semibold text-sm"
+            >
+              <Phone className="w-4 h-4" /> Anrufen
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ============== INTRO ============== */}
       <section className="wk-section">
         <div className="container mx-auto px-6 max-w-4xl text-center">
@@ -223,6 +337,9 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
           <p className="mt-7 text-lg text-ink-600 leading-relaxed">{data.introText}</p>
         </div>
       </section>
+
+      {/* ============== JESSY — DEINE TRAINERIN ============== */}
+      <JessySection regionName={data.name} />
 
       {/* ============== DETAILS ============== */}
       <section className="bg-card wk-section">
@@ -503,6 +620,76 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
           </div>
         </div>
       </section>
+
+      {/* ============== FACHWISSEN: Studien mit lokalem Bezug + Quellenlinks ============== */}
+      {fachwissen && (
+        <section id="fachwissen" className="wk-section bg-card scroll-mt-24">
+          <div className="container mx-auto px-6 max-w-6xl">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="wk-eyebrow mb-5">
+                <Microscope className="w-3 h-3" /> Fachwissen für {data.name}
+              </span>
+              <h2 className="wk-display text-4xl md:text-5xl text-ink-950">
+                Was die Forschung
+                <br />
+                <span className="wk-text-gradient">für euer Training in {data.name} bedeutet.</span>
+              </h2>
+              <p className="mt-6 text-lg text-ink-600 leading-relaxed">{fachwissen.intro}</p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-5">
+              {fachwissen.items.map((item) => {
+                const study = studies[item.studyId];
+                if (!study) return null;
+                return (
+                  <article key={study.id} className="wk-card p-7 flex flex-col">
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-100 text-brand-800 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em]">
+                        <Microscope className="w-3 h-3" /> Studie {study.year}
+                      </span>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-ink-300">
+                        Peer-Review
+                      </span>
+                    </div>
+                    <p className="text-ink-700 leading-relaxed text-sm mb-5">{study.finding}</p>
+                    <div className="rounded-2xl bg-cream-soft border border-ink-200/60 p-4 mb-5">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 mb-1.5">
+                        Für euer Training in {data.name}
+                      </p>
+                      <p className="text-ink-700 leading-relaxed text-sm">{item.localTake}</p>
+                    </div>
+                    <a
+                      href={study.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-auto group inline-flex items-start gap-2 text-xs text-ink-500 hover:text-brand-700 transition-colors"
+                    >
+                      <ArrowUpRight className="w-3.5 h-3.5 mt-0.5 shrink-0 text-brand-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <span>
+                        <span className="font-semibold text-ink-700 group-hover:text-brand-800 transition-colors">{study.short}</span>
+                        {' — '}
+                        <em>{study.journal}</em>. Zur Originalstudie →
+                      </span>
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+
+            <p className="mt-8 text-center text-xs text-ink-400 max-w-2xl mx-auto">
+              Alle zitierten Arbeiten sind peer-reviewte Studien aus wissenschaftlichen Fachjournalen.
+              Unsere Trainingsmethoden bei Willenskraft folgen diesem Stand der Verhaltensforschung.
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* ============== CTA: WISSENSCHAFTLICH FUNDIERT ============== */}
+      <CtaBanner
+        regionName={data.name}
+        title={`Wissenschaftlich fundiert trainieren — auch in ${data.name}.`}
+        text="Erstberatung 95 € · Einzelstunde 55 € · Welpenkurs 195 €. Schreib Jessy einfach, was euch beschäftigt — sie meldet sich innerhalb von 24 Stunden an Werktagen."
+      />
 
       {/* ============== FAQ ============== */}
       <section className="wk-section">
@@ -869,7 +1056,7 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
       </section>
 
       {/* ============== TESTIMONIALS ============== */}
-      <section className="wk-section">
+      <section id="bewertungen" className="wk-section scroll-mt-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="wk-eyebrow mb-5">Stimmen</span>

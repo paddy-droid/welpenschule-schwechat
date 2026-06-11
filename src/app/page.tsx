@@ -705,6 +705,18 @@ export default function Home() {
                 <span className="px-4 py-2 rounded-full bg-ink-900/60 border border-ink-700 text-sm">Max. 4 Teams</span>
               </div>
               <p className="mt-6 text-ink-400 text-sm">Jeden Monat startet ein neuer Kurs in Schwechat.</p>
+              <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Link
+                  href="/kurse"
+                  className="wk-btn-primary inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full font-semibold text-sm"
+                >
+                  Alle 5 Gruppenkurse entdecken
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <p className="text-xs text-ink-400">
+                  Welpenkurs · Junghundekurs · Begegnungstraining · Dummytraining · Medical Training
+                </p>
+              </div>
             </div>
           </div>
 
@@ -721,7 +733,7 @@ export default function Home() {
       </section>
 
       {/* ================= TESTIMONIALS ================= */}
-      <section className="wk-section">
+      <section id="bewertungen" className="wk-section scroll-mt-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="wk-eyebrow mb-5">Stimmen</span>
@@ -758,7 +770,11 @@ export default function Home() {
                 </h2>
                 <p className="text-lg text-ink-300 mb-8 leading-relaxed">
                   Melde dich und deinen Welpen jetzt zum ersten Kennenlernen in der{' '}
-                  <span className="text-brand-300 font-semibold">Welpenschule Schwechat</span> an.
+                  <span className="text-brand-300 font-semibold">Welpenschule Schwechat</span> an — oder buche{' '}
+                  <Link href="/mobiles-hundetraining" className="text-brand-300 font-semibold underline-offset-2 hover:underline">
+                    mobiles Training bei dir zuhause
+                  </Link>
+                  : vom Schwechater Umland bis in den gesamten Bezirk Mödling.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                   <Link

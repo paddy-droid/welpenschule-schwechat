@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Instagram, Facebook, ArrowUpRight } from 'lucide-react';
 
-const regionLinks = [
+const umlandLinks = [
   { href: '/mobiles-hundetraining', label: 'Schwechat' },
   { href: '/mobiles-hundetraining/wien-simmering', label: 'Wien-Simmering' },
   { href: '/mobiles-hundetraining/fischamend', label: 'Fischamend' },
@@ -12,6 +12,29 @@ const regionLinks = [
   { href: '/mobiles-hundetraining/goetzendorf', label: 'Götzendorf' },
   { href: '/mobiles-hundetraining/bruck-an-der-leitha', label: 'Bruck/Leitha' },
   { href: '/mobiles-hundetraining/parndorf', label: 'Parndorf' },
+];
+
+const moedlingLinks = [
+  { href: '/mobiles-hundetraining/moedling', label: 'Mödling' },
+  { href: '/mobiles-hundetraining/brunn-am-gebirge', label: 'Brunn am Gebirge' },
+  { href: '/mobiles-hundetraining/perchtoldsdorf', label: 'Perchtoldsdorf' },
+  { href: '/mobiles-hundetraining/maria-enzersdorf', label: 'Maria Enzersdorf' },
+  { href: '/mobiles-hundetraining/wiener-neudorf', label: 'Wiener Neudorf' },
+  { href: '/mobiles-hundetraining/voesendorf', label: 'Vösendorf' },
+  { href: '/mobiles-hundetraining/guntramsdorf', label: 'Guntramsdorf' },
+  { href: '/mobiles-hundetraining/gumpoldskirchen', label: 'Gumpoldskirchen' },
+  { href: '/mobiles-hundetraining/laxenburg', label: 'Laxenburg' },
+  { href: '/mobiles-hundetraining/biedermannsdorf', label: 'Biedermannsdorf' },
+  { href: '/mobiles-hundetraining/hinterbruehl', label: 'Hinterbrühl' },
+  { href: '/mobiles-hundetraining/giesshuebl', label: 'Gießhübl' },
+  { href: '/mobiles-hundetraining/gaaden', label: 'Gaaden' },
+  { href: '/mobiles-hundetraining/kaltenleutgeben', label: 'Kaltenleutgeben' },
+  { href: '/mobiles-hundetraining/breitenfurt-bei-wien', label: 'Breitenfurt' },
+  { href: '/mobiles-hundetraining/laab-im-walde', label: 'Laab im Walde' },
+  { href: '/mobiles-hundetraining/wienerwald', label: 'Wienerwald' },
+  { href: '/mobiles-hundetraining/achau', label: 'Achau' },
+  { href: '/mobiles-hundetraining/muenchendorf', label: 'Münchendorf' },
+  { href: '/mobiles-hundetraining/hennersdorf', label: 'Hennersdorf' },
 ];
 
 export default function Footer() {
@@ -73,6 +96,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li><Link href="/" className="hover:text-brand-300 transition-colors">Startseite</Link></li>
               <li><Link href="/mobiles-hundetraining" className="hover:text-brand-300 transition-colors">Mobiles Training</Link></li>
+              <li><Link href="/kurse" className="hover:text-brand-300 transition-colors">Kurse</Link></li>
               <li><Link href="/kontakt" className="hover:text-brand-300 transition-colors">Kontakt</Link></li>
               <li><Link href="/impressum" className="hover:text-brand-300 transition-colors">Impressum</Link></li>
               <li><Link href="/datenschutz" className="hover:text-brand-300 transition-colors">Datenschutz</Link></li>
@@ -81,9 +105,17 @@ export default function Footer() {
 
           {/* Regions */}
           <div className="lg:col-span-3">
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-400 mb-5">Regionen</p>
-            <ul className="grid grid-cols-2 gap-x-3 gap-y-3 text-sm">
-              {regionLinks.map((r) => (
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-400 mb-5">Schwechat & Umland</p>
+            <ul className="grid grid-cols-2 gap-x-3 gap-y-2.5 text-sm mb-8">
+              {umlandLinks.map((r) => (
+                <li key={r.href}>
+                  <Link href={r.href} className="hover:text-brand-300 transition-colors">{r.label}</Link>
+                </li>
+              ))}
+            </ul>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-400 mb-5">Bezirk Mödling</p>
+            <ul className="grid grid-cols-2 gap-x-3 gap-y-2.5 text-sm">
+              {moedlingLinks.map((r) => (
                 <li key={r.href}>
                   <Link href={r.href} className="hover:text-brand-300 transition-colors">{r.label}</Link>
                 </li>

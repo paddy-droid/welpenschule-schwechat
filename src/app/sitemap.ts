@@ -1,20 +1,10 @@
 import { MetadataRoute } from 'next';
+import { getAllRegionSlugs } from '@/lib/regionData';
+import { kurse } from '@/lib/kurseData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://welpenschule-schwechat.at';
   const now = new Date();
-
-  const regions = [
-    'fischamend',
-    'schwadorf',
-    'ebenfurth',
-    'gramatneusiedl',
-    'goetzendorf',
-    'himberg',
-    'bruck-an-der-leitha',
-    'wien-simmering',
-    'parndorf',
-  ];
 
   return [
     {
@@ -35,7 +25,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    ...regions.map((region) => ({
+    {
+      url: `${baseUrl}/kurse`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    ...kurse.map((k) => ({
+      url: `${baseUrl}/kurse/${k.slug}`,
+      lastModified: now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    })),
+    ...getAllRegionSlugs().map((region) => ({
       url: `${baseUrl}/mobiles-hundetraining/${region}`,
       lastModified: now,
       changeFrequency: 'weekly' as const,

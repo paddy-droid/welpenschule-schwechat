@@ -50,7 +50,7 @@ const faqJsonLd = {
       name: 'In welchen Orten bietet ihr mobiles Hundetraining an?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Wir bieten mobiles Hundetraining in Schwechat und der gesamten Umgebung an: Wien-Simmering, Fischamend, Schwadorf, Ebenfurth, Gramatneusiedl, Götzendorf, Himberg, Bruck an der Leitha, Parndorf und vielen weiteren Orten in der Region.',
+        text: 'Wir bieten mobiles Hundetraining in Schwechat und der gesamten Umgebung an: Wien-Simmering, Fischamend, Schwadorf, Ebenfurth, Gramatneusiedl, Götzendorf, Himberg, Bruck an der Leitha und Parndorf — sowie im gesamten Bezirk Mödling mit allen 20 Gemeinden, von Mödling über Perchtoldsdorf und Laxenburg bis Breitenfurt.',
       },
     },
     {
@@ -127,7 +127,7 @@ const mobileTrainingPillars = [
   { icon: Star, title: 'Stärkung der Bindung', description: 'Durch das gemeinsame Training in vertrauter Atmosphäre wird die Beziehung gefestigt.' },
 ];
 
-const locations = [
+const umlandLocations = [
   { name: 'Wien-Simmering', slug: 'wien-simmering' },
   { name: 'Fischamend', slug: 'fischamend' },
   { name: 'Schwadorf', slug: 'schwadorf' },
@@ -137,6 +137,29 @@ const locations = [
   { name: 'Götzendorf', slug: 'goetzendorf' },
   { name: 'Bruck/Leitha', slug: 'bruck-an-der-leitha' },
   { name: 'Parndorf', slug: 'parndorf' },
+];
+
+const moedlingLocations = [
+  { name: 'Mödling', slug: 'moedling' },
+  { name: 'Brunn am Gebirge', slug: 'brunn-am-gebirge' },
+  { name: 'Perchtoldsdorf', slug: 'perchtoldsdorf' },
+  { name: 'Maria Enzersdorf', slug: 'maria-enzersdorf' },
+  { name: 'Wiener Neudorf', slug: 'wiener-neudorf' },
+  { name: 'Vösendorf', slug: 'voesendorf' },
+  { name: 'Guntramsdorf', slug: 'guntramsdorf' },
+  { name: 'Gumpoldskirchen', slug: 'gumpoldskirchen' },
+  { name: 'Laxenburg', slug: 'laxenburg' },
+  { name: 'Biedermannsdorf', slug: 'biedermannsdorf' },
+  { name: 'Hinterbrühl', slug: 'hinterbruehl' },
+  { name: 'Gießhübl', slug: 'giesshuebl' },
+  { name: 'Gaaden', slug: 'gaaden' },
+  { name: 'Kaltenleutgeben', slug: 'kaltenleutgeben' },
+  { name: 'Breitenfurt', slug: 'breitenfurt-bei-wien' },
+  { name: 'Laab im Walde', slug: 'laab-im-walde' },
+  { name: 'Wienerwald', slug: 'wienerwald' },
+  { name: 'Achau', slug: 'achau' },
+  { name: 'Münchendorf', slug: 'muenchendorf' },
+  { name: 'Hennersdorf', slug: 'hennersdorf' },
 ];
 
 export default function MobileHundetrainingPage() {
@@ -168,6 +191,7 @@ export default function MobileHundetrainingPage() {
             </h1>
             <p className="mt-7 text-lg md:text-xl text-cream/85 max-w-2xl leading-relaxed">
               Ganzheitliches &amp; gewaltfreies Hundetraining – flexibel bei dir zuhause oder an deinem Wunschort.
+              Vom Schwechater Umland bis in den gesamten Bezirk Mödling.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <Link
@@ -423,18 +447,30 @@ export default function MobileHundetrainingPage() {
             <div className="md:col-span-7 wk-card p-8 lg:p-10">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-700 mb-4">Über das Einzugsgebiet</p>
               <p className="text-ink-700 leading-relaxed text-base mb-7">
-                Wir bieten mobiles Hundetraining in der Stadtregion Schwechat sowie in 9 weiteren Standorten in
-                Niederösterreich, Wien und im Burgenland an. Das Einzugsgebiet umspannt rund 35 km Radius rund
-                um den Standort Schwechat — alle Anfahrten sind für unsere Kund:innen kostenlos.
+                Wir bieten mobiles Hundetraining in der Stadtregion Schwechat sowie in 29 weiteren Standorten in
+                Niederösterreich, Wien und im Burgenland an — darunter alle 20 Gemeinden des Bezirks Mödling.
+                Das Einzugsgebiet umspannt rund 35 km Radius rund um den Standort Schwechat — alle Anfahrten
+                sind für unsere Kund:innen kostenlos.
               </p>
               <h4 className="text-sm font-bold text-ink-950 uppercase tracking-wider mb-4">
-                Standorte mit mobilem Training
+                Schwechat & Umland
               </h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-6">
                 {['Schwechat', 'Wien-Simmering', 'Fischamend', 'Schwadorf', 'Himberg', 'Gramatneusiedl', 'Ebenfurth', 'Götzendorf', 'Bruck/Leitha', 'Parndorf'].map((n) => (
                   <div key={n} className="flex items-center gap-2 text-sm text-ink-700">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-600 shrink-0" />
                     <span>{n}</span>
+                  </div>
+                ))}
+              </div>
+              <h4 className="text-sm font-bold text-ink-950 uppercase tracking-wider mb-4">
+                Bezirk Mödling — alle 20 Gemeinden
+              </h4>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                {moedlingLocations.map((l) => (
+                  <div key={l.slug} className="flex items-center gap-2 text-sm text-ink-700">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-600 shrink-0" />
+                    <span>{l.name}</span>
                   </div>
                 ))}
               </div>
@@ -446,7 +482,7 @@ export default function MobileHundetrainingPage() {
                 <dl className="space-y-3 text-sm">
                   <div className="flex items-baseline justify-between gap-3 pb-3 border-b border-ink-200/70">
                     <dt className="text-ink-500">Standorte</dt>
-                    <dd className="font-semibold text-ink-950 text-right">10 Orte</dd>
+                    <dd className="font-semibold text-ink-950 text-right">30 Orte</dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-3 pb-3 border-b border-ink-200/70">
                     <dt className="text-ink-500">Einzugsradius</dt>
@@ -555,10 +591,24 @@ export default function MobileHundetrainingPage() {
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="wk-eyebrow mb-5">Auch in deiner Nähe</span>
             <h2 className="wk-display text-3xl md:text-4xl text-ink-950">Unser Einzugsgebiet.</h2>
-            <p className="mt-5 text-lg text-ink-600">Wir bieten unser mobiles Hundetraining in 10 Orten der Region an.</p>
+            <p className="mt-5 text-lg text-ink-600">
+              Wir bieten unser mobiles Hundetraining in 30 Orten an — im Schwechater Umland und im gesamten Bezirk Mödling.
+            </p>
           </div>
+          <h3 className="text-center text-[10px] font-bold uppercase tracking-[0.18em] text-brand-700 mb-5">Schwechat & Umland</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-5xl mx-auto mb-12">
+            {umlandLocations.map((ort) => (
+              <Link key={ort.slug} href={`/mobiles-hundetraining/${ort.slug}`} className="block">
+                <div className="wk-card p-4 flex items-center justify-center gap-2 group">
+                  <MapPin className="w-4 h-4 text-ink-400 group-hover:text-brand-600 transition-colors" />
+                  <span className="font-semibold text-ink-900 text-sm">{ort.name}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <h3 className="text-center text-[10px] font-bold uppercase tracking-[0.18em] text-brand-700 mb-5">Bezirk Mödling</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-5xl mx-auto">
-            {locations.map((ort) => (
+            {moedlingLocations.map((ort) => (
               <Link key={ort.slug} href={`/mobiles-hundetraining/${ort.slug}`} className="block">
                 <div className="wk-card p-4 flex items-center justify-center gap-2 group">
                   <MapPin className="w-4 h-4 text-ink-400 group-hover:text-brand-600 transition-colors" />
@@ -613,7 +663,7 @@ export default function MobileHundetrainingPage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="wk-section">
+      <section id="bewertungen" className="wk-section scroll-mt-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="wk-eyebrow mb-5">Stimmen</span>

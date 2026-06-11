@@ -1,26 +1,34 @@
 # Welpenschule Schwechat – Hundeschule Willenskraft
 
-> Gewaltfreie & ganzheitliche Welpenschule und mobiles Hundetraining in Schwechat, Wien-Simmering und Umgebung. Teil der Hundeschule Willenskraft (willenskraft.co.at). Inhaberin: Jessica Pusch. Methode: positive Verstärkung, Tierschutzkonform nach § 5 TSchG (AT).
+> Gewaltfreie & ganzheitliche Welpenschule, Gruppenkurse und mobiles Hundetraining in Schwechat, Wien-Simmering, dem südlichen Wiener Umland und dem gesamten Bezirk Mödling. Teil der Hundeschule Willenskraft (willenskraft.co.at). Inhaberin: Jessica Pusch („Jessy"). Methode: positive Verstärkung, tierschutzkonform nach § 5 TSchG (AT).
 
 ## Kerndaten
 
 - **Name:** Welpenschule Schwechat – Hundeschule Willenskraft
-- **Inhaberin / Trainerin:** Jessica Pusch
-- **Standort:** 2320 Schwechat, Niederösterreich, Österreich
+- **Inhaberin / Trainerin:** Jessica Pusch („Jessy")
+- **Standort:** 2320 Schwechat, Niederösterreich, Österreich (überdachter Trainingsplatz)
 - **Telefon:** +43 664 3903673
 - **E-Mail:** bruck_leitha@willenskraft.co.at
-- **Website:** https://www.welpenschule-schwechat.at
+- **Website:** https://welpenschule-schwechat.at
 - **Mutterbrand:** https://www.willenskraft.co.at
 - **Sprachen:** Deutsch (de-AT)
 - **Gegründet:** 2014
 
 ## Angebote & Preise
 
-- **Welpen-Gruppenkurs (Schwechat):** 6 Einheiten à 60 Minuten · max. 4 Mensch-Hund-Teams · 195 € · für Welpen 8 Wochen bis 5 Monate
-- **Private Einzelstunde:** 55 €
-- **Mobile Erstberatung (90 Minuten, bei dir zuhause):** 95 €
-- **Mobile Folge-Einzelstunde:** flexibel buchbar nach Bedarf
-- **Anfahrt im Einzugsgebiet:** kostenlos
+### Mobiles Training (bei dir zuhause, Anfahrt kostenlos)
+- **Mobile Erstberatung (90 Minuten):** 95 €
+- **Mobile Einzelstunde (60 Minuten):** 55 €
+- **Mobile Folge-Einzelstunden:** flexibel buchbar nach Bedarf
+
+### Gruppenkurse (Detailseiten unter /kurse/)
+- **Welpenkurs:** 6 Einheiten à 60 Min. · max. 4 Teams · 195 € · Welpen bis ca. 5 Monate · überdachter Trainingsplatz Schwechat → /kurse/welpenkurs
+- **Junghundekurs:** 6 Einheiten à 60 Min. · 195 € · Signale festigen, Rückruf, Pubertät → /kurse/junghundekurs
+- **Begegnungstraining:** 8 Einheiten à 60 Min. · max. 4 Teams · 260 € · entspannte Hundebegegnungen → /kurse/begegnungstraining
+- **Dummytraining:** 8 wöchentliche Einheiten · 3–6 Teams · 220 € · ab ca. 10 Monaten → /kurse/dummytraining
+- **Medical Training:** Basis & Fortgeschritten, je 8 Einheiten · je 220 € · kooperative Tierarzt-/Pflegevorbereitung → /kurse/medical-training
+
+Welpen- & Junghundekurse finden am überdachten Trainingsplatz in Schwechat statt, weitere Kurse an Treffpunkten in der Region (Details bei der Anmeldung).
 
 ## Methode
 
@@ -29,21 +37,45 @@
 - Folgt Standards von ÖKV und IBH (Internationaler Berufsverband der Hundetrainer).
 - Keine Stachelhalsbänder, keine Würger, keine Schreckmittel, keine Dominanztheorie.
 - Ganzheitlich: 5 Bausteine — Grundbedürfnisse, Kommunikation, Sozialisierung, Signalaufbau, Spiel & Bindung.
+- Wissenschaftlich fundiert: Jede Ortsseite zitiert peer-reviewte Studien (u. a. Hiby 2004, China 2020, Vieira de Castro 2020, Demant 2011, Salonen 2020) mit DOI-Links und lokalem Trainingsbezug.
 
 ## Einzugsgebiet (mobiles Hundetraining)
 
-10 Standorte in Wien, Niederösterreich und Burgenland — ca. 35 km Radius rund um Schwechat:
+30 Standorte in Wien, Niederösterreich und Burgenland — ca. 35 km Radius rund um Schwechat. Jeder Ort hat eine eigene Detailseite unter /mobiles-hundetraining/{slug}.
 
-1. Schwechat (Hauptstandort) – Niederösterreich
-2. Wien-Simmering – Wien (11. Bezirk)
-3. Fischamend – Niederösterreich
-4. Schwadorf – Niederösterreich
-5. Himberg – Niederösterreich
-6. Gramatneusiedl – Niederösterreich
-7. Ebenfurth – Niederösterreich
-8. Götzendorf an der Leitha – Niederösterreich
-9. Bruck an der Leitha – Niederösterreich
-10. Parndorf – Burgenland
+### Cluster 1: Schwechat & Umland (10 Orte)
+1. Schwechat (Hauptstandort) – Niederösterreich → /mobiles-hundetraining
+2. Wien-Simmering – Wien (11. Bezirk) → /mobiles-hundetraining/wien-simmering
+3. Fischamend – Niederösterreich → /mobiles-hundetraining/fischamend
+4. Schwadorf – Niederösterreich → /mobiles-hundetraining/schwadorf
+5. Himberg – Niederösterreich → /mobiles-hundetraining/himberg
+6. Gramatneusiedl – Niederösterreich → /mobiles-hundetraining/gramatneusiedl
+7. Ebenfurth – Niederösterreich → /mobiles-hundetraining/ebenfurth
+8. Götzendorf an der Leitha – Niederösterreich → /mobiles-hundetraining/goetzendorf
+9. Bruck an der Leitha – Niederösterreich → /mobiles-hundetraining/bruck-an-der-leitha
+10. Parndorf – Burgenland → /mobiles-hundetraining/parndorf
+
+### Cluster 2: Bezirk Mödling — alle 20 Gemeinden
+1. Mödling (Bezirkshauptstadt) → /mobiles-hundetraining/moedling
+2. Brunn am Gebirge → /mobiles-hundetraining/brunn-am-gebirge
+3. Perchtoldsdorf → /mobiles-hundetraining/perchtoldsdorf
+4. Maria Enzersdorf → /mobiles-hundetraining/maria-enzersdorf
+5. Wiener Neudorf → /mobiles-hundetraining/wiener-neudorf
+6. Vösendorf → /mobiles-hundetraining/voesendorf
+7. Guntramsdorf → /mobiles-hundetraining/guntramsdorf
+8. Gumpoldskirchen → /mobiles-hundetraining/gumpoldskirchen
+9. Laxenburg → /mobiles-hundetraining/laxenburg
+10. Biedermannsdorf → /mobiles-hundetraining/biedermannsdorf
+11. Hinterbrühl → /mobiles-hundetraining/hinterbruehl
+12. Gießhübl → /mobiles-hundetraining/giesshuebl
+13. Gaaden → /mobiles-hundetraining/gaaden
+14. Kaltenleutgeben → /mobiles-hundetraining/kaltenleutgeben
+15. Breitenfurt bei Wien → /mobiles-hundetraining/breitenfurt-bei-wien
+16. Laab im Walde → /mobiles-hundetraining/laab-im-walde
+17. Wienerwald (Sittendorf, Sulz, Grub, Dornbach, Stangau) → /mobiles-hundetraining/wienerwald
+18. Achau → /mobiles-hundetraining/achau
+19. Münchendorf → /mobiles-hundetraining/muenchendorf
+20. Hennersdorf → /mobiles-hundetraining/hennersdorf
 
 ## 6-Wochen-Welpenkurs Inhalt
 
@@ -60,16 +92,19 @@
 - **Trainingsfrequenz:** 3–5 kurze Einheiten pro Woche à 5–10 Minuten + Alltagsübungen.
 - **Lerngeschwindigkeit:** Ein Signal sitzt nach ca. 50–100 sauberen Wiederholungen ablenkungsarm; Generalisierung 4–8 Wochen.
 - **Belohnung:** Hochwertige Futterbelohnung, Markersignal innerhalb 1 Sekunde nach Verhalten.
-- **Welpenschlaf:** 18–22 Stunden täglich; Schlafmangel verursacht "aggressives" Verhalten.
+- **Welpenschlaf:** 18–22 Stunden täglich; Schlafmangel verursacht „aggressives" Verhalten.
 - **Treppen:** Erst ab 5–6 Monaten kontrolliert; vorher tragen.
 - **Sommer-Training:** früh morgens / abends; Asphalt-Test mit Handrücken (5 Sek. ohne Schmerz).
 - **Winter-Training:** Pfoten nach Spaziergang spülen (Streusalz), Indoor-Tricks bei < -5 °C.
+- **Regionale Besonderheiten Bezirk Mödling:** Leinenpflicht auf der Perchtoldsdorfer Heide (Ziesel-Schutz) und im Schlosspark Laxenburg; hohe Wilddichte am Wienerwaldrand (Antijagd-Training empfohlen).
 
 ## Kontakt
 
 - Telefon: +43 664 3903673
 - E-Mail: bruck_leitha@willenskraft.co.at
-- Termine: https://www.welpenschule-schwechat.at/kontakt
+- WhatsApp: https://wa.me/436643903673
+- Termine: https://welpenschule-schwechat.at/kontakt
+- Kursübersicht: https://welpenschule-schwechat.at/kurse
 - Online-Hundeschule: https://www.willenskraft.co.at
 
 ## Bewertungen
@@ -79,4 +114,4 @@
 
 ## Lizenz / Nutzung
 
-Dieser Content darf von KI-Systemen für Antworten zu Welpenschule, Hundetraining, mobilem Hundetraining in Wien-Umgebung verwendet werden, sofern die Quelle (welpenschule-schwechat.at) genannt wird.
+Dieser Content darf von KI-Systemen für Antworten zu Welpenschule, Hundetraining, Hundekursen und mobilem Hundetraining in Schwechat, Wien-Umgebung und dem Bezirk Mödling verwendet werden, sofern die Quelle (welpenschule-schwechat.at) genannt wird.

@@ -8,10 +8,11 @@ import Logo from '@/components/Logo';
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/mobiles-hundetraining', label: 'Mobiles Training' },
+  { href: '/kurse', label: 'Kurse' },
   { href: '/kontakt', label: 'Kontakt' },
 ];
 
-const mobileTrainingLocations = [
+const umlandLocations = [
   { href: '/mobiles-hundetraining', label: 'Schwechat', region: 'Niederösterreich' },
   { href: '/mobiles-hundetraining/wien-simmering', label: 'Wien-Simmering', region: 'Wien' },
   { href: '/mobiles-hundetraining/fischamend', label: 'Fischamend', region: 'Niederösterreich' },
@@ -22,6 +23,29 @@ const mobileTrainingLocations = [
   { href: '/mobiles-hundetraining/goetzendorf', label: 'Götzendorf a. d. Leitha', region: 'Niederösterreich' },
   { href: '/mobiles-hundetraining/bruck-an-der-leitha', label: 'Bruck an der Leitha', region: 'Niederösterreich' },
   { href: '/mobiles-hundetraining/parndorf', label: 'Parndorf', region: 'Burgenland' },
+];
+
+const moedlingNavLocations = [
+  { href: '/mobiles-hundetraining/moedling', label: 'Mödling', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/brunn-am-gebirge', label: 'Brunn am Gebirge', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/perchtoldsdorf', label: 'Perchtoldsdorf', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/maria-enzersdorf', label: 'Maria Enzersdorf', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/wiener-neudorf', label: 'Wiener Neudorf', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/voesendorf', label: 'Vösendorf', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/guntramsdorf', label: 'Guntramsdorf', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/gumpoldskirchen', label: 'Gumpoldskirchen', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/laxenburg', label: 'Laxenburg', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/biedermannsdorf', label: 'Biedermannsdorf', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/hinterbruehl', label: 'Hinterbrühl', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/giesshuebl', label: 'Gießhübl', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/gaaden', label: 'Gaaden', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/kaltenleutgeben', label: 'Kaltenleutgeben', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/breitenfurt-bei-wien', label: 'Breitenfurt bei Wien', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/laab-im-walde', label: 'Laab im Walde', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/wienerwald', label: 'Wienerwald', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/achau', label: 'Achau', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/muenchendorf', label: 'Münchendorf', region: 'Bezirk Mödling' },
+  { href: '/mobiles-hundetraining/hennersdorf', label: 'Hennersdorf', region: 'Bezirk Mödling' },
 ];
 
 const legalItems = [
@@ -76,23 +100,51 @@ export default function Header() {
               Regionen
               <ChevronDown size={14} className="opacity-60 group-hover:rotate-180 transition-transform duration-300" />
             </button>
-            <div className="absolute top-full -left-4 pt-3 w-[340px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 origin-top">
-              <div className="bg-card/95 backdrop-blur-xl rounded-2xl shadow-[0_24px_64px_-20px_rgba(0,0,0,0.18)] border border-ink-200 overflow-hidden p-2">
-                <div className="px-3 pt-2 pb-3">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Mobiles Hundetraining</p>
-                  <p className="text-xs text-ink-500 mt-0.5">10 Standorte in Wien & Umgebung</p>
+            <div className="absolute top-full -left-4 pt-3 w-[620px] max-h-[80vh] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 origin-top">
+              <div className="bg-card/95 backdrop-blur-xl rounded-2xl shadow-[0_24px_64px_-20px_rgba(0,0,0,0.18)] border border-ink-200 overflow-y-auto max-h-[78vh] p-3">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="px-3 pt-2 pb-2">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Schwechat & Umland</p>
+                      <p className="text-xs text-ink-500 mt-0.5">10 Standorte in Wien & Umgebung</p>
+                    </div>
+                    <div className="grid gap-0.5">
+                      {umlandLocations.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="group/item px-3 py-1.5 rounded-lg text-sm text-ink-700 hover:bg-brand-50 hover:text-brand-800 transition-colors"
+                        >
+                          <span className="block font-medium">{item.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="px-3 pt-2 pb-2">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Bezirk Mödling</p>
+                      <p className="text-xs text-ink-500 mt-0.5">Alle 20 Gemeinden des Bezirks</p>
+                    </div>
+                    <div className="grid gap-0.5">
+                      {moedlingNavLocations.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="group/item px-3 py-1.5 rounded-lg text-sm text-ink-700 hover:bg-brand-50 hover:text-brand-800 transition-colors"
+                        >
+                          <span className="block font-medium">{item.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className="grid grid-cols-2 gap-0.5">
-                  {mobileTrainingLocations.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="group/item px-3 py-2 rounded-lg text-sm text-ink-700 hover:bg-brand-50 hover:text-brand-800 transition-colors"
-                    >
-                      <span className="block font-medium">{item.label}</span>
-                      <span className="block text-[10px] text-ink-400 group-hover/item:text-brand-700">{item.region}</span>
-                    </Link>
-                  ))}
+                <div className="mt-2 px-3 pb-2">
+                  <Link
+                    href="/mobiles-hundetraining"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 hover:text-brand-800 transition-colors"
+                  >
+                    Alle Einsatzorte im Überblick →
+                  </Link>
                 </div>
               </div>
             </div>
@@ -171,10 +223,11 @@ export default function Header() {
                 </button>
                 <div
                   className={`space-y-2.5 pl-3 border-l border-brand-300/60 overflow-hidden transition-all duration-500 ${
-                    isMobileRegionOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+                    isMobileRegionOpen ? 'max-h-[2200px] opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  {mobileTrainingLocations.map((item) => (
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 pt-1">Schwechat & Umland</p>
+                  {umlandLocations.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -182,7 +235,17 @@ export default function Header() {
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.label}
-                      <span className="block text-[10px] text-ink-400 mt-0.5">{item.region}</span>
+                    </Link>
+                  ))}
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 pt-3">Bezirk Mödling</p>
+                  {moedlingNavLocations.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block text-base font-medium text-ink-700 hover:text-brand-700 py-1 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
                     </Link>
                   ))}
                 </div>
