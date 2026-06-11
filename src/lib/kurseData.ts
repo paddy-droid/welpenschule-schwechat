@@ -55,7 +55,7 @@ export const kurse: KursData[] = [
     start: 'Jeden Monat startet mindestens ein neuer Welpen-Gruppenkurs.',
     intro: [
       'Im Welpenkurs arbeiten wir gemeinsam an den grundlegenden Fähigkeiten: positiver Signalaufbau, die Auswahl des richtigen Equipments, Objektvorstellung und Leinenhandling — und wir beobachten genau, wie sich die Ausdrucksmöglichkeiten deines jungen Hundes entwickeln. Unser Hauptanliegen: Jeder neue Eindruck soll für deinen Welpen eine positive Erfahrung sein.',
-      'Die sechs Einheiten finden am überdachten Trainingsplatz in Schwechat statt — wetterunabhängig und in einem geschützten Rahmen mit maximal vier Teams. Als Welpeneltern könnt ihr zusätzlich private Einzelstunden um 55 € buchen, mobil bei euch zuhause.',
+      'Die sechs Einheiten finden am überdachten Trainingsplatz in Schwechat statt — wetterunabhängig und in einem geschützten Rahmen mit maximal vier Teams. Als Welpeneltern könnt ihr zusätzlich private Einzelstunden zum Sonderpreis von 55 € statt 80 € buchen, mobil bei euch zuhause.',
     ],
     inhalte: [
       'Grundbedürfnisse der Hunde',
@@ -73,7 +73,7 @@ export const kurse: KursData[] = [
     faqs: [
       { question: 'Ab wann kann mein Welpe teilnehmen?', answer: 'Sobald die erste Grundimmunisierung gemacht ist — idealerweise direkt nach dem Einzug, denn die wichtigste Sozialisierungsphase endet etwa mit der 16. Lebenswoche. Teilnehmen können Welpen bis zu einem Alter von rund 5 Monaten, alle Rassen.' },
       { question: 'Wo findet der Welpenkurs statt?', answer: 'Am überdachten Trainingsplatz in Schwechat — dadurch trainieren wir wetterunabhängig das ganze Jahr. Die genaue Adresse erfährst du bei der Anmeldung.' },
-      { question: 'Was kostet der Welpenkurs?', answer: 'Der Kurs umfasst 6 Einheiten zu je einer Stunde und kostet 195 €. Ergänzend könnt ihr mobile Einzelstunden um 55 € buchen — Jessy kommt dafür zu euch nach Hause.' },
+      { question: 'Was kostet der Welpenkurs?', answer: 'Der Kurs umfasst 6 Einheiten zu je einer Stunde und kostet 195 €. Ergänzend könnt ihr als Welpeneltern mobile Einzelstunden zum Sonderpreis von 55 € statt 80 € buchen — Jessy kommt dafür zu euch nach Hause.' },
       { question: 'Findet der Kurs auch im Winter statt?', answer: 'Ja — der überdachte Trainingsplatz macht uns wetterunabhängig, im Winter gibt es zusätzlich die „Willenskraft Winteredition" mit entsprechend angepasster Kursgestaltung. Wir empfehlen warme Kleidung für dich und eine Decke für deinen Welpen.' },
     ],
     heroImage: '/heroes/kurs-welpen.webp',
@@ -252,7 +252,7 @@ export const kurse: KursData[] = [
     menuLabel: 'Medical Training',
     teaser: 'Stressfrei zu Tierarzt & Pflege — Basis & Fortgeschritten',
     claim: 'Krallen schneiden, Ohrentropfen, Tierarztbesuch — ohne Kampf: Medical Training macht Pflege & Untersuchungen zur Kooperationsübung.',
-    price: '220 € je Kurs',
+    price: '260 € je Kurs',
     units: 'Basis & Fortgeschritten: je 8 Einheiten à 60 Min.',
     groupSize: '3–6 Mensch-Hund-Teams',
     audience: 'Hunde jeden Alters, jeder Rasse und jedes Temperaments — keine speziellen Vorkenntnisse nötig. Freude an positiver Zusammenarbeit reicht völlig.',
@@ -281,7 +281,7 @@ export const kurse: KursData[] = [
     faqs: [
       { question: 'Für welche Hunde ist Medical Training geeignet?', answer: 'Für Hunde jeden Alters, jeder Rasse und jedes Temperaments — vom Welpen bis zum Senior. Spezielle Vorkenntnisse braucht es nicht, nur Freude an positiver Zusammenarbeit.' },
       { question: 'Was ist der Unterschied zwischen Basis- und Fortgeschrittenenkurs?', answer: 'Im Basiskurs bauen wir die Grundlagen auf: Brückensignal, Targets, Kooperationssignale und Desensibilisierung. Im Fortgeschrittenenkurs wenden wir sie an — vom Krallenkürzen über Ohrentropfen bis zur Vorbereitung auf Blutabnahme und Impfung.' },
-      { question: 'Was kostet das Medical Training?', answer: 'Basiskurs und Fortgeschrittenenkurs umfassen je 8 wöchentliche Einheiten à 60 Minuten und kosten je 220 €. Targets und Pflegeutensilien werden gestellt; alle Teilnehmer:innen bekommen Zugang zu einer WhatsApp-Gruppe.' },
+      { question: 'Was kostet das Medical Training?', answer: 'Basiskurs und Fortgeschrittenenkurs umfassen je 8 wöchentliche Einheiten à 60 Minuten und kosten je 260 €. Targets und Pflegeutensilien werden gestellt; alle Teilnehmer:innen bekommen Zugang zu einer WhatsApp-Gruppe.' },
       { question: 'Mein Hund hat schon Angst vorm Tierarzt — hilft das noch?', answer: 'Ja — genau dafür ist kooperatives Medical Training da. Dein Hund lernt über „Ich-bin-bereit"-Signale, selbst mitzuentscheiden. Das gibt Kontrolle zurück und baut Angst nachhaltig ab. Bei starker Angst starten wir mit mobilen Einzelstunden.' },
     ],
     heroImage: '/heroes/kurs-medical.webp',
@@ -291,7 +291,7 @@ export const kurse: KursData[] = [
     shorts: ['7dOA4z3M9Eg', 'MccAfEAagXs', 'Mz1kCLxJALA', 'iKANIVJCmyM'],
     video: { id: 'EXJJUMFu49s', title: 'Expertinnen-Talk: Medical Training — mit Jessy Pusch & Bianca Oriana Willen' },
     metaTitle: 'Medical Training für Hunde Schwechat | Willenskraft',
-    metaDescription: 'Medical Training mit Jessy: Basis & Fortgeschritten, je 8 Einheiten um 220 € ✓ stressfrei zu Tierarzt & Pflege ✓ kooperativ. ☎ 0664 3903673',
+    metaDescription: 'Medical Training mit Jessy: Basis & Fortgeschritten, je 8 Einheiten um 260 € ✓ stressfrei zu Tierarzt & Pflege ✓ kooperativ. ☎ 0664 3903673',
   },
 ];
 
