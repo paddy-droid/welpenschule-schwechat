@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
+import NewsletterPopup from '@/components/NewsletterPopup';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -344,6 +345,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppFloat />
+        <NewsletterPopup />
       </body>
     </html>
   );
