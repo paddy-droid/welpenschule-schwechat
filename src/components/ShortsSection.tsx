@@ -2,8 +2,8 @@ import { Youtube, ArrowUpRight } from 'lucide-react';
 
 export const youtubeChannelUrl = 'https://www.youtube.com/@hundeschulewillenskraft';
 
-/** Kuratierte Shorts vom Willenskraft-YouTube-Kanal. */
-export const defaultShortIds = ['e-V0mN-gP-I', '-ORnMT0oMHk', 'ptXxKbu4XPc', 'HmUmOI8bmAM'];
+/** Kuratierte Trainings-Shorts vom Willenskraft-YouTube-Kanal (Welpen, Junghund & Methodik). */
+export const defaultShortIds = ['GS59aISbezM', 'jFvc-fY9irA', 'eTQsUUp8e0s', 'Csco1QPpTJc', 'egxWG2vLLVM', 'ptXxKbu4XPc'];
 
 interface ShortsSectionProps {
   /** Welche Shorts gezeigt werden (YouTube-Video-IDs) */
@@ -16,7 +16,7 @@ interface ShortsSectionProps {
  * Trainings-Shorts vom Willenskraft-Kanal + Kanal-CTA.
  */
 export default function ShortsSection({ ids = defaultShortIds, title = 'Echte Momente aus dem Training.', dark = false }: ShortsSectionProps) {
-  const gridCols = ids.length >= 4 ? 'sm:grid-cols-2 lg:grid-cols-4 max-w-6xl' : ids.length === 3 ? 'sm:grid-cols-3 max-w-4xl' : 'sm:grid-cols-2 max-w-3xl';
+  const gridCols = ids.length >= 6 ? 'sm:grid-cols-2 lg:grid-cols-3 max-w-5xl' : ids.length >= 4 ? 'sm:grid-cols-2 lg:grid-cols-4 max-w-6xl' : ids.length === 3 ? 'sm:grid-cols-3 max-w-4xl' : 'sm:grid-cols-2 max-w-3xl';
   return (
     <section className={`wk-section ${dark ? 'bg-ink-950 text-cream' : 'bg-card'}`}>
       <div className="container mx-auto px-6 max-w-6xl">

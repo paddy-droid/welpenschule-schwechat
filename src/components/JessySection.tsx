@@ -9,7 +9,7 @@ interface JessySectionProps {
   regionName?: string;
 }
 
-const jessyImage = 'https://www.willenskraft.co.at/wp-content/uploads/2020/02/Hundeschule-Willenskraft-ButtonFINAL.png';
+const jessyImage = 'https://www.willenskraft.co.at/wp-content/uploads/2025/06/Jessica-Pusch-Hundeschule-Wien-Niederoesterreich.webp';
 
 /**
  * Persönliche Vorstellung von Jessica Pusch („Jessy") — der mobilen
@@ -29,9 +29,10 @@ export default function JessySection({ regionName }: JessySectionProps) {
               <div className="absolute -inset-5 bg-gradient-to-br from-brand-100 to-brand-200 rounded-full opacity-70 blur-2xl" />
               <Image
                 src={jessyImage}
-                alt={`Jessica Pusch — deine mobile Hundetrainerin ${ortText}`}
+                alt={`Jessica Pusch — mobile Hundetrainerin & Welpenschule ${ortText}`}
                 width={420}
                 height={420}
+                sizes="(max-width: 640px) 240px, (max-width: 1024px) 280px, 320px"
                 className="relative w-full h-auto rounded-full object-cover aspect-square border-4 border-cream shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]"
               />
             </div>

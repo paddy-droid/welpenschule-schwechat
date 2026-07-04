@@ -184,6 +184,12 @@
     color: var(--ink-950);
   }
 
+  /* Konsistenter, sichtbarer Tastatur-Fokus (Keyboard-a11y) — respektiert beide Themes über --ring */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
   }

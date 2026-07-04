@@ -31,7 +31,7 @@ export default function WillenskraftSection({ content = defaultWillenskraftConte
             >
               <Image
                 src={src}
-                alt={`Hundeschule Willenskraft Bild ${index + 1}`}
+                alt={`Hundeschule Willenskraft & Akademie – Welpentraining, Gruppenkurse und Team (Bild ${index + 1})`}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 50vw, 25vw"

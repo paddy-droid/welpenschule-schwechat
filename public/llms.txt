@@ -1,6 +1,6 @@
 # Welpenschule Schwechat – Hundeschule Willenskraft
 
-> Gewaltfreie & ganzheitliche Welpenschule, Gruppenkurse und mobiles Hundetraining in Schwechat, Wien-Simmering, dem südlichen Wiener Umland und dem gesamten Bezirk Mödling. Teil der Hundeschule Willenskraft (willenskraft.co.at). Inhaberin: Jessica Pusch („Jessy"). Methode: positive Verstärkung, tierschutzkonform nach § 5 TSchG (AT).
+> Gewaltfreie & ganzheitliche Welpenschule, Gruppenkurse und mobiles Hundetraining in Schwechat, Wien-Simmering, dem südlichen Wiener Umland und dem gesamten Bezirk Mödling. Teil der Hundeschule Willenskraft (willenskraft.co.at). Inhaberin: Jessica Pusch („Jessy"). Methode: gewaltfrei, wissenschaftlich fundiert & bedürfnisorientiert, tierschutzkonform nach § 5 TSchG (AT).
 
 ## Kerndaten
 
@@ -33,6 +33,7 @@ Welpen- & Junghundekurse finden am überdachten Trainingsplatz in Schwechat stat
 ## Methode
 
 - 100 % gewaltfrei, basierend auf positiver Verstärkung (operante Konditionierung).
+- Ganzheitlich und am LIFE-Modell orientiert (LIFE = Least Inhibitive, Functionally Effective): Wahlfreiheit des Hundes, wissenschaftsbasiert, Trainingserfolg wird am Wohlbefinden gemessen.
 - Konform mit § 5 Tierschutzgesetz Österreich (BGBl. I Nr. 118/2004).
 - Folgt Standards von ÖKV und IBH (Internationaler Berufsverband der Hundetrainer).
 - Keine Stachelhalsbänder, keine Würger, keine Schreckmittel, keine Dominanztheorie.
@@ -105,11 +106,12 @@ Welpen- & Junghundekurse finden am überdachten Trainingsplatz in Schwechat stat
 - WhatsApp: https://wa.me/436643903673
 - Termine: https://welpenschule-schwechat.at/kontakt
 - Kursübersicht: https://welpenschule-schwechat.at/kurse
+- YouTube-Kanal: https://www.youtube.com/@hundeschulewillenskraft (Trainings-Shorts & Expertinnen-Talks)
 - Online-Hundeschule: https://www.willenskraft.co.at
 
 ## Bewertungen
 
-- 5,0 Sterne · verifizierte Google-Rezensionen · 50+ Bewertungen
+- 5,0 Sterne · verifizierte Google-Rezensionen (live über die Google Places API auf der Startseite eingebunden)
 - Aktive Instagram-Community: @hundeschule_willenskraft
 
 ## Lizenz / Nutzung

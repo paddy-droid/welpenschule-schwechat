@@ -51,8 +51,8 @@ export default function KursePage() {
           <p className="mt-7 text-lg md:text-xl text-ink-600 max-w-2xl mx-auto leading-relaxed">
             Vom <strong>Welpenkurs</strong> bis zum <strong>Medical Training</strong>: Alle Gruppenkurse
             finden in Kleingruppen statt — am <strong>überdachten Trainingsplatz in Schwechat</strong> oder
-            an sorgfältig ausgewählten Treffpunkten in der Region. Gewaltfrei, mit positiver Verstärkung
-            und deiner Trainerin Jessy.
+            an sorgfältig ausgewählten Treffpunkten in der Region. Gewaltfrei nach dem LIFE-Modell, mit
+            positiver Verstärkung und deiner Trainerin Jessy.
           </p>
           <div className="mt-7 flex justify-center">
             <GoogleBadge href="/#bewertungen" />

@@ -45,8 +45,9 @@ import { getRegionData, type RegionData } from '@/lib/regionData';
 import { getFachwissen, studies } from '@/lib/studies';
 import * as Accordion from '@radix-ui/react-accordion';
 
-const heroImage = 'https://www.willenskraft.co.at/wp-content/uploads/2020/06/DSC09452-845x684.jpg';
-const profileImage = 'https://www.willenskraft.co.at/wp-content/uploads/2020/02/Hundeschule-Willenskraft-ButtonFINAL.png';
+const heroImage = 'https://www.willenskraft.co.at/wp-content/uploads/2024/05/Hundetrainer-Schwechat-Welpenschule.webp';
+const detailsImage = 'https://www.willenskraft.co.at/wp-content/uploads/2024/05/Hundeschule-Niederoesterreich-Welpen.webp';
+const profileImage = 'https://www.willenskraft.co.at/wp-content/uploads/2025/06/Jessica-Pusch-Hundeschule-Wien-Niederoesterreich.webp';
 
 const pillarIcons = [Heart, Zap, Users, CheckCircle2, Star];
 
@@ -88,7 +89,6 @@ function buildLocalBusinessJsonLd(data: RegionData) {
       alternateName: 'Jessy',
       jobTitle: 'Mobile Hundetrainerin',
     },
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '5', reviewCount: '50' },
   };
 }
 
@@ -197,8 +197,9 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
       <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
         <Image
           src={heroImage}
-          alt={`Mobiles Hundetraining in ${data.name}`}
+          alt={`Welpe beim mobilen Hundetraining — Hundeschule ${data.name}`}
           fill
+          sizes="100vw"
           className="object-cover absolute inset-0 z-0 brightness-[0.55]"
           priority
         />
@@ -206,6 +207,23 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
         <div className="absolute inset-0 wk-grain opacity-50 z-0" />
         <div className="relative z-10 container mx-auto px-6 py-32">
           <div className="max-w-4xl">
+            {/* Sichtbare Breadcrumbs (textgleich zur BreadcrumbList im Schema) */}
+            <nav aria-label="Breadcrumb" className="mb-6">
+              <ol className="flex flex-wrap items-center gap-1.5 text-xs text-cream/70">
+                <li>
+                  <Link href="/" className="hover:text-cream transition-colors">Startseite</Link>
+                </li>
+                <li aria-hidden="true">›</li>
+                <li>
+                  <Link href="/mobiles-hundetraining" className="hover:text-cream transition-colors">
+                    Mobiles Hundetraining
+                  </Link>
+                </li>
+                <li aria-hidden="true">›</li>
+                <li aria-current="page" className="font-semibold text-cream">{data.name}</li>
+              </ol>
+            </nav>
+
             <span className="wk-eyebrow !bg-cream/15 !border-cream/25 !text-cream backdrop-blur mb-7">
               <MapPin className="w-3 h-3" /> Mobiles Hundetraining
             </span>
@@ -361,10 +379,11 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
             <div className="lg:col-span-5 relative">
               <div className="absolute -inset-5 bg-brand-100 rounded-[2.5rem] rotate-3 opacity-50 blur-2xl" />
               <Image
-                src={heroImage}
-                alt={`Hund und Besitzerin trainieren zuhause in ${data.name}`}
+                src={detailsImage}
+                alt={`Welpe und Besitzerin beim mobilen Hundetraining zuhause in ${data.name}`}
                 width={700}
                 height={700}
+                sizes="(max-width: 1024px) 100vw, 42vw"
                 className="relative rounded-[2rem] shadow-[0_40px_80px_-32px_rgba(0,0,0,0.25)] object-cover aspect-square"
               />
             </div>
@@ -478,7 +497,7 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
               Training mit Freude &amp; Verstand in {data.name}.
             </h2>
             <p className="mt-6 text-lg text-ink-600">
-              Moderne, wissenschaftlich fundierte Methoden — positive Verstärkung statt Druck und Zwang.
+              Moderne, wissenschaftlich fundierte Methoden — gewaltfrei nach dem LIFE-Modell, mit positiver Verstärkung statt Druck und Zwang.
             </p>
           </div>
           <div className="grid lg:grid-cols-12 gap-14 lg:gap-20 items-center">
@@ -730,13 +749,14 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
             <h2 className="wk-display text-4xl md:text-5xl text-ink-950">Echte Momente aus dem Training.</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 md:gap-10 justify-center max-w-3xl mx-auto">
-            {['e-V0mN-gP-I', '-ORnMT0oMHk'].map((id) => (
+            {['e-V0mN-gP-I', '-ORnMT0oMHk', 'ptXxKbu4XPc', 'HmUmOI8bmAM'].map((id) => (
               <div key={id} className="flex justify-center">
                 <iframe
                   width="100%"
-                  className="max-w-[320px] h-[560px] rounded-[2rem] shadow-xl border border-ink-200"
+                  className="max-w-[320px] aspect-[9/16] rounded-[2rem] shadow-xl border border-ink-200"
                   src={`https://www.youtube.com/embed/${id}`}
-                  title="YouTube short"
+                  title="Hundetraining Short — Hundeschule Willenskraft"
+                  loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
@@ -948,7 +968,7 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
                   </div>
                   <div className="flex items-baseline justify-between gap-3">
                     <dt className="text-ink-500">Methode</dt>
-                    <dd className="font-semibold text-ink-950 text-right">Positive Verstärkung</dd>
+                    <dd className="font-semibold text-ink-950 text-right">Gewaltfrei &amp; positiv</dd>
                   </div>
                 </dl>
               </div>
@@ -1025,9 +1045,10 @@ export default function RegionPageTemplate({ regionKey }: { regionKey: string })
                 <div className="absolute inset-0 bg-brand-500 rounded-full blur-3xl opacity-30 -translate-y-2" />
                 <Image
                   src={profileImage}
-                  alt={`Jessica Pusch — Hundeschule Willenskraft ${data.name}`}
+                  alt={`Ing. Jessica Pusch, mobile Hundetrainerin der Hundeschule Willenskraft in ${data.name}`}
                   width={400}
                   height={400}
+                  sizes="(max-width: 768px) 60vw, 200px"
                   className="rounded-full mx-auto object-cover aspect-square relative z-10 border-4 border-ink-800 shadow-2xl"
                 />
               </div>

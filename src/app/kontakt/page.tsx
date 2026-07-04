@@ -5,9 +5,9 @@ import { Phone, Mail, Instagram, Facebook, MapPin, ArrowRight, Clock, CheckCircl
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://welpenschule-schwechat.at/kontakt' },
-  title: 'Kontakt & Anmeldung – Welpenschule Schwechat',
+  title: 'Kontakt & Anmeldung',
   description:
-    'Kontaktiere Jessica Pusch für deine Anmeldung zum Welpenkurs in Schwechat. ☎ +43 664 3903673 · bruck_leitha@willenskraft.co.at',
+    'Kontaktiere Ing. Jessica Pusch für deine Anmeldung zum Welpenkurs in Schwechat. ☎ +43 664 3903673 · bruck_leitha@willenskraft.co.at',
 };
 
 export default function KontaktPage() {
@@ -41,16 +41,17 @@ export default function KontaktPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-brand-500 rounded-full blur-3xl opacity-30 -translate-y-2" />
                 <Image
-                  src="https://www.willenskraft.co.at/wp-content/uploads/2020/02/Hundeschule-Willenskraft-ButtonFINAL.png"
-                  alt="Jessica Pusch — Hundeschule Willenskraft"
+                  src="https://www.willenskraft.co.at/wp-content/uploads/2025/06/Jessica-Pusch-Hundeschule-Wien-Niederoesterreich.webp"
+                  alt="Ing. Jessica Pusch — Hundetrainerin der Welpenschule Schwechat (Hundeschule Willenskraft)"
                   width={400}
                   height={400}
+                  sizes="(max-width: 768px) 60vw, 240px"
                   className="relative rounded-full mx-auto object-cover aspect-square border-4 border-ink-800 shadow-2xl"
                 />
               </div>
               <div className="mt-6 text-center">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-300">Deine Trainerin</p>
-                <p className="wk-display text-2xl text-cream mt-1">Jessica Pusch</p>
+                <p className="wk-display text-2xl text-cream mt-1">Ing. Jessica Pusch</p>
               </div>
             </div>
 

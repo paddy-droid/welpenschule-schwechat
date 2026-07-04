@@ -27,11 +27,11 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Welpenschule Schwechat – Nr. 1 Hundeschule | Gewaltfrei & Ganzheitlich',
+    default: 'Welpenschule Schwechat – Hundeschule Willenskraft',
     template: '%s | Welpenschule Schwechat',
   },
   description:
-    'Die führende Welpenschule in Schwechat & Umgebung. Gewaltfreies Welpentraining mit Hundeschule Willenskraft. Jetzt Kurs buchen: 6 Einheiten ab 195 €. Welpen bis 5 Monate.',
+    'Welpenschule Schwechat: gewaltfreies Welpentraining mit Hundeschule Willenskraft. Welpenkurs 6 Einheiten ab 195 €, max. 4 Teams.',
   applicationName: 'Welpenschule Schwechat',
   keywords: [
     'Welpenschule Schwechat',
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Welpenschule Schwechat | Hundeschule Willenskraft – Gewaltfrei & Ganzheitlich',
     description:
-      'Professionelles Welpentraining in Schwechat. 6 Einheiten, max. 4 Teams, positive Verstärkung. Jetzt Platz sichern! ☎ +43 664 3903673',
+      'Professionelles Welpentraining in Schwechat. 6 Einheiten, max. 4 Teams, gewaltfrei & ganzheitlich. Jetzt Platz sichern! ☎ +43 664 3903673',
     url: 'https://welpenschule-schwechat.at',
     siteName: 'Welpenschule Schwechat',
     images: [
@@ -176,6 +176,7 @@ const jsonLd = {
       hasMap: 'https://www.google.com/maps/search/Hundeschule+Willenskraft+Bruck+an+der+Leitha',
       sameAs: [
         'https://www.willenskraft.co.at',
+        'https://www.youtube.com/@hundeschulewillenskraft',
         'https://www.instagram.com/hundeschule_willenskraft/',
         'https://www.facebook.com/hundeschule.willenskraft',
       ],
@@ -253,19 +254,12 @@ const jsonLd = {
             '@type': 'Offer',
             name: 'Medical Training',
             description: 'Basis & Fortgeschritten, je 8 Einheiten: stressfrei zu Tierarzt & Pflege durch kooperatives Training.',
-            price: '220',
+            price: '260',
             priceCurrency: 'EUR',
             availability: 'https://schema.org/InStock',
             url: 'https://welpenschule-schwechat.at/kurse/medical-training',
           },
         ],
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '50',
-        bestRating: '5',
-        worstRating: '1',
       },
       openingHoursSpecification: [
         {
@@ -286,12 +280,20 @@ const jsonLd = {
       '@type': 'Person',
       '@id': 'https://welpenschule-schwechat.at/#trainer',
       name: 'Jessica Pusch',
+      honorificPrefix: 'Ing.',
+      alternateName: 'Jessy',
       jobTitle: 'Hundetrainerin',
       worksFor: { '@id': 'https://welpenschule-schwechat.at/#business' },
+      url: 'https://welpenschule-schwechat.at/kontakt',
       telephone: '+43-664-3903673',
       email: 'bruck_leitha@willenskraft.co.at',
-      image: 'https://www.willenskraft.co.at/wp-content/uploads/2020/02/Hundeschule-Willenskraft-ButtonFINAL.png',
+      image: 'https://www.willenskraft.co.at/wp-content/uploads/2025/06/Jessica-Pusch-Hundeschule-Wien-Niederoesterreich.webp',
       knowsAbout: ['Welpentraining', 'Positive Verstärkung', 'Medical Training', 'Verhaltensberatung'],
+      memberOf: { '@type': 'Organization', name: 'Willenskraft Akademie', url: 'https://www.willenskraft.co.at' },
+      sameAs: [
+        'https://www.instagram.com/hundeschule_willenskraft/',
+        'https://www.facebook.com/hundeschule.willenskraft',
+      ],
     },
     {
       '@type': 'WebSite',

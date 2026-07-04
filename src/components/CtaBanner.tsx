@@ -29,7 +29,7 @@ export default function CtaBanner({ regionName, title, text }: CtaBannerProps) {
             </h3>
             <p className="text-ink-950/80 leading-relaxed text-sm md:text-base">
               {text ??
-                'Jessy ist nur eine Nachricht entfernt — unverbindlich anfragen, Rückmeldung innerhalb von 24 Stunden an Werktagen.'}
+                'Jessy ist nur eine Nachricht entfernt — unverbindlich anfragen und gemeinsam Schritt für Schritt euren gewaltfreien Trainingsplan festlegen. Rückmeldung innerhalb von 24 Stunden an Werktagen.'}
             </p>
             <div className="mt-4 hidden sm:block">
               <GoogleBadge />
@@ -59,6 +59,9 @@ export default function CtaBanner({ regionName, title, text }: CtaBannerProps) {
                 <WhatsAppIcon className="w-4 h-4" /> WhatsApp
               </a>
             </div>
+            <p className="text-[11px] text-ink-950/70 text-center leading-snug">
+              Kostenlose Anfahrt im gesamten Einsatzgebiet · max. 4 Teams pro Gruppe
+            </p>
           </div>
         </div>
       </div>

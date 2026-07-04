@@ -26,9 +26,9 @@ import WillenskraftSection from '@/components/WillenskraftSection';
 import * as Accordion from '@radix-ui/react-accordion';
 
 export const metadata: Metadata = {
-  title: 'Welpenschule Schwechat – Nr. 1 Welpenkurs | Hundeschule Willenskraft',
+  title: 'Welpenschule Schwechat – gewaltfrei & mobil | Willenskraft',
   description:
-    'Welpenschule Schwechat ✓ Gewaltfrei & ganzheitlich ✓ Max. 4 Teams pro Gruppe ✓ 6 Einheiten ab 195€ ✓ Welpen bis 5 Monate ✓ Jetzt anmelden! Tel: +43 664 3903673',
+    'Welpenschule Schwechat ✓ gewaltfrei & ganzheitlich ✓ max. 4 Teams ✓ 6 Einheiten ab 195€ ✓ Welpen bis 5 Monate. Tel: +43 664 3903673',
   alternates: {
     canonical: 'https://welpenschule-schwechat.at',
   },
@@ -220,7 +220,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-brand-600" />
-                <span>100 % positive Verstärkung</span>
+                <span>100 % gewaltfrei</span>
               </div>
             </div>
           </div>
@@ -415,8 +415,10 @@ export default function Home() {
             <div className="lg:col-span-6 lg:pl-8 lg:border-l border-ink-800">
               <p className="text-lg text-ink-300 leading-relaxed">
                 Wir trainieren nach dem Stand moderner Verhaltensforschung. Keine Mythen, keine Dominanztheorie,
-                keine veralteten Methoden aus den 1970ern — sondern operante Konditionierung mit positiver
-                Verstärkung, dosierter Sozialisierung und Tierschutzkonformität nach österreichischem Recht.
+                keine veralteten Methoden aus den 1970ern — sondern gewaltfreie, bedürfnisorientierte Arbeit,
+                dosierte Sozialisierung und Tierschutzkonformität nach österreichischem Recht.
+                Dabei orientieren wir uns am LIFE-Modell (Least Inhibitive, Functionally Effective) — am
+                wenigsten einschränkend, funktional wirksam und mit echter Wahlfreiheit für deinen Hund.
               </p>
               <div className="mt-6 flex items-start gap-3 text-sm text-ink-400 italic border-l-2 border-brand-500/60 pl-4">
                 <Quote className="w-4 h-4 text-brand-400 shrink-0 mt-0.5" />
@@ -540,7 +542,7 @@ export default function Home() {
               <div className="absolute -inset-4 bg-brand-100 rounded-[2.5rem] -rotate-2 opacity-50 blur-xl" />
               <Image
                 src="https://www.willenskraft.co.at/wp-content/uploads/2024/05/Hundeschule-Bad-Deutsch-Altenburg-Welpentraining-845x684.webp"
-                alt="Training mit positiver Verstärkung in Schwechat"
+                alt="Gewaltfreies Welpentraining in der Welpenschule Schwechat"
                 width={700}
                 height={700}
                 className="relative rounded-[2rem] shadow-2xl object-cover aspect-square"
@@ -582,6 +584,7 @@ export default function Home() {
             <iframe
               src="https://www.youtube.com/embed/yyp4gCZdwK4?si=GsCgdrcyf1KDSXaH"
               title="Willenskraft – Ganzheitliche Welpenerziehung"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
@@ -634,13 +637,14 @@ export default function Home() {
             <h2 className="wk-display text-4xl md:text-5xl text-ink-950">Echte Momente aus dem Training.</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 md:gap-10 justify-center max-w-3xl mx-auto">
-            {['e-V0mN-gP-I', '-ORnMT0oMHk'].map((id) => (
+            {['e-V0mN-gP-I', '-ORnMT0oMHk', 'ptXxKbu4XPc', 'HmUmOI8bmAM'].map((id) => (
               <div key={id} className="flex justify-center">
                 <iframe
                   width="100%"
                   className="max-w-[320px] h-[560px] rounded-[2rem] shadow-xl border border-ink-200"
                   src={`https://www.youtube.com/embed/${id}`}
-                  title="YouTube short"
+                  title="Trainings-Short der Welpenschule Schwechat – Willenskraft"
+                  loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
@@ -757,10 +761,11 @@ export default function Home() {
               <div className="md:col-span-4 relative">
                 <div className="absolute inset-0 bg-brand-500 rounded-full blur-3xl opacity-30 -translate-y-2" />
                 <Image
-                  src="https://www.willenskraft.co.at/wp-content/uploads/2020/02/Hundeschule-Willenskraft-ButtonFINAL.png"
-                  alt="Jessica Pusch – Hundeschule Willenskraft"
+                  src="https://www.willenskraft.co.at/wp-content/uploads/2025/06/Jessica-Pusch-Hundeschule-Wien-Niederoesterreich.webp"
+                  alt="Ing. Jessica Pusch – deine Hundetrainerin der Welpenschule Schwechat"
                   width={400}
                   height={400}
+                  sizes="(max-width: 768px) 60vw, 320px"
                   className="rounded-full mx-auto object-cover aspect-square relative z-10 border-4 border-ink-800 shadow-2xl"
                 />
               </div>
