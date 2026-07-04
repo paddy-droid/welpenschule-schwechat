@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
 import NewsletterPopup from '@/components/NewsletterPopup';
+import { getBusinessRating } from '@/lib/businessRating';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -315,11 +316,34 @@ const jsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Echtes Google-Rating + Bewertungsanzahl server-seitig holen und – nur wenn
+  // belegt – als AggregateRating ins #business-JSON-LD schreiben (Sterne-Rich-Results).
+  const rating = await getBusinessRating();
+  const ld = rating
+    ? {
+        ...jsonLd,
+        '@graph': (jsonLd['@graph'] as Array<Record<string, unknown>>).map((node) =>
+          typeof node['@id'] === 'string' && (node['@id'] as string).endsWith('#business')
+            ? {
+                ...node,
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: String(rating.ratingValue),
+                  reviewCount: String(rating.reviewCount),
+                  bestRating: '5',
+                  worstRating: '1',
+                },
+              }
+            : node
+        ),
+      }
+    : jsonLd;
+
   return (
     <html lang="de-AT" suppressHydrationWarning>
       <head>
@@ -329,7 +353,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.willenskraft.co.at" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
         />
       </head>
       <body

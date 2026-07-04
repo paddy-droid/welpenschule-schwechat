@@ -300,8 +300,8 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <p className="text-xs text-ink-700 leading-relaxed">„Nach 6 Wochen war Pepper wie ausgewechselt — ruhig und souverän."</p>
-                <p className="text-[10px] text-ink-400 mt-2">— Verifizierte Google-Rezension</p>
+                <p className="text-xs text-ink-700 leading-relaxed">„Pukka und ich waren die letzten 6 Wochen bei Jessy im Welpenkurs. Wir haben super viel geübt und gelernt."</p>
+                <p className="text-[10px] text-ink-400 mt-2">— Victoria S. · Google-Rezension</p>
               </div>
             </div>
 
