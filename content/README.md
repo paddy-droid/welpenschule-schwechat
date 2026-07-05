@@ -14,15 +14,21 @@ vervielfachen (regionale Keywords abfangen + echter Mehrwert nach Willenskraft-/
 | Routen | `src/app/ratgeber/page.tsx`, `.../[slug]/page.tsx` | Index + Artikel (ISR `revalidate=3600`, Guard gegen Vorab-Zugriff) |
 | Queue | `content/redaktionsplan.json` | 18-Monats-Themenplan (2026-07 … 2027-12), Quelle für neue Artikel |
 
-## Automatische Veröffentlichung (zwei Mechanismen)
+## Automatische Veröffentlichung — komplett ohne Build
 
-1. **ISR** – `/ratgeber` und die Artikel-Seiten rendern stündlich neu (`revalidate=3600`).
-   `getPublishedPosts()` blendet einen Artikel frei, sobald sein `publishAt`-Datum (Wien) erreicht ist.
-2. **publish-tick** – `.github/workflows/publish-tick.yml` erzeugt wöchentlich einen leeren Commit →
-   Vercel-Rebuild → frische `sitemap.xml` + statische Seiten. Belt-and-suspenders.
+Alles läuft über **ISR** (Incremental Static Regeneration): nur günstige Serverless-Revalidierungen,
+**keine Build-Minuten / Vercel-Credits**. Ein Build passiert nur noch, wenn du echten neuen Artikel-Content
+pushst — nicht mehr wöchentlich „auf Verdacht".
 
-Ein zukünftig datierter Artikel liegt also fertig in `postsData.ts` und wird **von selbst** live —
-kein manueller Schritt nötig.
+- `/ratgeber` (Index), `/ratgeber/[slug]` und `sitemap.ts` haben `export const revalidate = 43200` (12 h).
+- Bei jeder Revalidierung ruft die Seite `getPublishedPosts()` mit dem aktuellen Wien-Datum auf und blendet
+  einen Artikel frei, sobald sein `publishAt` erreicht ist. Zukünftige Slugs erzeugt Next per `dynamicParams`
+  on-demand; der Guard `isPublished` schützt vor Vorab-Zugriff. Die `sitemap.xml` nimmt den neuen Artikel
+  bei ihrer nächsten Revalidierung auf.
+
+Ein zukünftig datierter Artikel liegt fertig in `postsData.ts` und wird **von selbst** live — kein Rebuild,
+kein Cron, kein Empty-Commit, kein manueller Schritt. (Der frühere `publish-tick`-GitHub-Action-Rebuild
+wurde entfernt, weil er unnötige Vercel-Builds kostete.)
 
 ## Qualitätsvorgabe (nicht verhandelbar)
 

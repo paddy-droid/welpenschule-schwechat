@@ -6,7 +6,7 @@ import GoogleBadge from '@/components/GoogleBadge';
 import CtaBanner from '@/components/CtaBanner';
 import { getPublishedPosts } from '@/lib/posts';
 
-export const revalidate = 3600;
+export const revalidate = 43200; // 12h ISR — Auto-Publish ohne Build
 
 const title = 'Hunde-Ratgeber Schwechat & Mödling | Willenskraft';
 const description =

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import BlogArticleTemplate from '@/components/BlogArticleTemplate';
 import { getPost, getPublishedSlugs, isPublished } from '@/lib/posts';
 
-export const revalidate = 3600;
+export const revalidate = 43200; // 12h ISR — Auto-Publish ohne Build
 export const dynamicParams = true;
 
 interface RatgeberPageProps {

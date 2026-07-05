@@ -3,6 +3,10 @@ import { getAllRegionSlugs } from '@/lib/regionData';
 import { kurse } from '@/lib/kurseData';
 import { getPublishedPosts } from '@/lib/posts';
 
+// Sitemap per ISR frisch halten: neue Ratgeber-Artikel (publishAt) landen ohne
+// Rebuild in der sitemap.xml — nur eine günstige Serverless-Revalidierung, kein Build.
+export const revalidate = 43200; // 12 h
+
 // Stabiler Redaktions-Stand statt new Date() — vermeidet, dass jeder Build bei
 // allen URLs ein frisches lastmod vortäuscht. Bei echten Inhaltsupdates erhöhen.
 const lastModified = '2026-07-01';
