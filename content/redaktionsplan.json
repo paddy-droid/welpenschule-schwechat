@@ -1,0 +1,566 @@
+{
+ "site": "welpenschule-schwechat.at — Welpenschule Schwechat / Hundeschule Willenskraft",
+ "onSiteFixes": [
+  {
+   "area": "aufbau",
+   "priority": "P1",
+   "issue": "Fuer den groessten SERP-Verlust (welpenschule moedling & hundeschule bezirk moedling = unsichtbar) existiert KEINE dedizierte Uebersichts-/Pillarseite. Der einzige Hub ist Schwechat-gerahmt (H1 'Hundetraining in Schwechat') und kann die Bezirks-Query nicht bedienen, obwohl 20 Moedling-Ortsseiten vorhanden sind.",
+   "action": "Pillarseite /bezirk-moedling ('Hundeschule & Welpenschule im Bezirk Moedling') bauen: alle 20 Gemeinden gebuendelt, Bezirks-Landmarks (Anninger, Foehrenberge, Perchtoldsdorfer Heide, Eichkogel, Thermenregion) als Trainingsgebiete, Wissenschafts-/Kleingruppen-USP, LocalBusiness+ItemList-JSON-LD. Hub-and-Spoke: verlinkt keyword-reich auf alle 20 Ortsseiten + die Moedling-Ratgeberartikel; von jeder Moedling-Ortsseite zurueck auf den Hub.",
+   "expectedImpact": "Schliesst die zentrale strukturelle Luecke; schafft die Entity/Topical-Authority, die dem Cluster heute fehlt; macht die Site fuer 'hundeschule bezirk moedling' und 'welpenschule moedling' ueberhaupt erst rankfaehig (aktuell nicht in Top 8)."
+  },
+  {
+   "area": "interne-verlinkung",
+   "priority": "P1",
+   "issue": "Fuer 'welpentraining brunn/perchtoldsdorf' rankt die generische /kontakt-Seite statt der Ortsseite (SERP s05) - die Ortsseiten haben zu schwache eigene Themen-/Linksignale. Interne Anchortexte sind nackte Ortsnamen ('Moedling') ohne Keyword-Wert.",
+   "action": "Anchortexte im Mega-Menue, Hub und Nachbarort-Modul von reinem Ortsnamen auf 'Hundetraining {Ort}' / 'Welpenschule {Ort}' umstellen. Jede Ortsseite mit self-referencing canonical absichern und mit kontextuellen Deep-Links aus den kommenden Ratgeberartikeln (keyword-reicher Anchor) staerken, damit die Ortsseite die /kontakt-Seite fuer die Ortsquery verdraengt.",
+   "expectedImpact": "Korrigiert das Fehlranking (richtige URL rankt), staerkt das Relevanzsignal der 30 Ortsseiten, verteilt Link-Equity gezielt in den Moedling-Cluster."
+  },
+  {
+   "area": "content",
+   "priority": "P1",
+   "issue": "Die staerkste Marken-Differenzierung - Trainerin Ing. Jessica 'Jessy' Pusch ist Biochemikerin/Ing. - taucht NIRGENDS im sichtbaren Fliesstext auf. JessySection nennt nur 'liebevoll Jessy genannt', keine Qualifikation. Das widerspricht der 'wissenschaftlich fundiert'-Positionierung und schwaecht die Author-Entity.",
+   "action": "JessySection zur echten Autoren-Bio ausbauen: Ing. Jessica Pusch, Biochemikerin, konkrete Ausbildung/Methodik (LIFE-Modell, gewaltfrei), plus Person-JSON-LD mit knowsAbout/alumniOf/jobTitle. Bio sichtbar auf Start-, Kontakt- und Ortsseiten anteasern; als Author im Article-Schema der Blogartikel referenzieren.",
+   "expectedImpact": "Aktiviert den staerksten ungenutzten E-E-A-T-/Differenzierungshebel gegen 'mit Herz'-Konkurrenz; staerkt Autoren-Entity fuer alle geplanten Ratgeberartikel."
+  },
+  {
+   "area": "conversion",
+   "priority": "P1",
+   "issue": "Sichtbare '5,0 Google Bewertung' ist statischer Text in Trust-Bar & GoogleBadge; nur das JSON-LD-aggregateRating ist an das echte API-Rating gekoppelt. Der Review-COUNT wird nirgends sichtbar gezeigt - ohne Anzahl wirkt '5,0' schwaecher und ist angreifbar.",
+   "action": "Review-Count aus businessRating.ts sichtbar an jede '5,0'-Anzeige koppeln (z. B. '5,0 Sterne - 27 Google-Rezensionen') und 1-2 echte, verifizierte Google-Zitate mit Namenskuerzel prominent platzieren.",
+   "expectedImpact": "Erhoeht Trust und Klickrate im lokalen Wettbewerb (Schwechat #2 -> Aufholpotenzial); macht den Social Proof belegbar und wording-konform (nur belegtes Rating)."
+  },
+  {
+   "area": "conversion",
+   "priority": "P2",
+   "issue": "/kontakt hat KEIN Web-Formular - nur Telefon/E-Mail/Social. Alle CTAs uebergeben ?service=/?angebot=-Parameter, die /kontakt ignoriert. Nicht-telefonaffine High-Intent-Leads muessen Nummer/E-Mail aktiv kopieren.",
+   "action": "Schlankes Formular auf /kontakt ergaenzen (Name, Ort-Dropdown, Hund/Alter, Anliegen, bevorzugter Kanal, Spam-Schutz). ?service=/?angebot=-Query auslesen und Anliegen + Ort vorbefuellen; WhatsApp als dominanter Primaer-CTA, Telefon/Formular sekundaer.",
+   "expectedImpact": "Reduziert Friktion fuer nicht-telefonaffine Leads, stellt kontextuellen Bezug her (vorbefuellter Kurs/Ort), erhoeht die Lead-Conversion messbar."
+  },
+  {
+   "area": "interne-verlinkung",
+   "priority": "P2",
+   "issue": "Kurs-Silo und Regions-Silo sind entkoppelt: Ortsseiten verlinken NICHT auf /kurse/{slug}, Kursseiten NICHT zurueck auf die staerksten Orte. Relevanz- und Link-Equity fliessen nicht zwischen den beiden kommerziellen Ebenen.",
+   "action": "Auf jeder Ortsseite den thematisch passenden Kurs kontextuell verlinken (z. B. Anninger/Wildreiz -> Junghundekurs/Begegnungstraining, Foehrenberge -> Antijagd/Begegnung), auf jeder Kursseite die 4-6 staerksten Orte je Cluster. Keyword-reiche Anchor.",
+   "expectedImpact": "Verzahnt die Silos, staerkt transaktionale Kurs- UND Ortsrankings gegenseitig, verbessert Nutzerpfad von Info -> Kurs -> Buchung."
+  },
+  {
+   "area": "design",
+   "priority": "P2",
+   "issue": "Alle 30 Ortsseiten nutzen identische generische Willenskraft-Stockbilder; kein einziges echtes Foto vom ueberdachten Trainingsplatz. Der USP 'wetterunabhaengig, ganzjaehrig' ist behauptet, aber visuell nicht bewiesen - schwache lokale Authentizitaet.",
+   "action": "Mind. 3-4 echte Fotos vom ueberdachten Trainingsplatz (Start-, Welpen-, Kursseiten) einbauen und als Konversions-/Beweis-Element gegen die Freiluft-Vereine (Sommer-/Winterpause) positionieren.",
+   "expectedImpact": "Belegt den USP visuell, hebt Authentizitaet/E-E-A-T, differenziert sichtbar von Adler Dogs (Gelaende) und den pausierenden Vereinen."
+  },
+  {
+   "area": "seo",
+   "priority": "P2",
+   "issue": "Die eigene Copy verortet die Welpenschule explizit 'am ueberdachten Trainingsplatz in Schwechat' (25 Min. entfernt) - fuer die transaktionale Query 'welpenschule moedling' sagt die Site faktisch 'Kurs woanders'. Keine ehrliche Transaktions-Landingpage fuer diese Query.",
+   "action": "Dedizierte, ehrliche LP 'Welpenschule Moedling' bauen: mobiles Welpentraining zuhause in Moedling + Gruppen-Welpenkurs 25 Min. in Schwechat (S1-Anbindung, ganzjaehrig, Kleingruppe max. 4 vs. pfotenzentrum 190 EUR/Vereine). Kein erfundener Moedling-Kursort. Verlinkt Welpenkurs-Kursseite + moedling-Ortsseite + Bezirks-Pillar.",
+   "expectedImpact": "Faengt die transaktionale Query ehrlich ab, ohne Wording-/Ehrlichkeitskontrakt zu verletzen; direkter Angriff auf OEGV Alt-Moedling & Martin Ruetter."
+  },
+  {
+   "area": "seo",
+   "priority": "P3",
+   "issue": "Hoher Boilerplate-Anteil: 20 strukturidentische Moedling-Ortsseiten teilen identisches Hero-/Details-Bild, identische 6-Q&A trainingKnowledgeBase, identischen Wissenschafts-/Challenges-Block und Shorts -> Doorway-Page-Risiko trotz gutem ortsspezifischem Fliesstext.",
+   "action": "Boilerplate variieren: cluster- bzw. ortsspezifische Hero-Bilder/Intro-Varianten, rotierende/ortsbezogene FAQ-Auswahl statt identischer 6 Q&A, ortsspezifische Studien-Takes staerker in den Vordergrund. Editorial-Ebene (Blog) als stuetzende Signalquelle ergaenzen.",
+   "expectedImpact": "Senkt Doorway-/Thin-Content-Risiko, erhoeht Unique-zu-Template-Verhaeltnis, stabilisiert den funktionierenden Umland-Cluster und hebt den Moedling-Cluster."
+  },
+  {
+   "area": "conversion",
+   "priority": "P3",
+   "issue": "Sehr viele fast identische Gold-Gradient-CTA-Bloecke pro Seite (Pricing, CtaBanner, Region-CTA, Contact) konkurrieren miteinander (Banner-Blindness); die starke Konter-Botschaft 'ganzjaehrig, monatlicher Kursstart, keine Pause' ist nicht prominent gesetzt.",
+   "action": "CTA-Hierarchie entschlacken: pro Seite ein dominanter WhatsApp-Primaerpfad, sekundaere CTAs zuruecknehmen. 'Ganzjaehrig - jeden Monat neuer Kursstart - keine Sommer-/Winterpause' als eigenes Trust-Element prominent gegen die Verein-Konkurrenz setzen.",
+   "expectedImpact": "Fokussiert den Konversionspfad, spielt die belegte Konkurrenz-Schwaeche (OEGV/SVOE-Pausen) direkt aus, erhoeht Kontaktrate."
+  }
+ ],
+ "redaktionsplan": [
+  {
+   "month": "2026-07",
+   "slug": "hitzeschutz-hund-sommertraining-schwechat",
+   "title": "Hitzeschutz fuer Hunde: Sommertraining in Schwechat",
+   "primaryKeyword": "hund hitze schutz training",
+   "secondaryKeywords": [
+    "hund abkuehlen sommer",
+    "training bei hitze hund",
+    "hitzschlag hund vorbeugen"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Schattige Donau-Auen bei Fischamend/Schwadorf, fruehe Morgenrunden im Schwechater Umland waehrend der Hochsommer-Hitze",
+   "targetTowns": [
+    "fischamend",
+    "schwadorf",
+    "schwechat",
+    "himberg"
+   ],
+   "contentAngle": "Konkrete Hitze-Grenzwerte, Boden-Temperatur-Test, Timing der Einheiten und wetterunabhaengiges Training am ueberdachten Platz als Sommer-Vorteil gegenueber Freiluft-Vereinen",
+   "willenskraftHook": "Thermoregulation des Hundes: warum Hunde fast nur ueber Hecheln kuehlen und wie das LIFE-Modell Belastung ueber Kognition/Emotion dosiert statt ueber Zwang",
+   "internalLinkTargets": [
+    "/kurse/welpenkurs",
+    "/mobiles-hundetraining/fischamend",
+    "/mobiles-hundetraining/schwadorf",
+    "https://willenskraft.co.at"
+   ]
+  },
+  {
+   "month": "2026-08",
+   "slug": "hund-an-fluglaerm-gewoehnen-schwechat",
+   "title": "Hund an Fluglaerm gewoehnen: Training in Schwechat",
+   "primaryKeyword": "hund an fluglaerm gewoehnen",
+   "secondaryKeywords": [
+    "hund angst flugzeug laerm",
+    "geraeuschtraining hund",
+    "hund schreckhaft laerm"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Einflugschneise Flughafen Wien-Schwechat ueber Fischamend/Schwadorf - abgestufte Distanz-Desensibilisierung unter realem Fluglaerm",
+   "targetTowns": [
+    "schwechat",
+    "fischamend",
+    "schwadorf",
+    "gramatneusiedl"
+   ],
+   "contentAngle": "Standort-einzigartiger Geraeusch-Guide: Distanz-/Lautstaerke-Stufenplan, Gegenkonditionierung, Fehler die Angst verstaerken - Thema, das kein regionaler Wettbewerber besetzt",
+   "willenskraftHook": "Salonen 2020: Geraeuschempfindlichkeit ist mit 32% das haeufigste Verhaltensthema - systematische Desensibilisierung/Gegenkonditionierung nach LIFE statt Konfrontation",
+   "internalLinkTargets": [
+    "/kurse/medical-training",
+    "/mobiles-hundetraining/schwechat",
+    "/mobiles-hundetraining/fischamend",
+    "silvester-angst-hund-feuerwerk-training"
+   ]
+  },
+  {
+   "month": "2026-09",
+   "slug": "weintrauben-hund-herbst-gumpoldskirchen",
+   "title": "Weintrauben & Hund: Herbst in Gumpoldskirchen",
+   "primaryKeyword": "weintrauben giftig hund",
+   "secondaryKeywords": [
+    "hund traube gefahr",
+    "weinlese hund thermenregion",
+    "impulskontrolle hund training"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Weinlese im Weinbaugebiet Gumpoldskirchen/Thermenregion - herabgefallene Trauben und Rosinen als saisonale Gefahr am Wegesrand",
+   "targetTowns": [
+    "gumpoldskirchen",
+    "moedling",
+    "guntramsdorf",
+    "brunn-am-gebirge"
+   ],
+   "contentAngle": "Toxikologie-Fakten zu Weintrauben/Rosinen (akutes Nierenrisiko) plus trainierbare Impulskontrolle/Anti-Aufnahme am Boden - Utility + Sicherheit",
+   "willenskraftHook": "'Aus'/'Lass es' als positiv aufgebautes Abbruchsignal ueber das LIFE-Modell (Emotion & Kognition statt Leinenruck) - Biochemikerin-Blick auf die Vergiftungsphysiologie",
+   "internalLinkTargets": [
+    "/kurse/junghundekurs",
+    "/mobiles-hundetraining/gumpoldskirchen",
+    "/mobiles-hundetraining/moedling",
+    "/bezirk-moedling"
+   ]
+  },
+  {
+   "month": "2026-10",
+   "slug": "antijagdtraining-anninger-wienerwald",
+   "title": "Antijagdtraining am Anninger & im Wienerwald",
+   "primaryKeyword": "antijagdtraining wienerwald",
+   "secondaryKeywords": [
+    "hund jagt wild rueckruf",
+    "antijagdtraining anninger",
+    "rueckruf trotz reh"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Hohe Wilddichte am Wienerwaldrand: Anninger, Naturpark Foehrenberge, Eichkogel als konkrete Reviergebiete in der Herbst-Jagdsaison",
+   "targetTowns": [
+    "moedling",
+    "hinterbruehl",
+    "giesshuebl",
+    "gaaden",
+    "maria-enzersdorf"
+   ],
+   "contentAngle": "Redaktionell unbesetztes Thema: Jagdverhalten verstehen, Reizangeln/Alternativverhalten, Rueckruf-Aufbau trotz Wild, Leinen-/Schleppleinen-Management",
+   "willenskraftHook": "China 2020: Trainingsmethode beeinflusst Rueckruf-Zuverlaessigkeit messbar - Frustrationstoleranz und Alternativ-Beute nach LIFE statt Strafreiz",
+   "internalLinkTargets": [
+    "/kurse/junghundekurs",
+    "/kurse/begegnungstraining",
+    "/mobiles-hundetraining/hinterbruehl",
+    "/mobiles-hundetraining/gaaden",
+    "/bezirk-moedling"
+   ]
+  },
+  {
+   "month": "2026-11",
+   "slug": "junghund-pubertaet-moedling-kurpark",
+   "title": "Pubertaet beim Junghund: Training im Moedlinger Kurpark",
+   "primaryKeyword": "junghund pubertaet leinenreaktivitaet",
+   "secondaryKeywords": [
+    "junghund flegelphase",
+    "hund pubertaet training",
+    "leinenpoebeln junghund"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Moedlinger Kurpark und Fussgaengerzone am Moedlingbach als dosierbare, reizarme bis reizreiche Trainingsumgebung fuer die Flegelphase",
+   "targetTowns": [
+    "moedling",
+    "brunn-am-gebirge",
+    "perchtoldsdorf",
+    "maria-enzersdorf"
+   ],
+   "contentAngle": "Evergreen mit hohem Volumen: neurobiologische Umbauphase, warum Gelerntes 'verschwindet', Deeskalation von Leinenreaktivitaet in dosierbaren Reizzonen",
+   "willenskraftHook": "Adoleszenz als Phase erhoehter Stressreaktivitaet - Reizschwellen-Management und Emotionsregulation nach LIFE statt Dominanz-/Korrekturlogik",
+   "internalLinkTargets": [
+    "/kurse/junghundekurs",
+    "/kurse/begegnungstraining",
+    "/mobiles-hundetraining/moedling",
+    "/bezirk-moedling"
+   ]
+  },
+  {
+   "month": "2026-12",
+   "slug": "silvester-angst-hund-feuerwerk-training",
+   "title": "Silvester-Angst beim Hund: Feuerwerk-Training",
+   "primaryKeyword": "hund silvester angst feuerwerk",
+   "secondaryKeywords": [
+    "hund angst boeller",
+    "silvester hund beruhigen",
+    "geraeuschangst hund training"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Silvester in Schwechat und im dicht besiedelten Bezirk Moedling - fruehzeitige Vorbereitung statt Panik in der Knallnacht",
+   "targetTowns": [
+    "schwechat",
+    "moedling",
+    "brunn-am-gebirge",
+    "wien-simmering"
+   ],
+   "contentAngle": "Langfrist- vs. Akutplan: Rueckzugsort, Geraeuschdesensibilisierung ab Herbst, Management der Knallnacht, was NICHT hilft - ehrlich ohne Heilversprechen",
+   "willenskraftHook": "Demant 2011 & Salonen 2020 zur Laermangst: systematische Desensibilisierung und Sicherheitssignale nach LIFE - Trost verstaerkt Angst nicht (Mythos entkraeftet)",
+   "internalLinkTargets": [
+    "/kurse/medical-training",
+    "hund-an-fluglaerm-gewoehnen-schwechat",
+    "/mobiles-hundetraining/schwechat",
+    "https://willenskraft.co.at"
+   ]
+  },
+  {
+   "month": "2027-01",
+   "slug": "welpenschule-winter-ueberdachter-platz",
+   "title": "Welpenschule im Winter: ueberdachter Platz Schwechat",
+   "primaryKeyword": "welpenschule winter",
+   "secondaryKeywords": [
+    "welpenkurs im winter",
+    "welpenschule ganzjaehrig",
+    "welpe sozialisieren winter"
+   ],
+   "searchIntent": "kommerziell",
+   "regionalAngle": "Ueberdachter Trainingsplatz Schwechat als wetterunabhaengige Winter-Alternative - waehrend OEGV/SVOE/OERV Winterpause haben",
+   "targetTowns": [
+    "schwechat",
+    "moedling",
+    "brunn-am-gebirge",
+    "himberg"
+   ],
+   "contentAngle": "Warum das Sozialisierungsfenster nicht auf Fruehling wartet: Winter-Sozialisierung, monatlicher Kursstart, ueberdacht - direkter Konter zur belegten Konkurrenz-Pause",
+   "willenskraftHook": "Sensible Sozialisierungsphase (Scott & Fuller): das Zeitfenster schliesst mit ca. 12-16 Wochen - LIFE-basierte Reizgewoehnung ist saisonunabhaengig",
+   "internalLinkTargets": [
+    "/kurse/welpenkurs",
+    "welpenschule-moedling-gruppenkurs-oder-mobil",
+    "/mobiles-hundetraining/schwechat",
+    "https://willenskraft.co.at"
+   ]
+  },
+  {
+   "month": "2027-02",
+   "slug": "welpenschule-moedling-gruppenkurs-oder-mobil",
+   "title": "Welpenschule Moedling: Gruppenkurs oder mobil?",
+   "primaryKeyword": "welpenschule moedling",
+   "secondaryKeywords": [
+    "welpenkurs moedling",
+    "welpentraining moedling",
+    "mobiles welpentraining moedling"
+   ],
+   "searchIntent": "transaktional",
+   "regionalAngle": "Mobiles Welpentraining zuhause in Moedling-Stadt (Altstadt/Kurpark) plus Gruppen-Welpenkurs 25 Min. entfernt in Schwechat, S1-Anbindung",
+   "targetTowns": [
+    "moedling",
+    "brunn-am-gebirge",
+    "perchtoldsdorf",
+    "maria-enzersdorf"
+   ],
+   "contentAngle": "Ehrlicher Entscheidungs-Guide (kein erfundener Moedling-Kursort): Gruppendynamik vs. 1:1 zuhause, Kleingruppe max. 4, ganzjaehrig - Vergleich zu pfotenzentrum 190 EUR & Vereinen",
+   "willenskraftHook": "Welpen-Sozialisierung braucht kontrollierte, dosierte Begegnungen (LIFE) - Kleingruppe vs. Einzeltraining wissenschaftlich abgewogen statt 'mit Herz'",
+   "internalLinkTargets": [
+    "/kurse/welpenkurs",
+    "/mobiles-hundetraining/moedling",
+    "/bezirk-moedling",
+    "welpen-sozialisieren-praegephase"
+   ]
+  },
+  {
+   "month": "2027-03",
+   "slug": "ziesel-leinenpflicht-perchtoldsdorfer-heide",
+   "title": "Ziesel & Leinenpflicht: Perchtoldsdorfer Heide",
+   "primaryKeyword": "hunde perchtoldsdorfer heide",
+   "secondaryKeywords": [
+    "leinenpflicht perchtoldsdorf",
+    "ziesel schutzgebiet hund",
+    "hund naturschutzgebiet regeln"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Perchtoldsdorfer Heide als Ziesel-Schutzgebiet (Tiere erwachen im Maerz) und Schlosspark Laxenburg - Leinen-/Freilaufregeln im Bezirk Moedling",
+   "targetTowns": [
+    "perchtoldsdorf",
+    "moedling",
+    "brunn-am-gebirge",
+    "laxenburg"
+   ],
+   "contentAngle": "Hyperlokaler, quasi konkurrenzloser Utility-Guide: wo Leinenpflicht gilt, warum Ziesel-Schutz, sicheres Verhalten am Wildreiz - reiner Mehrwert",
+   "willenskraftHook": "Zuverlaessiger Rueckruf & Reizschwellen-Kontrolle als Naturschutz-Beitrag - trainiert nach LIFE ueber Frustrationstoleranz statt Zwang",
+   "internalLinkTargets": [
+    "/kurse/junghundekurs",
+    "/mobiles-hundetraining/perchtoldsdorf",
+    "/mobiles-hundetraining/laxenburg",
+    "/bezirk-moedling"
+   ]
+  },
+  {
+   "month": "2027-04",
+   "slug": "zeckenschutz-hund-foehrenberge-fruehling",
+   "title": "Zeckenschutz & Fruehling in den Foehrenbergen",
+   "primaryKeyword": "zeckenschutz hund",
+   "secondaryKeywords": [
+    "zecken hund entfernen",
+    "zecken naturpark foehrenberge",
+    "hund fruehling wiese"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Naturpark Foehrenberge und Eichkogel-Wiesen im Fruehling - Hochsaison fuer Zecken beim Wandern mit Hund im Bezirk Moedling",
+   "targetTowns": [
+    "hinterbruehl",
+    "giesshuebl",
+    "gaaden",
+    "moedling"
+   ],
+   "contentAngle": "Praevention plus Handling: Zeckenkarte/Erkrankungen (FSME/Borreliose), sicheres Entfernen und wie kooperatives Handling die Kontrolle stressfrei macht",
+   "willenskraftHook": "Cooperative Care / Medical Training: der Hund lernt Beruehrung & Kontrolle als aktiv mitgestaltbaren Prozess (LIFE) statt Festhalten",
+   "internalLinkTargets": [
+    "/kurse/medical-training",
+    "medical-training-hund-tierarzt",
+    "/mobiles-hundetraining/hinterbruehl",
+    "/bezirk-moedling"
+   ]
+  },
+  {
+   "month": "2027-05",
+   "slug": "welpen-sozialisieren-praegephase",
+   "title": "Welpen sozialisieren: die wichtige Praegephase",
+   "primaryKeyword": "welpen sozialisieren praegephase",
+   "secondaryKeywords": [
+    "welpe praegephase alter",
+    "welpe sozialisierung checkliste",
+    "welpe an umwelt gewoehnen"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Fruehjahrs-Welpen im Schwechater Umland und Bezirk Moedling - kontrollierte Reizvielfalt am ueberdachten Platz und in der Region",
+   "targetTowns": [
+    "schwechat",
+    "moedling",
+    "himberg",
+    "fischamend"
+   ],
+   "contentAngle": "Wochen-Checkliste fuer das Sozialisierungsfenster: Menschen, Untergruende, Geraeusche, Artgenossen - Qualitaet vor Quantitaet, Ueberforderung vermeiden",
+   "willenskraftHook": "Scott & Fuller: sensible Phase ca. 3-14 Wochen praegt lebenslang - positive Erstbegegnungen nach LIFE statt Reizueberflutung",
+   "internalLinkTargets": [
+    "/kurse/welpenkurs",
+    "welpenschule-winter-ueberdachter-platz",
+    "/mobiles-hundetraining/schwechat",
+    "https://willenskraft.co.at"
+   ]
+  },
+  {
+   "month": "2027-06",
+   "slug": "hundezonen-bezirk-moedling",
+   "title": "Hundezonen im Bezirk Moedling: der Auslauf-Guide",
+   "primaryKeyword": "hundezonen bezirk moedling",
+   "secondaryKeywords": [
+    "hundeauslauf moedling",
+    "freilauf hund brunn am gebirge",
+    "hundezone perchtoldsdorf"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Auslaufzonen und Freilaufregeln je Gemeinde: Moedling, Brunn am Gebirge, Perchtoldsdorf, Guntramsdorf, Woerdern-nahe Wienerwaldraender",
+   "targetTowns": [
+    "moedling",
+    "brunn-am-gebirge",
+    "perchtoldsdorf",
+    "guntramsdorf",
+    "voesendorf"
+   ],
+   "contentAngle": "Reiner Utility-/Nachschlage-Content, den kein regionaler Trainer bietet: Zonen-Uebersicht, Freilaufregeln, Etikette - ideal fuer interne Links",
+   "willenskraftHook": "Freilauf ist nur so sicher wie der Rueckruf: LIFE-basierter Aufbau von Abrufbarkeit als Voraussetzung fuer entspannten Freilauf",
+   "internalLinkTargets": [
+    "/kurse/begegnungstraining",
+    "/mobiles-hundetraining/brunn-am-gebirge",
+    "/mobiles-hundetraining/guntramsdorf",
+    "/bezirk-moedling"
+   ]
+  },
+  {
+   "month": "2027-07",
+   "slug": "baden-hund-donau-fischamend",
+   "title": "Baden mit Hund an der Donau bei Fischamend",
+   "primaryKeyword": "baden mit hund donau",
+   "secondaryKeywords": [
+    "hund abkuehlen wasser",
+    "hund schwimmen lernen",
+    "donau-auen hund sommer"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Donau-Auen bei Fischamend und Schwadorf als sommerliche Bade-/Abkuehlungsspots - Stroemung, Blaualgen und Sicherheit",
+   "targetTowns": [
+    "fischamend",
+    "schwadorf",
+    "schwechat",
+    "gramatneusiedl"
+   ],
+   "contentAngle": "Sicherheits- und Spass-Guide: Wasser-Gewoehnung Schritt fuer Schritt, Stroemungs-/Blaualgen-Risiken, Abkuehlung ohne Ueberforderung",
+   "willenskraftHook": "Wasser-Gewoehnung ueber positive Annaeherung und Wahlfreiheit (LIFE) - kein Ins-Wasser-Werfen; Schwimmen als gelenkschonende Auslastung",
+   "internalLinkTargets": [
+    "/kurse/dummytraining",
+    "hitzeschutz-hund-sommertraining-schwechat",
+    "/mobiles-hundetraining/fischamend",
+    "/mobiles-hundetraining/schwadorf"
+   ]
+  },
+  {
+   "month": "2027-08",
+   "slug": "mobiles-hundetraining-moedling",
+   "title": "Mobiles Hundetraining Moedling: Altstadt & Kurpark",
+   "primaryKeyword": "mobiles hundetraining moedling",
+   "secondaryKeywords": [
+    "hundetrainer moedling",
+    "hundetraining zuhause moedling",
+    "1zu1 training moedling"
+   ],
+   "searchIntent": "kommerziell",
+   "regionalAngle": "Training vor Ort in Moedling-Stadt: Altstadt/Fussgaengerzone, Kurpark am Moedlingbach als reale Alltagsreize plus Wildreiz-Training am Anninger",
+   "targetTowns": [
+    "moedling",
+    "maria-enzersdorf",
+    "brunn-am-gebirge",
+    "perchtoldsdorf"
+   ],
+   "contentAngle": "Warum 1:1 im echten Alltag wirkt: Training genau dort, wo das Problem auftritt - Abgrenzung zu generisch 'mit Herz'-Mobilanbietern",
+   "willenskraftHook": "Alltagstransfer/Generalisierung: Verhalten wird kontextgebunden gelernt - LIFE-Training am Originalschauplatz statt auf neutralem Platz, gefuehrt von einer Biochemikerin",
+   "internalLinkTargets": [
+    "/kurse/junghundekurs",
+    "/mobiles-hundetraining/moedling",
+    "antijagdtraining-anninger-wienerwald",
+    "/bezirk-moedling"
+   ]
+  },
+  {
+   "month": "2027-09",
+   "slug": "medical-training-hund-tierarzt",
+   "title": "Stressfrei zum Tierarzt: Medical Training fuer Hunde",
+   "primaryKeyword": "medical training hund tierarzt",
+   "secondaryKeywords": [
+    "hund angst tierarzt",
+    "kooperative pflege hund",
+    "hund maulkorb training"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Tierarztpraxen und Handling-Alltag im Raum Schwechat und Bezirk Moedling - Vorbereitung am ueberdachten Platz",
+   "targetTowns": [
+    "schwechat",
+    "moedling",
+    "brunn-am-gebirge",
+    "himberg"
+   ],
+   "contentAngle": "Im Markt seltenes Angebot als Content-Asset: kooperative Pflege Schritt fuer Schritt (Pfoten, Ohren, Maulkorb, Spritze) mit Konsens-Signalen",
+   "willenskraftHook": "Cooperative Care: der Hund erhaelt aktive Mitbestimmung ueber Start/Stopp der Prozedur (LIFE) - senkt Stress und Zwangsmassnahmen nachweislich",
+   "internalLinkTargets": [
+    "/kurse/medical-training",
+    "zeckenschutz-hund-foehrenberge-fruehling",
+    "/mobiles-hundetraining/schwechat",
+    "https://willenskraft.co.at"
+   ]
+  },
+  {
+   "month": "2027-10",
+   "slug": "leinenreaktivitaet-begegnungstraining-schwechat",
+   "title": "Leinenreaktivitaet: Begegnungstraining in Schwechat",
+   "primaryKeyword": "leinenreaktivitaet hund",
+   "secondaryKeywords": [
+    "hund poebelt an der leine",
+    "begegnungstraining hund",
+    "hund bellt andere hunde"
+   ],
+   "searchIntent": "kommerziell",
+   "regionalAngle": "Belebte Alltagsstrecken im Schwechater Umland und Richtung Wien-Simmering - dosierbare Hundebegegnungen in der ruhigeren Herbstsaison",
+   "targetTowns": [
+    "schwechat",
+    "wien-simmering",
+    "himberg",
+    "gramatneusiedl"
+   ],
+   "contentAngle": "Alltags-Guide gegen Leinenpoebeln: Distanzmanagement, Trigger-Stacking erkennen, Notfall-U-Turn, Aufbau von Alternativverhalten",
+   "willenskraftHook": "Reizschwelle & Trigger-Stacking: unter der individuellen Schwelle arbeiten und Gegenkonditionierung nach LIFE - Bestrafen erhoeht Reaktivitaet oft",
+   "internalLinkTargets": [
+    "/kurse/begegnungstraining",
+    "junghund-pubertaet-moedling-kurpark",
+    "/mobiles-hundetraining/schwechat",
+    "/mobiles-hundetraining/wien-simmering"
+   ]
+  },
+  {
+   "month": "2027-11",
+   "slug": "anti-giftkoeder-training-wienerwald",
+   "title": "Anti-Giftkoeder-Training im Wienerwald",
+   "primaryKeyword": "anti giftkoeder training",
+   "secondaryKeywords": [
+    "hund frisst alles vom boden",
+    "giftkoeder wienerwald",
+    "hund aus signal aufbauen"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Laubbedeckte Herbst-/Winterwege im Wienerwald und Naturpark Foehrenberge - erschwerte Sicht auf Koeder und Fallobst",
+   "targetTowns": [
+    "moedling",
+    "kaltenleutgeben",
+    "breitenfurt-bei-wien",
+    "gaaden"
+   ],
+   "contentAngle": "Praevention statt Panik: Anti-Giftkoeder-Aufbau (Bodenanti/Tauschprinzip), Maulkorb-Gewoehnung, Notfallwissen - hoher Utility-Wert",
+   "willenskraftHook": "'Aus'/Tauschprinzip positiv aufbauen (LIFE): Kooperation statt Leinenruck; Maulkorb als entspanntes Hilfsmittel via Medical Training",
+   "internalLinkTargets": [
+    "/kurse/medical-training",
+    "medical-training-hund-tierarzt",
+    "/mobiles-hundetraining/kaltenleutgeben",
+    "/bezirk-moedling"
+   ]
+  },
+  {
+   "month": "2027-12",
+   "slug": "winter-nasenarbeit-ueberdachter-platz",
+   "title": "Winter-Auslastung: Nasenarbeit am ueberdachten Platz",
+   "primaryKeyword": "hund winter beschaeftigung nasenarbeit",
+   "secondaryKeywords": [
+    "hund auslasten winter",
+    "nasenarbeit hund anfaenger",
+    "denksport hund indoor"
+   ],
+   "searchIntent": "informational",
+   "regionalAngle": "Kurze, kalte Wintertage im Raum Schwechat/Bezirk Moedling - Indoor- und Ueberdacht-Auslastung statt langer Nassrunden",
+   "targetTowns": [
+    "schwechat",
+    "moedling",
+    "brunn-am-gebirge",
+    "voesendorf"
+   ],
+   "contentAngle": "Kopfarbeit statt Kilometer: Nasenarbeit, Suchspiele, Denksport-Anleitungen fuer daheim und am ueberdachten Platz - saisonaler Auslastungs-Guide",
+   "willenskraftHook": "Duranton 2019: Schnueffeln senkt Puls/Erregung und wirkt selbstberuhigend - kognitive Auslastung nach LIFE statt reiner koerperlicher Ermuedung",
+   "internalLinkTargets": [
+    "/kurse/dummytraining",
+    "welpenschule-winter-ueberdachter-platz",
+    "/mobiles-hundetraining/schwechat",
+    "https://willenskraft.co.at"
+   ]
+  }
+ ]
+}

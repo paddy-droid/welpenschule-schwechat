@@ -8,6 +8,7 @@ import Logo from '@/components/Logo';
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/mobiles-hundetraining', label: 'Mobiles Training' },
+  { href: '/ratgeber', label: 'Ratgeber' },
   { href: '/kurse', label: 'Kurse' },
   { href: '/kontakt', label: 'Kontakt' },
 ];
